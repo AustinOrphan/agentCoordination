@@ -1,0 +1,48 @@
+{
+  "agent_name": "jellyfish",
+  "agent_index": 4,
+  "status": "initializing",
+  "current_task": "Awaiting assignment",
+  "progress": 0,
+  "last_update": "2025-07-19T13:55:15Z",
+  "activities": [
+    {
+      "timestamp": "2025-07-19T07:30:53Z",
+      "activity": "Agent initialized"
+    }
+  ],
+  "blockers": [],
+  "dependencies": [],
+  "communication": {
+    "requests": [],
+    "offers": []
+  },
+  "metrics": {
+    "tasks_completed": 0,
+    "total_progress": 0,
+    "time_active": 0
+  },
+  "worktree": {
+    "path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agent-jellyfish",
+    "branch": "agent/jellyfish"
+  },
+  "authority": {
+    "position": 5,
+    "role": "Security Engineer",
+    "primary_authorities": [
+      "- **Security Policies**: Access control, authentication, authorization",
+      "- **Vulnerability Assessment**: Security audits and penetration testing",
+      "- **Compliance**: Regulatory and security standard adherence"
+    ],
+    "domain_authority": "- **Security Controls**: All security-related decisions and implementations",
+    "emergency_authority": "- **Active Security Threats**: Immediate authority to isolate threats and patch vulnerabilities",
+    "backup_responsibilities": [
+      "- **Backup for**: Infrastructure security (Agent 4)",
+      "- **Emergency advisor**: Data security incidents",
+      "- **Compliance oversight**: All regulatory matters"
+    ],
+    "last_authority_update": "2025-07-19 13:55 UTC",
+    "pending_decisions": [],
+    "decision_count": 0
+  }
+}

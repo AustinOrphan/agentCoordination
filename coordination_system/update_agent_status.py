@@ -26,6 +26,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Import authority manager if available
+try:
+    from agent_authority import AuthorityManager
+    AUTHORITY_AVAILABLE = True
+except ImportError:
+    AUTHORITY_AVAILABLE = False
+    logger.info("Authority module not available - authority features disabled")
+
 class AgentStatusUpdater:
     """Safely updates individual agent status files."""
     
@@ -36,6 +44,14 @@ class AgentStatusUpdater:
         
         # Ensure directory exists
         self.agent_status_dir.mkdir(exist_ok=True)
+        
+        # Initialize authority manager if available
+        self.authority_manager = None
+        if AUTHORITY_AVAILABLE:
+            try:
+                self.authority_manager = AuthorityManager()
+            except Exception as e:
+                logger.warning(f"Failed to initialize authority manager: {e}")
     
     def _load_agents(self) -> List[str]:
         """Load agents from config file or use defaults."""
@@ -83,8 +99,12 @@ class AgentStatusUpdater:
         status_file = self.get_agent_status_file(agent_id)
         
         try:
-            # Update timestamp
-            status['current_status']['last_update'] = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+            # Update timestamp - handle both structures
+            if 'current_status' in status:
+                status['current_status']['last_update'] = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+            else:
+                # Old structure
+                status['last_update'] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
             
             # Write to temporary file first
             with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as tmp_file:
@@ -252,6 +272,85 @@ class AgentStatusUpdater:
         
         return self.save_agent_status(agent_id, current_status)
     
+    def update_authority(self, agent_id: str) -> bool:
+        """Update agent's authority information from authority matrix."""
+        if not self.authority_manager:
+            logger.warning("Authority manager not available")
+            return False
+        
+        current_status = self.load_agent_status(agent_id)
+        if not current_status:
+            logger.error(f"Cannot update authority for agent {agent_id} - status not found")
+            return False
+        
+        # Get authority information
+        position = self.authority_manager.get_agent_position(agent_id)
+        authority = self.authority_manager.get_agent_authority(agent_id)
+        
+        # Add authority section to status
+        current_status['authority'] = {
+            "position": position,
+            "role": authority.get('role', 'Unknown'),
+            "primary_authorities": authority.get('primary_authorities', []),
+            "domain_authority": authority.get('domain_authority', ''),
+            "emergency_authority": authority.get('emergency_authority', ''),
+            "backup_responsibilities": authority.get('backup_responsibilities', []),
+            "last_authority_update": datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+        }
+        
+        # Get pending decisions for this agent
+        pending_decisions = []
+        for decision in self.authority_manager.get_pending_decisions():
+            if self.authority_manager.is_agent_authority_for_decision(agent_id, decision):
+                pending_decisions.append({
+                    "decision_id": decision.get('decision_id'),
+                    "title": decision.get('title'),
+                    "authority_level": decision.get('authority_level'),
+                    "requested_at": decision.get('timestamp')
+                })
+        
+        current_status['authority']['pending_decisions'] = pending_decisions
+        current_status['authority']['decision_count'] = len(self.authority_manager.get_agent_decisions(agent_id))
+        
+        logger.info(f"Updated authority information for agent {agent_id}")
+        return self.save_agent_status(agent_id, current_status)
+    
+    def record_decision(self, agent_id: str, decision_id: str, title: str, 
+                       authority_level: str, authority_source: str, 
+                       decision: str, rationale: str) -> bool:
+        """Record a decision made by this agent."""
+        if not self.authority_manager:
+            logger.warning("Authority manager not available")
+            return False
+        
+        from agent_authority import AuthorityLevel, AuthoritySource
+        
+        try:
+            # Convert string to enum
+            auth_level = AuthorityLevel(authority_level)
+            auth_source = AuthoritySource(authority_source)
+            
+            # Record the decision
+            self.authority_manager.record_decision(
+                decision_id=decision_id,
+                decision_maker=agent_id,
+                authority_level=auth_level,
+                authority_source=auth_source,
+                title=title,
+                decision=decision,
+                rationale=rationale
+            )
+            
+            # Update agent's authority info
+            self.update_authority(agent_id)
+            
+            logger.info(f"Recorded decision {decision_id} for agent {agent_id}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to record decision: {e}")
+            return False
+    
     def show_status(self, agent_id: str) -> bool:
         """Display current agent status."""
         current_status = self.load_agent_status(agent_id)
@@ -259,22 +358,59 @@ class AgentStatusUpdater:
             print(f"No status found for agent {agent_id}")
             return False
         
-        info = current_status.get('agent_info', {})
-        status = current_status.get('current_status', {})
-        
-        print(f"\n{info.get('color', '⚪')} Agent {info.get('name', agent_id.title())} ({info.get('role', 'Unknown')})")
-        print(f"Current Task: {status.get('task', 'Unknown')}")
-        print(f"Status: {status.get('status', '❓')} {status.get('status_text', 'Unknown')}")
-        print(f"Progress: {status.get('progress', 0)}% ({status.get('progress_description', 'No description')})")
-        print(f"ETA: {status.get('eta', 'Unknown')}")
-        print(f"Last Update: {status.get('last_update', 'Never')}")
+        # Handle both old and new status structures
+        if 'current_status' in current_status:
+            # New structure
+            info = current_status.get('agent_info', {})
+            status = current_status.get('current_status', {})
+            print(f"\n{info.get('color', '⚪')} Agent {info.get('name', agent_id.title())} ({info.get('role', 'Unknown')})")
+            print(f"Current Task: {status.get('task', 'Unknown')}")
+            print(f"Status: {status.get('status', '❓')} {status.get('status_text', 'Unknown')}")
+            print(f"Progress: {status.get('progress', 0)}% ({status.get('progress_description', 'No description')})")
+            print(f"ETA: {status.get('eta', 'Unknown')}")
+            print(f"Last Update: {status.get('last_update', 'Never')}")
+        else:
+            # Old structure
+            print(f"\n🦈 Agent {agent_id.title()}")
+            print(f"Current Task: {current_status.get('current_task', 'Unknown')}")
+            print(f"Status: {current_status.get('status', 'Unknown')}")
+            print(f"Progress: {current_status.get('progress', 0)}%")
+            print(f"Last Update: {current_status.get('last_update', 'Never')}")
         
         # Show current blockers
-        blockers = current_status.get('blockers', {}).get('current', [])
+        if isinstance(current_status.get('blockers', []), dict):
+            blockers = current_status.get('blockers', {}).get('current', [])
+        else:
+            blockers = current_status.get('blockers', [])
+        
         if blockers:
             print(f"Current Blockers:")
             for blocker in blockers:
                 print(f"  - {blocker}")
+        
+        # Show authority information if available
+        authority = current_status.get('authority', {})
+        if authority:
+            print(f"\n🏛️ Authority (Position {authority.get('position', '?')})")
+            print(f"Role: {authority.get('role', 'Unknown')}")
+            
+            primary_auth = authority.get('primary_authorities', [])
+            if primary_auth:
+                print(f"Primary Authorities: {len(primary_auth)} assigned")
+            
+            if authority.get('domain_authority'):
+                print(f"Domain Authority: ✓")
+            
+            if authority.get('emergency_authority'):
+                print(f"Emergency Authority: ✓")
+            
+            pending = authority.get('pending_decisions', [])
+            if pending:
+                print(f"Pending Decisions: {len(pending)}")
+                for dec in pending[:3]:  # Show first 3
+                    print(f"  - {dec['decision_id']}: {dec['title']}")
+            
+            print(f"Total Decisions Made: {authority.get('decision_count', 0)}")
         
         print()
         return True
@@ -316,6 +452,10 @@ def main():
     # Actions
     parser.add_argument("--show", action="store_true", help="Show current status")
     
+    # Authority updates
+    parser.add_argument("--update-authority", action="store_true", help="Update authority information from matrix")
+    parser.add_argument("--record-decision", help="Record a decision (format: ID:Title:Level:Source:Decision:Rationale)")
+    
     args = parser.parse_args()
     
     updater = AgentStatusUpdater(args.agent_dir)
@@ -330,6 +470,34 @@ def main():
     if args.show:
         updater.show_status(args.agent_id)
         return
+    
+    # Update authority
+    if args.update_authority:
+        success = updater.update_authority(args.agent_id)
+        if success:
+            print(f"Updated authority information for agent {args.agent_id}")
+        else:
+            print(f"Failed to update authority for agent {args.agent_id}")
+    
+    # Record decision
+    if args.record_decision:
+        try:
+            parts = args.record_decision.split(':', 5)
+            if len(parts) != 6:
+                print("Error: Decision format must be ID:Title:Level:Source:Decision:Rationale")
+                exit(1)
+            
+            decision_id, title, level, source, decision, rationale = parts
+            success = updater.record_decision(
+                args.agent_id, decision_id, title, level, source, decision, rationale
+            )
+            if success:
+                print(f"Recorded decision {decision_id} for agent {args.agent_id}")
+            else:
+                print(f"Failed to record decision for agent {args.agent_id}")
+        except Exception as e:
+            print(f"Error recording decision: {e}")
+            exit(1)
     
     # Update task
     if any([args.task, args.status, args.status_text, args.progress, args.progress_description, args.eta]):

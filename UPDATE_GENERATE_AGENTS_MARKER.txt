@@ -1,0 +1,11 @@
+Please manually update generate_agents.sh to include authority information.
+
+Add the following after the "## Your Responsibilities" section in the agent prompt template:
+
+## 🏛️ Your Authority Level
+
+Based on your position as $agent_role, you have the following authorities:
+
+[Authority information should be dynamically inserted based on position]
+
+See AGENT_PROMPT_TEMPLATE_WITH_AUTHORITY.md for the complete template.

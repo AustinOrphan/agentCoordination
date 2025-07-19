@@ -1,0 +1,48 @@
+{
+  "agent_name": "shark",
+  "agent_index": 0,
+  "status": "initializing",
+  "current_task": "Awaiting assignment",
+  "progress": 0,
+  "last_update": "2025-07-19T13:55:15Z",
+  "activities": [
+    {
+      "timestamp": "2025-07-19T07:30:53Z",
+      "activity": "Agent initialized"
+    }
+  ],
+  "blockers": [],
+  "dependencies": [],
+  "communication": {
+    "requests": [],
+    "offers": []
+  },
+  "metrics": {
+    "tasks_completed": 0,
+    "total_progress": 0,
+    "time_active": 0
+  },
+  "worktree": {
+    "path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agent-shark",
+    "branch": "agent/shark"
+  },
+  "authority": {
+    "position": 1,
+    "role": "Critical Path Lead - Senior Developer",
+    "primary_authorities": [
+      "- **Strategic Decisions**: Architecture, roadmap, and long-term planning",
+      "- **Technical Standards**: Code quality, development practices",
+      "- **Team Coordination**: Sprint planning, task prioritization"
+    ],
+    "domain_authority": "- **Code Architecture**: Final say on system design and technical debt decisions",
+    "emergency_authority": "- **Production Code Issues**: Immediate authority to fix critical bugs and system failures",
+    "backup_responsibilities": [
+      "- **Backup for**: Data migration decisions (Agent 2)",
+      "- **Emergency backup for**: All technical decisions when domain experts unavailable",
+      "- **Vote tiebreaker**: Strategic and technical disputes"
+    ],
+    "last_authority_update": "2025-07-19 13:55 UTC",
+    "pending_decisions": [],
+    "decision_count": 0
+  }
+}

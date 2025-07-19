@@ -35,59 +35,64 @@ create_startup_script() {
     local agent_index=$2
     local display_name=$(echo "$agent_name" | tr '_' ' ' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
     
+    # Determine agent role
+    local agent_role=""
+    case $((agent_index % 6)) in
+        0) agent_role="Critical Path Lead" ;;
+        1) agent_role="Migration Specialist" ;;
+        2) agent_role="Dashboard Developer" ;;
+        3) agent_role="DevOps Engineer" ;;
+        4) agent_role="Security Engineer" ;;
+        5) agent_role="UX Engineer" ;;
+    esac
+    
     cat > "start_agent_${agent_name}.sh" << 'EOF'
 #!/bin/bash
-# Start Agent [AGENT_NAME_UPPER] ([DISPLAY_NAME])
+# Agent [DISPLAY_NAME] Startup Script with Git Worktree Support
 
-# Configuration
+# Agent configuration
 AGENT_NAME="[AGENT_NAME]"
-AGENT_PROMPT="AGENT_[AGENT_NAME_UPPER]_PROMPT.md"
-LOG_FILE="agent_[AGENT_NAME].log"
+AGENT_UPPER="[AGENT_NAME_UPPER]"
+AGENT_ROLE="[AGENT_ROLE]"
 
-# Colors
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+# Color codes
+GREEN='[0;32m'
+YELLOW='[1;33m'
+BLUE='[0;34m'
+NC='[0m'
 
-# Start message
-echo -e "${BLUE}╔══════════════════════════════════════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║                              Starting Agent [DISPLAY_NAME]                                    ║${NC}"
-echo -e "${BLUE}╚══════════════════════════════════════════════════════════════════════════════════════════════╝${NC}"
-echo ""
+# Get directories
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORKTREE_BASE_DIR="$(dirname "$REPO_ROOT")"
+WORKTREE_PATH="$WORKTREE_BASE_DIR/agent-$AGENT_NAME"
 
-# Check if prompt file exists
-if [ ! -f "$AGENT_PROMPT" ]; then
-    echo -e "${RED}Error: Agent prompt file $AGENT_PROMPT not found${NC}"
-    exit 1
+echo -e "${BLUE}🚀 Starting Agent $AGENT_UPPER ($AGENT_ROLE)${NC}"
+
+# Check if worktree exists, create if not
+if ! git worktree list | grep -q "$WORKTREE_PATH"; then
+    echo -e "${YELLOW}Creating worktree for Agent $AGENT_UPPER...${NC}"
+    "$REPO_ROOT/worktree_manager.sh" create "$AGENT_NAME"
 fi
 
-# Log start time
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting Agent [DISPLAY_NAME]" >> "$LOG_FILE"
-
-# Display agent info
-echo -e "${GREEN}Agent Name:${NC} [DISPLAY_NAME]"
-echo -e "${GREEN}Agent ID:${NC} $AGENT_NAME"
-echo -e "${GREEN}Prompt File:${NC} $AGENT_PROMPT"
-echo -e "${GREEN}Log File:${NC} $LOG_FILE"
+echo -e "${GREEN}✓ Using worktree at: $WORKTREE_PATH${NC}"
+echo "Reading prompt from: AGENT_${AGENT_UPPER}_PROMPT.md"
+echo "Opening new terminal window..."
 echo ""
 
-# Start claude with the agent prompt
-echo -e "${YELLOW}Launching Claude CLI...${NC}"
-echo ""
-
-# Execute claude
-claude code -m "$(cat "$AGENT_PROMPT")" 2>&1 | tee -a "$LOG_FILE"
-
-# Log end time
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Agent [DISPLAY_NAME] session ended" >> "$LOG_FILE"
+# Open in new terminal window with worktree directory
+osascript <<EOFSCRIPT
+tell application "Terminal"
+    do script "cd '$WORKTREE_PATH' && echo 'Working in worktree: $WORKTREE_PATH' && echo 'Branch: agent/$AGENT_NAME' && echo '' && /Users/austinorphan/.claude/local/claude 'You are Agent $AGENT_UPPER, the $AGENT_ROLE. Please read your complete instructions from AGENT_${AGENT_UPPER}_PROMPT.md in your current directory. You are working in a git worktree specific to your agent, allowing you to work independently without conflicts with other agents.'"
+end tell
+EOFSCRIPT
 EOF
 
     # Replace placeholders
     sed -i '' "s/\[AGENT_NAME\]/$agent_name/g" "start_agent_${agent_name}.sh"
-    sed -i '' "s/\[AGENT_NAME_UPPER\]/${agent_name^^}/g" "start_agent_${agent_name}.sh"
+    local agent_upper=$(echo "$agent_name" | tr '[:lower:]' '[:upper:]')
+    sed -i '' "s/\[AGENT_NAME_UPPER\]/$agent_upper/g" "start_agent_${agent_name}.sh"
     sed -i '' "s/\[DISPLAY_NAME\]/$display_name/g" "start_agent_${agent_name}.sh"
+    sed -i '' "s/\[AGENT_ROLE\]/$agent_role/g" "start_agent_${agent_name}.sh"
     
     chmod +x "start_agent_${agent_name}.sh"
     
@@ -111,7 +116,8 @@ create_prompt_file() {
         5) agent_role="UX Engineer - Frontend Developer" ;;
     esac
     
-    cat > "AGENT_${agent_name^^}_PROMPT.md" << EOF
+    local agent_upper=$(echo "$agent_name" | tr '[:lower:]' '[:upper:]')
+    cat > "AGENT_${agent_upper}_PROMPT.md" << EOF
 # Agent $display_name - $agent_role
 
 You are Agent $display_name, part of a distributed multi-agent system working on a collaborative software project.
@@ -203,6 +209,19 @@ You should still update your status file for compatibility:
 python3 coordination_system/update_agent_status.py $agent_name --task "Task Name" --progress 50
 \`\`\`
 
+## Git Worktree Information
+
+You are working in a dedicated git worktree at: \`../agent-$agent_name\`
+- **Branch**: \`agent/$agent_name\`
+- **Purpose**: Allows you to work independently without conflicts with other agents
+- **Merging**: Your work will be merged back to the main branch when complete
+
+### Worktree Commands
+- Check your branch: \`git branch\`
+- See your changes: \`git status\`
+- Commit your work: \`git add . && git commit -m "Your message"\`
+- Push to remote: \`git push origin agent/$agent_name\`
+
 ## Working Process
 
 1. **Initialize Communication**: Set up your communication channel
@@ -249,7 +268,7 @@ If you receive a lifecycle control message to stop, wrap up your current work an
 Remember: You are part of a team. Communicate clearly, update your status frequently, and help other agents when they're blocked.
 EOF
 
-    echo -e "${GREEN}✓ Created AGENT_${agent_name^^}_PROMPT.md${NC}"
+    echo -e "${GREEN}✓ Created AGENT_${agent_upper}_PROMPT.md${NC}"
 }
 
 # Function to create agent status file
@@ -320,8 +339,11 @@ main() {
     echo -e "${CYAN}Agent Count: $count${NC}"
     echo ""
     
-    # Get agent names
-    mapfile -t agents < <("$THEME_MANAGER" get-agents)
+    # Get agent names (compatible with older bash)
+    agents=()
+    while IFS= read -r line; do
+        agents+=("$line")
+    done < <("$THEME_MANAGER" get-agents)
     
     if [ ${#agents[@]} -eq 0 ]; then
         echo -e "${RED}Error: No agents found for current configuration${NC}"
@@ -373,7 +395,8 @@ with open('agent_config.json') as f:
         if [[ ! " ${agents[@]} " =~ " ${agent} " ]]; then
             # Remove files if they exist
             [ -f "start_agent_${agent}.sh" ] && rm "start_agent_${agent}.sh" && echo -e "${YELLOW}  Removed start_agent_${agent}.sh${NC}"
-            [ -f "AGENT_${agent^^}_PROMPT.md" ] && rm "AGENT_${agent^^}_PROMPT.md" && echo -e "${YELLOW}  Removed AGENT_${agent^^}_PROMPT.md${NC}"
+            local agent_upper_clean=$(echo "$agent" | tr '[:lower:]' '[:upper:]')
+            [ -f "AGENT_${agent_upper_clean}_PROMPT.md" ] && rm "AGENT_${agent_upper_clean}_PROMPT.md" && echo -e "${YELLOW}  Removed AGENT_${agent_upper_clean}_PROMPT.md${NC}"
             [ -f "agent_status/${agent}_status.json" ] && rm "agent_status/${agent}_status.json" && echo -e "${YELLOW}  Removed agent_status/${agent}_status.json${NC}"
         fi
     done
