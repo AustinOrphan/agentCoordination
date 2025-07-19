@@ -28,33 +28,11 @@ from load_balancer import LoadBalancer, LoadBalancingStrategy, TaskRequest, Task
 class TestEndToEnd:
     """End-to-end test suite simulating real agent coordination scenarios."""
     
-    @pytest.fixture
-    def coordination_environment(self):
-        """Create complete coordination environment."""
-        temp_dir = tempfile.mkdtemp()
-        
-        # Initialize all systems
-        environment = {
-            'temp_dir': temp_dir,
-            'authority_manager': DynamicAuthorityManager(temp_dir),
-            'conflict_resolver': ConflictResolutionSystem(temp_dir),
-            'load_balancer': LoadBalancer(temp_dir)
-        }
-        
-        # Start monitoring
-        environment['load_balancer'].start_monitoring()
-        
-        yield environment
-        
-        # Cleanup
-        environment['load_balancer'].stop_monitoring()
-        shutil.rmtree(temp_dir)
-    
-    def test_complete_project_workflow(self, coordination_environment):
+    def test_complete_project_workflow(self, coordination_system_with_agents):
         """Test complete project development workflow."""
-        authority_manager = coordination_environment['authority_manager']
-        conflict_resolver = coordination_environment['conflict_resolver']
-        load_balancer = coordination_environment['load_balancer']
+        authority_manager = coordination_system_with_agents['authority_manager']
+        conflict_resolver = coordination_system_with_agents['conflict_resolver']
+        load_balancer = coordination_system_with_agents['load_balancer']
         
         print("\n🚀 Starting E2E Project Workflow Test")
         
@@ -74,10 +52,13 @@ class TestEndToEnd:
         for task_desc, preferred_agent in project_authorities:
             result = authority_manager.assign_authority(task_desc, preferred_agent)
             authority_results.append(result)
-            print(f"  ✓ Assigned authority: {task_desc} → {result['assigned_agent']}")
+            # Handle both successful assignments (with 'agent') and queued requests
+            agent_name = result.get('agent', 'QUEUED')
+            print(f"  ✓ Assigned authority: {task_desc} → {agent_name}")
         
         # Verify all authorities assigned successfully
-        successful_authorities = [r for r in authority_results if r["success"]]
+        # Check for successful assignments (have 'agent' field and status != 'queued')
+        successful_authorities = [r for r in authority_results if 'agent' in r and r.get('status') != 'queued']
         assert len(successful_authorities) >= 4, "Should assign most authorities successfully"
         
         # Phase 2: Task Creation and Assignment
@@ -259,14 +240,14 @@ class TestEndToEnd:
         print("\nPhase 5: Emergency Response")
         
         # Simulate security breach
-        emergency_auth_result = authority_manager.activate_emergency_authority(
-            agent_id="shark",
-            authority_type=AuthorityType.EMERGENCY_COORDINATOR.value,
-            justification="Critical security vulnerability discovered in authentication system",
-            duration_hours=2
+        emergency_auth_result = authority_manager.assign_authority(
+            "Critical security vulnerability discovered in authentication system - emergency response",
+            "emergency",
+            "shark"
         )
         
-        print(f"  🚨 Emergency authority activated: {emergency_auth_result['success']}")
+        emergency_assigned = 'agent' in emergency_auth_result and emergency_auth_result.get('status') != 'queued'
+        print(f"  🚨 Emergency authority activated: {emergency_assigned}")
         
         # Create emergency task
         emergency_task = TaskRequest(
@@ -293,7 +274,7 @@ class TestEndToEnd:
         
         # Check authority pool
         final_authority_pool = authority_manager.get_authority_pool()
-        active_authorities = len(final_authority_pool["active_authorities"])
+        active_authorities = len([a for a in final_authority_pool["assignments"] if a.get("status") == "active"])
         print(f"  📊 Active authorities: {active_authorities}")
         
         # Check load balancer status
@@ -318,11 +299,11 @@ class TestEndToEnd:
         
         print("\n🎉 E2E Project Workflow Test Completed Successfully!")
     
-    def test_multi_agent_collaboration_scenario(self, coordination_environment):
+    def test_multi_agent_collaboration_scenario(self, coordination_system_with_agents):
         """Test complex multi-agent collaboration scenario."""
-        authority_manager = coordination_environment['authority_manager']
-        conflict_resolver = coordination_environment['conflict_resolver']
-        load_balancer = coordination_environment['load_balancer']
+        authority_manager = coordination_system_with_agents['authority_manager']
+        conflict_resolver = coordination_system_with_agents['conflict_resolver']
+        load_balancer = coordination_system_with_agents['load_balancer']
         
         print("\n🤝 Starting Multi-Agent Collaboration Test")
         
@@ -458,11 +439,11 @@ class TestEndToEnd:
         print(f"  📊 Collaboration result: {total_assigned} assigned, {total_queued} queued")
         print("🎉 Multi-Agent Collaboration Test Completed!")
     
-    def test_system_resilience_scenario(self, coordination_environment):
+    def test_system_resilience_scenario(self, coordination_system_with_agents):
         """Test system resilience under adverse conditions."""
-        authority_manager = coordination_environment['authority_manager']
-        conflict_resolver = coordination_environment['conflict_resolver']
-        load_balancer = coordination_environment['load_balancer']
+        authority_manager = coordination_system_with_agents['authority_manager']
+        conflict_resolver = coordination_system_with_agents['conflict_resolver']
+        load_balancer = coordination_system_with_agents['load_balancer']
         
         print("\n🛡️ Starting System Resilience Test")
         
@@ -590,7 +571,8 @@ class TestEndToEnd:
         final_conflicts = conflict_resolver.get_active_conflicts()
         
         print(f"  📊 Final load status: {final_load_status['total_agents']} agents")
-        print(f"  📊 Final authorities: {len(final_authority_pool['active_authorities'])}")
+        active_authorities_count = len([a for a in final_authority_pool['assignments'] if a.get('status') == 'active'])
+        print(f"  📊 Final authorities: {active_authorities_count}")
         print(f"  📊 Active conflicts: {len(final_conflicts)}")
         
         # Generate reports
@@ -604,11 +586,11 @@ class TestEndToEnd:
         
         print("🎉 System Resilience Test Completed!")
     
-    def test_real_world_deployment_scenario(self, coordination_environment):
+    def test_real_world_deployment_scenario(self, coordination_system_with_agents):
         """Test realistic deployment scenario with multiple environments."""
-        authority_manager = coordination_environment['authority_manager'] 
-        conflict_resolver = coordination_environment['conflict_resolver']
-        load_balancer = coordination_environment['load_balancer']
+        authority_manager = coordination_system_with_agents['authority_manager'] 
+        conflict_resolver = coordination_system_with_agents['conflict_resolver']
+        load_balancer = coordination_system_with_agents['load_balancer']
         
         print("\n🚀 Starting Real-World Deployment Scenario")
         

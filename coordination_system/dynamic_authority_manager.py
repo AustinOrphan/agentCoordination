@@ -502,6 +502,10 @@ class DynamicAuthorityManager:
             self._save_authority_pool()
             logger.info(f"Rebalanced {transfers} authorities")
     
+    def get_authority_pool(self) -> Dict:
+        """Get current authority pool state."""
+        return self.authority_pool
+    
     def generate_agent_prompt_data(self, agent: str) -> Dict:
         """Generate data for agent prompt template."""
         active_agents = self.get_active_agents()

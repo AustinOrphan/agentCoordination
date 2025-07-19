@@ -35,6 +35,36 @@ def mock_agent_list():
     return ["shark", "dolphin", "whale", "octopus", "jellyfish", "seahorse"]
 
 
+@pytest.fixture
+def mock_active_agents(temp_test_dir, mock_agent_list):
+    """Create mock active agent status files for testing."""
+    import json
+    from datetime import datetime
+    from pathlib import Path
+    
+    # Create agent_status directory
+    agent_status_dir = Path(temp_test_dir) / "agent_status"
+    agent_status_dir.mkdir(exist_ok=True)
+    
+    # Create status files for each mock agent
+    for agent in mock_agent_list:
+        status_file = agent_status_dir / f"{agent}_status.json"
+        status_data = {
+            "agent_name": agent,
+            "status": "active",
+            "last_update": datetime.now().isoformat(),
+            "current_task": None,
+            "workload": 30,
+            "authorities": [],
+            "health": "healthy"
+        }
+        
+        with open(status_file, 'w') as f:
+            json.dump(status_data, f, indent=2)
+    
+    return mock_agent_list
+
+
 def pytest_configure(config):
     """Configure pytest settings."""
     config.addinivalue_line(
@@ -113,13 +143,22 @@ class TestAssertions:
     def assert_authority_result_valid(result):
         """Assert that an authority assignment result is valid."""
         assert isinstance(result, dict), "Authority result should be a dictionary"
-        assert "success" in result, "Authority result should have 'success' field"
-        assert "assigned_agent" in result, "Authority result should have 'assigned_agent' field"
-        assert "authority_types" in result, "Authority result should have 'authority_types' field"
+        assert "id" in result, "Authority result should have 'id' field"
         
-        if result["success"]:
-            assert result["assigned_agent"], "Successful assignment should have an agent"
-            assert isinstance(result["authority_types"], list), "Authority types should be a list"
+        # Check if it's a successful assignment (has 'agent') or queued request (status='queued')
+        is_successful = 'agent' in result and result.get('status') != 'queued'
+        is_queued = result.get('status') == 'queued'
+        
+        assert is_successful or is_queued, "Authority result should be either successful assignment or queued request"
+        
+        if is_successful:
+            assert result["agent"], "Successful assignment should have an agent"
+            assert "authority_type" in result, "Successful assignment should have authority_type"
+            assert "domain" in result, "Successful assignment should have domain"
+            assert "task" in result, "Successful assignment should have task"
+        elif is_queued:
+            assert "task" in result, "Queued request should have task"
+            assert "requested_at" in result, "Queued request should have requested_at"
     
     @staticmethod
     def assert_task_assignment_valid(assigned_agent, expected_agents=None):
@@ -259,3 +298,28 @@ def test_data_generator():
             return parties
     
     return TestDataGenerator()
+
+
+@pytest.fixture
+def coordination_system_with_agents(temp_test_dir, mock_active_agents):
+    """Create a complete coordination system with mock active agents."""
+    from coordination_system.dynamic_authority_manager import DynamicAuthorityManager
+    from conflict_resolution import ConflictResolutionSystem
+    from load_balancer import LoadBalancer
+    
+    # Initialize all systems with the temp directory containing mock agents
+    authority_manager = DynamicAuthorityManager(temp_test_dir)
+    conflict_resolver = ConflictResolutionSystem(temp_test_dir)
+    load_balancer = LoadBalancer(temp_test_dir)
+    
+    # Verify agents are active
+    active_agents = authority_manager.get_active_agents()
+    assert len(active_agents) > 0, f"Should have active agents, but got: {active_agents}"
+    
+    return {
+        'authority_manager': authority_manager,
+        'conflict_resolver': conflict_resolver,
+        'load_balancer': load_balancer,
+        'temp_dir': temp_test_dir,
+        'active_agents': active_agents
+    }
