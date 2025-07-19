@@ -1,0 +1,503 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2024-01-01",
+    "total_items": 27,
+    "estimated_total_hours": 1235,
+    "priorities": {
+      "critical": 4,
+      "high": 6,
+      "medium": 7,
+      "low": 7,
+      "future": 3
+    }
+  },
+  "todos": [
+    {
+      "id": 1,
+      "title": "Implement Proper File Locking",
+      "priority": "critical",
+      "effort_hours": 3,
+      "category": "reliability",
+      "problem": "Current file-based locks are fragile and can cause data corruption",
+      "solution": "Use OS-level file locking with fcntl",
+      "files_to_modify": ["agent_communication.py"],
+      "impact": "Prevents data corruption and race conditions",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 2,
+      "title": "Add Message Retry Logic",
+      "priority": "critical",
+      "effort_hours": 3,
+      "category": "reliability",
+      "problem": "Messages can be lost if delivery fails",
+      "solution": "Implement exponential backoff retry mechanism",
+      "files_to_modify": ["agent_communication.py"],
+      "impact": "Ensures message delivery reliability",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 3,
+      "title": "Implement Automatic Cleanup",
+      "priority": "critical",
+      "effort_hours": 2.5,
+      "category": "operations",
+      "problem": "Log files and message archives grow indefinitely",
+      "solution": "Add rotation and cleanup for files older than 7 days",
+      "files_to_modify": ["agent_lifecycle_manager.py", "coordination_manager.sh"],
+      "impact": "Prevents disk space exhaustion",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 4,
+      "title": "Fix Lock Timeout Issues",
+      "priority": "critical",
+      "effort_hours": 1.5,
+      "category": "performance",
+      "problem": "5-second lock timeout insufficient under load",
+      "solution": "Make timeout configurable and add adaptive timeout",
+      "files_to_modify": ["agent_communication.py"],
+      "impact": "Reduces message processing failures",
+      "dependencies": [1],
+      "status": "todo"
+    },
+    {
+      "id": 5,
+      "title": "Add Comprehensive Error Handling",
+      "priority": "high",
+      "effort_hours": 10,
+      "category": "reliability",
+      "problem": "Many operations lack proper error handling",
+      "solution": "Add try-catch blocks, error recovery, and logging",
+      "files_to_modify": ["all_python_files"],
+      "impact": "Improves system resilience",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 6,
+      "title": "Implement Message Batching",
+      "priority": "high",
+      "effort_hours": 7,
+      "category": "performance",
+      "problem": "Individual message processing is inefficient",
+      "solution": "Process multiple messages per file operation",
+      "files_to_modify": ["agent_communication.py", "agent_lifecycle_manager.py"],
+      "impact": "3-5x performance improvement",
+      "dependencies": [1, 2],
+      "status": "todo"
+    },
+    {
+      "id": 7,
+      "title": "Create Monitoring Dashboard",
+      "priority": "high",
+      "effort_hours": 25,
+      "category": "observability",
+      "problem": "No visibility into system health",
+      "solution": "Web-based dashboard with real-time metrics",
+      "files_to_modify": [],
+      "new_files": ["dashboard/", "monitoring_server.py"],
+      "impact": "Enables proactive issue detection",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 8,
+      "title": "Add Health Check Endpoints",
+      "priority": "high",
+      "effort_hours": 9,
+      "category": "observability",
+      "problem": "Only heartbeats for health monitoring",
+      "solution": "HTTP endpoints for detailed health status",
+      "files_to_modify": ["agent_lifecycle_manager.py"],
+      "impact": "Better integration with monitoring tools",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 9,
+      "title": "Implement Message Prioritization",
+      "priority": "high",
+      "effort_hours": 11,
+      "category": "performance",
+      "problem": "All messages treated equally",
+      "solution": "Priority queues for urgent messages",
+      "files_to_modify": ["agent_communication.py"],
+      "impact": "Critical messages processed first",
+      "dependencies": [6],
+      "status": "todo"
+    },
+    {
+      "id": 10,
+      "title": "Add Deadlock Detection",
+      "priority": "high",
+      "effort_hours": 9,
+      "category": "reliability",
+      "problem": "No mechanism to detect or prevent deadlocks",
+      "solution": "Implement timeout-based deadlock detection",
+      "files_to_modify": ["agent_lifecycle_manager.py"],
+      "impact": "Prevents system hangs",
+      "dependencies": [1],
+      "status": "todo"
+    },
+    {
+      "id": 11,
+      "title": "Migrate to SQLite for Message Storage",
+      "priority": "medium",
+      "effort_hours": 35,
+      "category": "architecture",
+      "problem": "File-based storage has limitations",
+      "solution": "Use SQLite for ACID transactions",
+      "files_to_modify": ["complete_storage_layer_rewrite"],
+      "impact": "Better reliability and query capabilities",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 12,
+      "title": "Implement Message Compression",
+      "priority": "medium",
+      "effort_hours": 5,
+      "category": "performance",
+      "problem": "Large messages consume significant disk I/O",
+      "solution": "Compress messages over 1KB",
+      "files_to_modify": ["agent_communication.py"],
+      "impact": "Reduces I/O by 50-70%",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 13,
+      "title": "Add Distributed Tracing",
+      "priority": "medium",
+      "effort_hours": 22.5,
+      "category": "observability",
+      "problem": "Difficult to track message flow",
+      "solution": "OpenTelemetry integration",
+      "files_to_modify": [],
+      "new_files": ["tracing/"],
+      "impact": "Enables debugging complex interactions",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 14,
+      "title": "Create Agent Pool Management",
+      "priority": "medium",
+      "effort_hours": 27.5,
+      "category": "performance",
+      "problem": "Each agent runs as separate process",
+      "solution": "Process pools for resource efficiency",
+      "files_to_modify": ["agent_lifecycle_manager.py"],
+      "impact": "Reduces resource usage by 60%",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 15,
+      "title": "Implement Circuit Breakers",
+      "priority": "medium",
+      "effort_hours": 11,
+      "category": "reliability",
+      "problem": "Failed agents continuously retried",
+      "solution": "Circuit breaker pattern",
+      "files_to_modify": ["agent_lifecycle_manager.py"],
+      "impact": "Prevents cascade failures",
+      "dependencies": [5],
+      "status": "todo"
+    },
+    {
+      "id": 16,
+      "title": "Add Message Versioning",
+      "priority": "medium",
+      "effort_hours": 9,
+      "category": "compatibility",
+      "problem": "No backward compatibility for message formats",
+      "solution": "Version field in messages",
+      "files_to_modify": ["agent_communication.py"],
+      "impact": "Enables smooth upgrades",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 17,
+      "title": "Implement Access Control",
+      "priority": "medium",
+      "effort_hours": 22.5,
+      "category": "security",
+      "problem": "Any process can read/write agent messages",
+      "solution": "Token-based authentication",
+      "files_to_modify": [],
+      "new_files": ["auth/"],
+      "impact": "Improves security",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 18,
+      "title": "Add Web UI for Agent Management",
+      "priority": "low",
+      "effort_hours": 70,
+      "category": "ui/ux",
+      "problem": "CLI-only interface",
+      "solution": "React-based admin panel",
+      "files_to_modify": [],
+      "new_files": ["web-ui/"],
+      "impact": "Better user experience",
+      "dependencies": [7],
+      "status": "todo"
+    },
+    {
+      "id": 19,
+      "title": "Implement Message Encryption",
+      "priority": "low",
+      "effort_hours": 13.5,
+      "category": "security",
+      "problem": "Messages stored in plain text",
+      "solution": "AES encryption for sensitive data",
+      "files_to_modify": ["agent_communication.py"],
+      "impact": "Data security",
+      "dependencies": [17],
+      "status": "todo"
+    },
+    {
+      "id": 20,
+      "title": "Create Performance Benchmarks",
+      "priority": "low",
+      "effort_hours": 17.5,
+      "category": "testing",
+      "problem": "No performance baseline",
+      "solution": "Automated benchmark suite",
+      "files_to_modify": [],
+      "new_files": ["benchmarks/"],
+      "impact": "Track performance regressions",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 21,
+      "title": "Add GraphQL API",
+      "priority": "low",
+      "effort_hours": 35,
+      "category": "api",
+      "problem": "No programmatic access",
+      "solution": "GraphQL endpoint for queries",
+      "files_to_modify": [],
+      "new_files": ["api/"],
+      "impact": "Enables integrations",
+      "dependencies": [17],
+      "status": "todo"
+    },
+    {
+      "id": 22,
+      "title": "Implement Hot Reload",
+      "priority": "low",
+      "effort_hours": 12.5,
+      "category": "operations",
+      "problem": "Must restart agents for config changes",
+      "solution": "Watch config files and reload",
+      "files_to_modify": ["agent_lifecycle_manager.py"],
+      "impact": "Zero-downtime updates",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 23,
+      "title": "Create Terraform Modules",
+      "priority": "low",
+      "effort_hours": 27.5,
+      "category": "infrastructure",
+      "problem": "Manual deployment",
+      "solution": "Infrastructure as Code",
+      "files_to_modify": [],
+      "new_files": ["terraform/"],
+      "impact": "Reproducible deployments",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 24,
+      "title": "Add Prometheus Metrics",
+      "priority": "low",
+      "effort_hours": 17.5,
+      "category": "observability",
+      "problem": "Limited metrics collection",
+      "solution": "Prometheus exporter",
+      "files_to_modify": [],
+      "new_files": ["metrics/"],
+      "impact": "Industry-standard monitoring",
+      "dependencies": [8],
+      "status": "todo"
+    },
+    {
+      "id": 25,
+      "title": "Migrate to Redis/RabbitMQ",
+      "priority": "future",
+      "effort_hours": 150,
+      "category": "architecture",
+      "problem": "File-based system won't scale",
+      "solution": "Professional message queue",
+      "files_to_modify": ["complete_rewrite"],
+      "impact": "100x scalability improvement",
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 26,
+      "title": "Kubernetes Native",
+      "priority": "future",
+      "effort_hours": 200,
+      "category": "infrastructure",
+      "problem": "Not cloud-native",
+      "solution": "Operator pattern for K8s",
+      "files_to_modify": [],
+      "new_files": ["k8s-operator/"],
+      "impact": "Cloud scalability",
+      "dependencies": [23, 25],
+      "status": "todo"
+    },
+    {
+      "id": 27,
+      "title": "Event Sourcing Architecture",
+      "priority": "future",
+      "effort_hours": 250,
+      "category": "architecture",
+      "problem": "State management complexity",
+      "solution": "Event-driven architecture",
+      "files_to_modify": ["complete_architecture_change"],
+      "impact": "Better debugging and recovery",
+      "dependencies": [25],
+      "status": "todo"
+    }
+  ],
+  "implementation_phases": [
+    {
+      "phase": 1,
+      "name": "Critical Fixes",
+      "duration": "2 weeks",
+      "todo_ids": [1, 2, 3, 4],
+      "total_hours": 10,
+      "goals": ["Reliability", "Data integrity", "Minimal changes"]
+    },
+    {
+      "phase": 2,
+      "name": "High Priority Features",
+      "duration": "2 weeks",
+      "todo_ids": [5, 6, 7, 8, 9, 10],
+      "total_hours": 71,
+      "goals": ["Observability", "Performance", "Monitoring"]
+    },
+    {
+      "phase": 3,
+      "name": "Architecture Improvements",
+      "duration": "1 month",
+      "todo_ids": [11, 12, 13, 14, 15, 16, 17],
+      "total_hours": 132,
+      "goals": ["Scalability", "Developer experience", "Security"]
+    },
+    {
+      "phase": 4,
+      "name": "Nice-to-have Features",
+      "duration": "1+ months",
+      "todo_ids": [18, 19, 20, 21, 22, 23, 24],
+      "total_hours": 193,
+      "goals": ["UI/UX", "Enterprise features", "Integration"]
+    },
+    {
+      "phase": 5,
+      "name": "Future Vision",
+      "duration": "6+ months",
+      "todo_ids": [25, 26, 27],
+      "total_hours": 600,
+      "goals": ["Cloud-native", "Massive scale", "Next-gen architecture"]
+    }
+  ],
+  "success_metrics": {
+    "reliability": {
+      "target": "< 0.01% message loss rate",
+      "current": "Unknown",
+      "tracking_method": "Message acknowledgment tracking"
+    },
+    "performance": {
+      "target": "< 100ms message routing latency",
+      "current": "~500ms",
+      "tracking_method": "End-to-end message timing"
+    },
+    "scalability": {
+      "target": "Support 100+ concurrent agents",
+      "current": "~20-30 agents",
+      "tracking_method": "Load testing"
+    },
+    "availability": {
+      "target": "99.9% uptime",
+      "current": "Unknown",
+      "tracking_method": "Heartbeat monitoring"
+    },
+    "observability": {
+      "target": "< 5 min to diagnose issues",
+      "current": "> 30 min",
+      "tracking_method": "Incident response time"
+    }
+  },
+  "categories": {
+    "reliability": {
+      "count": 5,
+      "total_hours": 33.5,
+      "description": "Improvements to system reliability and fault tolerance"
+    },
+    "performance": {
+      "count": 4,
+      "total_hours": 51,
+      "description": "Optimizations for speed and efficiency"
+    },
+    "observability": {
+      "count": 4,
+      "total_hours": 82.5,
+      "description": "Monitoring, metrics, and debugging capabilities"
+    },
+    "operations": {
+      "count": 2,
+      "total_hours": 15,
+      "description": "Operational improvements and automation"
+    },
+    "architecture": {
+      "count": 3,
+      "total_hours": 435,
+      "description": "Major architectural changes and rewrites"
+    },
+    "security": {
+      "count": 2,
+      "total_hours": 36,
+      "description": "Security enhancements and access control"
+    },
+    "ui/ux": {
+      "count": 1,
+      "total_hours": 70,
+      "description": "User interface improvements"
+    },
+    "compatibility": {
+      "count": 1,
+      "total_hours": 9,
+      "description": "Backward compatibility and versioning"
+    },
+    "testing": {
+      "count": 1,
+      "total_hours": 17.5,
+      "description": "Testing and benchmarking tools"
+    },
+    "api": {
+      "count": 1,
+      "total_hours": 35,
+      "description": "API development and integration"
+    },
+    "infrastructure": {
+      "count": 2,
+      "total_hours": 227.5,
+      "description": "Infrastructure and deployment improvements"
+    }
+  }
+}

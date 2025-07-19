@@ -1,0 +1,35 @@
+# Logs
+*.log
+coordination_system/logs/
+
+# Agent communication temporary files
+agent_communication/
+
+# Lifecycle daemon PID file
+lifecycle_daemon.pid
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*~
+
+# Agent worktrees (will be in parent directory)
+../agent-*/
