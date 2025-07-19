@@ -1,0 +1,43 @@
+# Test dependencies for Multi-Agent Coordination System
+
+# Core testing framework
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-xdist>=3.0.0
+pytest-mock>=3.10.0
+
+# Performance and system monitoring
+psutil>=5.9.0
+
+# Code quality tools
+flake8>=6.0.0
+black>=23.0.0
+isort>=5.12.0
+mypy>=1.0.0
+
+# Security scanning
+bandit>=1.7.0
+safety>=2.3.0
+
+# Coverage tools
+coverage>=7.0.0
+coverage-badge>=1.1.0
+
+# Utilities
+tqdm>=4.64.0
+colorama>=0.4.0
+
+# Optional dependencies for enhanced functionality
+# Install with: pip install -r requirements-test.txt
+
+# For concurrent testing
+threadpoolctl>=3.0.0
+
+# For test data generation
+faker>=18.0.0
+
+# For network simulation testing
+responses>=0.23.0
+
+# For temporary file handling
+pytest-tmp-path>=0.1.0
