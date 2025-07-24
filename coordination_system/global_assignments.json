@@ -1,0 +1,200 @@
+{
+  "mode": "global_priority",
+  "last_updated": "2025-07-23T13:52:15.896794+00:00",
+  "active_assignments": [
+    {
+      "task_id": "web_task_001",
+      "agent_id": "agent_1",
+      "project_id": "proj_2ad31f52",
+      "project_name": "Web App",
+      "task_title": "Fix Critical Payment Processing Bug",
+      "task_type": "bugfix",
+      "priority": "critical",
+      "global_score": 2160.0,
+      "assignment_score": 1.0,
+      "assigned_at": "2025-07-23T13:52:15.896300+00:00"
+    },
+    {
+      "task_id": "web_task_002",
+      "agent_id": "agent_1",
+      "project_id": "proj_2ad31f52",
+      "project_name": "Web App",
+      "task_title": "Implement Shopping Cart Persistence",
+      "task_type": "development",
+      "priority": "high",
+      "global_score": 216.0,
+      "assignment_score": 1.0,
+      "assigned_at": "2025-07-23T13:52:15.896359+00:00"
+    },
+    {
+      "task_id": "mobile_task_001",
+      "agent_id": "agent_1",
+      "project_id": "proj_021086b1",
+      "project_name": "Mobile App",
+      "task_title": "Implement Push Notifications",
+      "task_type": "development",
+      "priority": "high",
+      "global_score": 120.0,
+      "assignment_score": 1.0,
+      "assigned_at": "2025-07-23T13:52:15.896403+00:00"
+    },
+    {
+      "task_id": "web_task_003",
+      "agent_id": "agent_3",
+      "project_id": "proj_2ad31f52",
+      "project_name": "Web App",
+      "task_title": "Add Product Search Filters",
+      "task_type": "development",
+      "priority": "normal",
+      "global_score": 21.599999999999998,
+      "assignment_score": 0.9,
+      "assigned_at": "2025-07-23T13:52:15.896436+00:00"
+    },
+    {
+      "task_id": "mobile_task_002",
+      "agent_id": "agent_2",
+      "project_id": "proj_021086b1",
+      "project_name": "Mobile App",
+      "task_title": "Optimize App Launch Time",
+      "task_type": "refactor",
+      "priority": "normal",
+      "global_score": 12.0,
+      "assignment_score": 0.9,
+      "assigned_at": "2025-07-23T13:52:15.896480+00:00"
+    },
+    {
+      "task_id": "api_task_002",
+      "agent_id": "agent_5",
+      "project_id": "proj_dcaaeed2",
+      "project_name": "Backend API",
+      "task_title": "Add Rate Limiting",
+      "task_type": "security",
+      "priority": "normal",
+      "global_score": 6.0,
+      "assignment_score": 0.9,
+      "assigned_at": "2025-07-23T13:52:15.896513+00:00"
+    },
+    {
+      "task_id": "api_task_001",
+      "agent_id": "agent_5",
+      "project_id": "proj_dcaaeed2",
+      "project_name": "Backend API",
+      "task_title": "Update API Documentation",
+      "task_type": "documentation",
+      "priority": "low",
+      "global_score": 0.6,
+      "assignment_score": 0.6,
+      "assigned_at": "2025-07-23T13:52:15.896605+00:00"
+    },
+    {
+      "task_id": "api_task_003",
+      "agent_id": "agent_2",
+      "project_id": "proj_dcaaeed2",
+      "project_name": "Backend API",
+      "task_title": "Database Query Optimization",
+      "task_type": "refactor",
+      "priority": "low",
+      "global_score": 0.6,
+      "assignment_score": 0.8,
+      "assigned_at": "2025-07-23T13:52:15.896639+00:00"
+    }
+  ],
+  "history": [
+    {
+      "task_id": "web_task_001",
+      "agent_id": "agent_1",
+      "project_id": "proj_2ad31f52",
+      "project_name": "Web App",
+      "task_title": "Fix Critical Payment Processing Bug",
+      "task_type": "bugfix",
+      "priority": "critical",
+      "global_score": 2160.0,
+      "assignment_score": 1.0,
+      "assigned_at": "2025-07-23T13:52:15.896300+00:00"
+    },
+    {
+      "task_id": "web_task_002",
+      "agent_id": "agent_1",
+      "project_id": "proj_2ad31f52",
+      "project_name": "Web App",
+      "task_title": "Implement Shopping Cart Persistence",
+      "task_type": "development",
+      "priority": "high",
+      "global_score": 216.0,
+      "assignment_score": 1.0,
+      "assigned_at": "2025-07-23T13:52:15.896359+00:00"
+    },
+    {
+      "task_id": "mobile_task_001",
+      "agent_id": "agent_1",
+      "project_id": "proj_021086b1",
+      "project_name": "Mobile App",
+      "task_title": "Implement Push Notifications",
+      "task_type": "development",
+      "priority": "high",
+      "global_score": 120.0,
+      "assignment_score": 1.0,
+      "assigned_at": "2025-07-23T13:52:15.896403+00:00"
+    },
+    {
+      "task_id": "web_task_003",
+      "agent_id": "agent_3",
+      "project_id": "proj_2ad31f52",
+      "project_name": "Web App",
+      "task_title": "Add Product Search Filters",
+      "task_type": "development",
+      "priority": "normal",
+      "global_score": 21.599999999999998,
+      "assignment_score": 0.9,
+      "assigned_at": "2025-07-23T13:52:15.896436+00:00"
+    },
+    {
+      "task_id": "mobile_task_002",
+      "agent_id": "agent_2",
+      "project_id": "proj_021086b1",
+      "project_name": "Mobile App",
+      "task_title": "Optimize App Launch Time",
+      "task_type": "refactor",
+      "priority": "normal",
+      "global_score": 12.0,
+      "assignment_score": 0.9,
+      "assigned_at": "2025-07-23T13:52:15.896480+00:00"
+    },
+    {
+      "task_id": "api_task_002",
+      "agent_id": "agent_5",
+      "project_id": "proj_dcaaeed2",
+      "project_name": "Backend API",
+      "task_title": "Add Rate Limiting",
+      "task_type": "security",
+      "priority": "normal",
+      "global_score": 6.0,
+      "assignment_score": 0.9,
+      "assigned_at": "2025-07-23T13:52:15.896513+00:00"
+    },
+    {
+      "task_id": "api_task_001",
+      "agent_id": "agent_5",
+      "project_id": "proj_dcaaeed2",
+      "project_name": "Backend API",
+      "task_title": "Update API Documentation",
+      "task_type": "documentation",
+      "priority": "low",
+      "global_score": 0.6,
+      "assignment_score": 0.6,
+      "assigned_at": "2025-07-23T13:52:15.896605+00:00"
+    },
+    {
+      "task_id": "api_task_003",
+      "agent_id": "agent_2",
+      "project_id": "proj_dcaaeed2",
+      "project_name": "Backend API",
+      "task_title": "Database Query Optimization",
+      "task_type": "refactor",
+      "priority": "low",
+      "global_score": 0.6,
+      "assignment_score": 0.8,
+      "assigned_at": "2025-07-23T13:52:15.896639+00:00"
+    }
+  ]
+}

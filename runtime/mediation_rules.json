@@ -1,0 +1,40 @@
+{
+  "conflict_type_strategies": {
+    "resource_contention": [
+      "round_robin",
+      "priority",
+      "mediation"
+    ],
+    "authority_dispute": [
+      "escalation",
+      "expert"
+    ],
+    "task_overlap": [
+      "automated",
+      "mediation"
+    ],
+    "priority_conflict": [
+      "priority",
+      "voting"
+    ],
+    "expertise_dispute": [
+      "expert",
+      "voting"
+    ],
+    "voting_deadlock": [
+      "escalation",
+      "expert"
+    ]
+  },
+  "severity_timeouts": {
+    "low": 24,
+    "medium": 8,
+    "high": 2,
+    "critical": 0.5
+  },
+  "escalation_thresholds": {
+    "failed_resolutions": 2,
+    "time_exceeded_hours": 48,
+    "party_count_threshold": 4
+  }
+}

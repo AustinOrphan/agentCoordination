@@ -12,7 +12,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-THEME_MANAGER="$SCRIPT_DIR/agent_theme_manager.py"
+THEME_MANAGER="$SCRIPT_DIR/development/agent_theme_manager.py"
 
 # Function to show header
 show_header() {
@@ -80,9 +80,10 @@ echo "Opening new terminal window..."
 echo ""
 
 # Open in new terminal window with worktree directory
+# Use exec to minimize shell initialization and reduce grep errors
 osascript <<EOFSCRIPT
 tell application "Terminal"
-    do script "cd '$WORKTREE_PATH' && echo 'Working in worktree: $WORKTREE_PATH' && echo 'Branch: agent/$AGENT_NAME' && echo '' && /Users/austinorphan/.claude/local/claude 'You are Agent $AGENT_UPPER, the $AGENT_ROLE. Please read your complete instructions from AGENT_${AGENT_UPPER}_PROMPT.md in your current directory. You are working in a git worktree specific to your agent, allowing you to work independently without conflicts with other agents.'"
+    do script "exec /bin/bash -c 'cd \"$WORKTREE_PATH\" 2>/dev/null && echo \"Working in worktree: $WORKTREE_PATH\" && echo \"Branch: agent/$AGENT_NAME\" && echo \"\" && exec /Users/austinorphan/.claude/local/claude \"You are Agent $AGENT_UPPER, the $AGENT_ROLE. Please read your complete instructions from AGENT_${AGENT_UPPER}_PROMPT.md in your current directory. You are working in a git worktree specific to your agent, allowing you to work independently without conflicts with other agents.\"'"
 end tell
 EOFSCRIPT
 EOF
@@ -410,8 +411,8 @@ with open('agent_config.json') as f:
     echo "3. Monitor progress with './coordination_manager.sh watch'"
     echo ""
     echo -e "${CYAN}To change theme or agent count:${NC}"
-    echo "  ./agent_theme_manager.py set-theme <theme_id>"
-    echo "  ./agent_theme_manager.py set-count <number>"
+    echo "  ./development/agent_theme_manager.py set-theme <theme_id>"
+    echo "  ./development/agent_theme_manager.py set-count <number>"
     echo "  ./generate_agents.sh  # Regenerate agent files"
 }
 

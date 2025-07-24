@@ -1,0 +1,19 @@
+{
+  "project_type": "ProjectType.WEB_APP",
+  "confidence": 0.6000000000000001,
+  "complexity": "high",
+  "team_size": 5,
+  "tech_stack": {
+    "languages": [
+      "javascript",
+      "python"
+    ],
+    "frameworks": [
+      "fastapi"
+    ],
+    "databases": [
+      "mongodb"
+    ],
+    "build_tools": []
+  }
+}

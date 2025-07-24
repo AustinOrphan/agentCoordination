@@ -1,0 +1,157 @@
+{
+  "assignments": {
+    "ROLE-20250719-103746-shark-security_lead": {
+      "assignment_id": "ROLE-20250719-103746-shark-security_lead",
+      "agent_id": "shark",
+      "role_id": "security_lead",
+      "assigned_at": "2025-07-19T10:37:46.419480",
+      "assigned_until": "2025-10-17T10:37:46.419475",
+      "status": "active",
+      "authority_grants": [
+        "security",
+        "emergency_security"
+      ],
+      "responsibilities": [
+        "Security architecture decisions",
+        "Vulnerability assessment oversight",
+        "Security policy development",
+        "Incident response coordination"
+      ]
+    },
+    "ROLE-20250719-103746-whale-devops_lead": {
+      "assignment_id": "ROLE-20250719-103746-whale-devops_lead",
+      "agent_id": "whale",
+      "role_id": "devops_lead",
+      "assigned_at": "2025-07-19T10:37:46.421560",
+      "assigned_until": "2025-09-17T10:37:46.421558",
+      "status": "active",
+      "authority_grants": [
+        "infrastructure",
+        "deployment"
+      ],
+      "responsibilities": [
+        "Infrastructure management",
+        "CI/CD pipeline oversight",
+        "Production deployment decisions",
+        "Monitoring and alerting setup"
+      ]
+    },
+    "ROLE-20250719-103746-dolphin-frontend_architect": {
+      "assignment_id": "ROLE-20250719-103746-dolphin-frontend_architect",
+      "agent_id": "dolphin",
+      "role_id": "frontend_architect",
+      "assigned_at": "2025-07-19T10:37:46.422967",
+      "assigned_until": "2025-11-16T10:37:46.422965",
+      "status": "active",
+      "authority_grants": [
+        "frontend",
+        "ui"
+      ],
+      "responsibilities": [
+        "Frontend architecture decisions",
+        "UI/UX standards enforcement",
+        "Component library management",
+        "Performance optimization"
+      ]
+    },
+    "ROLE-20250719-103746-seahorse-backend_architect": {
+      "assignment_id": "ROLE-20250719-103746-seahorse-backend_architect",
+      "agent_id": "seahorse",
+      "role_id": "backend_architect",
+      "assigned_at": "2025-07-19T10:37:46.424457",
+      "assigned_until": "2025-11-16T10:37:46.424455",
+      "status": "active",
+      "authority_grants": [
+        "backend",
+        "api",
+        "data"
+      ],
+      "responsibilities": [
+        "Backend architecture decisions",
+        "API design standards",
+        "Database schema management",
+        "Microservices coordination"
+      ]
+    },
+    "ROLE-20250719-103746-seahorse-mentor": {
+      "assignment_id": "ROLE-20250719-103746-seahorse-mentor",
+      "agent_id": "seahorse",
+      "role_id": "mentor",
+      "assigned_at": "2025-07-19T10:37:46.426551",
+      "assigned_until": "2026-01-15T10:37:46.426548",
+      "status": "active",
+      "authority_grants": [
+        "mentoring"
+      ],
+      "responsibilities": [
+        "Knowledge transfer sessions",
+        "Code review and guidance",
+        "Best practices evangelism",
+        "Skill development planning"
+      ]
+    },
+    "ROLE-20250719-105105-shark-security_lead": {
+      "assignment_id": "ROLE-20250719-105105-shark-security_lead",
+      "agent_id": "shark",
+      "role_id": "security_lead",
+      "assigned_at": "2025-07-19T10:51:05.078949",
+      "assigned_until": "2025-10-17T10:51:05.078944",
+      "status": "active",
+      "authority_grants": [
+        "security",
+        "emergency_security"
+      ],
+      "responsibilities": [
+        "Security architecture decisions",
+        "Vulnerability assessment oversight",
+        "Security policy development",
+        "Incident response coordination"
+      ]
+    }
+  },
+  "history": [
+    {
+      "assignment_id": "ROLE-20250719-103746-shark-security_lead",
+      "event": "assigned",
+      "timestamp": "2025-07-19T10:37:46.419483",
+      "agent_id": "shark",
+      "role_id": "security_lead"
+    },
+    {
+      "assignment_id": "ROLE-20250719-103746-whale-devops_lead",
+      "event": "assigned",
+      "timestamp": "2025-07-19T10:37:46.421562",
+      "agent_id": "whale",
+      "role_id": "devops_lead"
+    },
+    {
+      "assignment_id": "ROLE-20250719-103746-dolphin-frontend_architect",
+      "event": "assigned",
+      "timestamp": "2025-07-19T10:37:46.422969",
+      "agent_id": "dolphin",
+      "role_id": "frontend_architect"
+    },
+    {
+      "assignment_id": "ROLE-20250719-103746-seahorse-backend_architect",
+      "event": "assigned",
+      "timestamp": "2025-07-19T10:37:46.424459",
+      "agent_id": "seahorse",
+      "role_id": "backend_architect"
+    },
+    {
+      "assignment_id": "ROLE-20250719-103746-seahorse-mentor",
+      "event": "assigned",
+      "timestamp": "2025-07-19T10:37:46.426553",
+      "agent_id": "seahorse",
+      "role_id": "mentor"
+    },
+    {
+      "assignment_id": "ROLE-20250719-105105-shark-security_lead",
+      "event": "assigned",
+      "timestamp": "2025-07-19T10:51:05.078950",
+      "agent_id": "shark",
+      "role_id": "security_lead"
+    }
+  ],
+  "version": "1.0"
+}

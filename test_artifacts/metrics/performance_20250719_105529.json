@@ -1,0 +1,35 @@
+[
+  {
+    "operation_name": "authority_assignment",
+    "start_time": 154819.252659958,
+    "end_time": 154819.304832916,
+    "duration_ms": 52.17295800684951,
+    "success": true,
+    "agent_id": "shark",
+    "error_message": null,
+    "memory_delta_mb": 0.0,
+    "metadata": {}
+  },
+  {
+    "operation_name": "emergency_response",
+    "start_time": 154819.306553041,
+    "end_time": 154819.409645708,
+    "duration_ms": 103.092666977318,
+    "success": true,
+    "agent_id": "whale",
+    "error_message": null,
+    "memory_delta_mb": 0.0,
+    "metadata": {}
+  },
+  {
+    "operation_name": "risky_operation",
+    "start_time": 154819.409850583,
+    "end_time": 154819.431287208,
+    "duration_ms": 21.436624985653907,
+    "success": false,
+    "agent_id": "jellyfish",
+    "error_message": "Simulated error",
+    "memory_delta_mb": 0.0,
+    "metadata": {}
+  }
+]

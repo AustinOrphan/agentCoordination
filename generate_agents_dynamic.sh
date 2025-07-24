@@ -10,7 +10,7 @@ cd "$SCRIPT_DIR"
 
 # Load configuration
 CONFIG_FILE="agent_config.json"
-THEME_MANAGER="./agent_theme_manager.py"
+THEME_MANAGER="./development/agent_theme_manager.py"
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -241,14 +241,17 @@ else:
 # Navigate to worktree
 cd "\$WORKTREE_PATH" || exit 1
 
+# Convert agent name to uppercase
+AGENT_NAME_UPPER=\$(echo "\$AGENT_NAME" | tr '[:lower:]' '[:upper:]')
+
 # Display the prompt file
 echo -e "\${GREEN}Agent \$AGENT_DISPLAY initialized!\${NC}"
-echo -e "\${BLUE}Prompt file: \$REPO_ROOT/AGENT_\${AGENT_NAME^^}_PROMPT.md\${NC}"
+echo -e "\${BLUE}Prompt file: \$REPO_ROOT/AGENT_\${AGENT_NAME_UPPER}_PROMPT.md\${NC}"
 
 # Start Claude with the agent prompt
 echo -e "\${YELLOW}Starting Claude Code session for Agent \$AGENT_DISPLAY...\${NC}"
 claude code --profile "\$AGENT_ID" \\
-    --plan "\$REPO_ROOT/AGENT_\${AGENT_NAME^^}_PROMPT.md"
+    --plan "\$REPO_ROOT/AGENT_\${AGENT_NAME_UPPER}_PROMPT.md"
 EOF
     
     chmod +x "$script_name"
@@ -271,9 +274,16 @@ echo -e "\n${YELLOW}Cleaning up old agent files...${NC}"
 rm -f AGENT_*_PROMPT.md
 rm -f start_agent_*.sh
 
-# Get agents for current theme
-readarray -t AGENTS < <($THEME_MANAGER get-agents 2>/dev/null || echo -e "alpha\nbeta\ngamma\ndelta\nepsilon\nzeta")
-readarray -t EMOJIS < <($THEME_MANAGER get-emojis 2>/dev/null || echo -e "Α\nΒ\nΓ\nΔ\nΕ\nΖ")
+# Get agents for current theme (compatible with older bash)
+AGENTS=()
+while IFS= read -r line; do
+    AGENTS+=("$line")
+done < <($THEME_MANAGER get-agents 2>/dev/null || echo -e "alpha\nbeta\ngamma\ndelta\nepsilon\nzeta")
+
+EMOJIS=()
+while IFS= read -r line; do
+    EMOJIS+=("$line")
+done < <($THEME_MANAGER get-emojis 2>/dev/null || echo -e "Α\nΒ\nΓ\nΔ\nΕ\nΖ")
 
 # Generate files for configured number of agents
 echo -e "\n${BLUE}Generating files for $AGENT_COUNT agents...${NC}"

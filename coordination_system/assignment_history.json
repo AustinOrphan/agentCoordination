@@ -1,0 +1,82 @@
+[
+  {
+    "task_id": "TASK-20250722-215012-759e1803",
+    "agent_id": "octopus",
+    "assigned_at": "2025-07-23T02:50:12.595620+00:00",
+    "task_title": "Security vulnerability audit",
+    "task_type": "security",
+    "priority": "critical",
+    "estimated_hours": 8.0,
+    "assignment_score": 1.0
+  },
+  {
+    "task_id": "TASK-20250722-215012-25edbdde",
+    "agent_id": "shark",
+    "assigned_at": "2025-07-23T02:50:12.596049+00:00",
+    "task_title": "Implement user authentication",
+    "task_type": "development",
+    "priority": "high",
+    "estimated_hours": 4.0,
+    "assignment_score": 1.0
+  },
+  {
+    "task_id": "TASK-20250722-215012-014c984b",
+    "agent_id": "octopus",
+    "assigned_at": "2025-07-23T02:50:12.596205+00:00",
+    "task_title": "Setup CI/CD pipeline",
+    "task_type": "deployment",
+    "priority": "high",
+    "estimated_hours": 6.0,
+    "assignment_score": 1.0
+  },
+  {
+    "task_id": "TASK-20250722-215012-fd253f42",
+    "agent_id": "dolphin",
+    "assigned_at": "2025-07-23T02:50:12.596328+00:00",
+    "task_title": "Fix session timeout bug",
+    "task_type": "bugfix",
+    "priority": "high",
+    "estimated_hours": 1.5,
+    "assignment_score": 1.0
+  },
+  {
+    "task_id": "TASK-20250722-215012-84b1183c",
+    "agent_id": "shark",
+    "assigned_at": "2025-07-23T02:50:12.596445+00:00",
+    "task_title": "Database migration to PostgreSQL",
+    "task_type": "integration",
+    "priority": "high",
+    "estimated_hours": 5.0,
+    "assignment_score": 1.0
+  },
+  {
+    "task_id": "TASK-20250722-215012-8c1c0d25",
+    "agent_id": "seahorse",
+    "assigned_at": "2025-07-23T02:50:12.596585+00:00",
+    "task_title": "Design user dashboard",
+    "task_type": "design",
+    "priority": "normal",
+    "estimated_hours": 3.0,
+    "assignment_score": 0.9
+  },
+  {
+    "task_id": "TASK-20250722-215012-c52726e8",
+    "agent_id": "jellyfish",
+    "assigned_at": "2025-07-23T02:50:12.596714+00:00",
+    "task_title": "API documentation",
+    "task_type": "documentation",
+    "priority": "normal",
+    "estimated_hours": 2.0,
+    "assignment_score": 0.7
+  },
+  {
+    "task_id": "TASK-20250722-215012-39b581c9",
+    "agent_id": "jellyfish",
+    "assigned_at": "2025-07-23T02:50:12.596857+00:00",
+    "task_title": "Performance load testing",
+    "task_type": "testing",
+    "priority": "normal",
+    "estimated_hours": 3.0,
+    "assignment_score": 0.8
+  }
+]

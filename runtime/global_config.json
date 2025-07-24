@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "max_concurrent_projects": 10,
+  "default_agent_count": 6,
+  "agent_themes": [
+    "ocean_creatures",
+    "greek_letters",
+    "marvel"
+  ],
+  "current_theme": "ocean_creatures",
+  "active_project": "proj_90e513eb",
+  "project_isolation": true,
+  "shared_agent_pool": false
+}

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Agent Lifecycle Manager
-Monitors agent status and automatically starts/stops agents based on blockers and dependencies.
+Enhanced Agent Lifecycle Manager
+Integrates task assignment with agent lifecycle management.
 """
 
 import json
@@ -9,7 +9,7 @@ import os
 import time
 import subprocess
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Set, Optional, Any
 from enum import Enum
@@ -20,6 +20,7 @@ from agent_communication import (
     CommunicationChannel, CentralDispatcher, Message, 
     MessageType, Priority, AgentStatus
 )
+from task_communicator import TaskCommunicator
 
 # Configure logging
 logging.basicConfig(
@@ -49,7 +50,7 @@ class AgentProcess:
             return False
 
 class LifecycleManager:
-    """Manages agent lifecycle based on blockers and dependencies"""
+    """Enhanced lifecycle manager with task assignment integration"""
     
     def __init__(self, config_file: str = "agent_config.json", 
                  status_dir: str = "agent_status",
@@ -59,14 +60,20 @@ class LifecycleManager:
         self.communication_dir = Path(communication_dir)
         self.agents = self._load_agents()
         self.processes: Dict[str, AgentProcess] = {}
+        self.last_start_time: Dict[str, datetime] = {}
         self.dispatcher = CentralDispatcher(str(self.communication_dir), config_file)
+        
+        # Task assignment integration
+        self.task_communicator = TaskCommunicator(config_file)
+        self.last_task_assignment = datetime.now()
+        self.task_assignment_interval = 30  # seconds
         
         # Monitoring configuration
         self.heartbeat_timeout = 60  # seconds
         self.check_interval = 10     # seconds
         self.startup_delay = 5       # seconds between agent starts
         
-        # Track agent blockers
+        # Track agent blockers and dependencies
         self.agent_blockers: Dict[str, Set[str]] = {agent: set() for agent in self.agents}
         self.agent_dependencies: Dict[str, Set[str]] = {agent: set() for agent in self.agents}
         
@@ -86,7 +93,7 @@ class LifecycleManager:
         except Exception as e:
             logger.warning(f"Error loading agent config: {e}")
         
-        return ["alpha", "beta", "gamma", "delta", "epsilon", "zeta"]
+        return ["shark", "dolphin", "whale", "octopus", "jellyfish", "seahorse"]
     
     def _load_agent_status(self, agent_id: str) -> Optional[Dict[str, Any]]:
         """Load status from agent's status file"""
@@ -163,11 +170,63 @@ class LifecycleManager:
         
         return any(task_name.lower() in str(activity).lower() for activity in completed)
     
+    def _should_start_agent(self, agent_id: str) -> bool:
+        """Determine if an agent should be started based on tasks and dependencies"""
+        # Check if agent is already running
+        if agent_id in self.processes and self.processes[agent_id].is_running():
+            return False
+        
+        # Check if agent is blocked
+        if self._is_agent_blocked(agent_id):
+            return False
+        
+        # Check if dependencies are met
+        if not self._are_dependencies_met(agent_id):
+            return False
+        
+        # Check if agent has tasks assigned
+        agent = self.task_communicator.task_manager.agents.get(agent_id)
+        if agent and len(agent.active_tasks) > 0:
+            return True
+        
+        # Check if there are tasks in queue that this agent could handle
+        pending_tasks = [
+            task for task in self.task_communicator.task_manager.tasks.values()
+            if task.status.value in ['pending', 'assigned'] and 
+            (not task.assigned_agent or task.assigned_agent == agent_id)
+        ]
+        
+        if pending_tasks and agent:
+            # Check if agent can handle any pending task
+            for task in pending_tasks:
+                if agent.can_accept_task(task):
+                    return True
+        
+        return False
+    
     def start_agent(self, agent_id: str) -> bool:
         """Start an agent process"""
-        if agent_id in self.processes and self.processes[agent_id].is_running():
-            logger.info(f"Agent {agent_id} is already running")
-            return True
+        # Check if agent is already running
+        if agent_id in self.processes:
+            try:
+                if self.processes[agent_id].is_running():
+                    logger.info(f"Agent {agent_id} is already running (PID: {self.processes[agent_id].pid})")
+                    return True
+                else:
+                    # Process exists but not running - clean it up
+                    logger.info(f"Cleaning up dead process for agent {agent_id}")
+                    del self.processes[agent_id]
+            except Exception as e:
+                logger.warning(f"Error checking process for agent {agent_id}: {e}")
+                del self.processes[agent_id]
+        
+        # Check cooldown period
+        cooldown_seconds = 30
+        if agent_id in self.last_start_time:
+            time_since_last_start = (datetime.now() - self.last_start_time[agent_id]).total_seconds()
+            if time_since_last_start < cooldown_seconds:
+                logger.info(f"Agent {agent_id} in cooldown period ({time_since_last_start:.1f}s)")
+                return False
         
         # Check if startup script exists
         startup_script = f"./start_agent_{agent_id}.sh"
@@ -186,7 +245,7 @@ class LifecycleManager:
                 msg_type=MessageType.LIFECYCLE_CONTROL,
                 payload={
                     "action": "start",
-                    "reason": "Dependencies met, no blockers",
+                    "reason": "Task assignment or dependencies met",
                     "scheduled_time": datetime.now().isoformat()
                 }
             )
@@ -198,10 +257,11 @@ class LifecycleManager:
                 [startup_script],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                preexec_fn=os.setsid  # Create new process group
+                preexec_fn=os.setsid
             )
             
             self.processes[agent_id] = AgentProcess(agent_id, process.pid)
+            self.last_start_time[agent_id] = datetime.now()
             
             # Update lifecycle status
             channel.update_lifecycle(AgentStatus.RUNNING)
@@ -247,7 +307,7 @@ class LifecycleManager:
             # Give agent time to shutdown gracefully
             time.sleep(2)
             
-            # Terminate the process group
+            # Terminate the process
             if agent_process.pid:
                 try:
                     os.killpg(os.getpgid(agent_process.pid), signal.SIGTERM)
@@ -289,9 +349,12 @@ class LifecycleManager:
                     with open(heartbeat_file, 'r') as f:
                         heartbeat = json.load(f)
                     
+                    last_activity_str = heartbeat.get("payload", {}).get("last_activity", "")
+                    if not last_activity_str:
+                        continue
+                    
                     last_activity = datetime.fromisoformat(
-                        heartbeat.get("payload", {}).get("last_activity", "")
-                            .replace("Z", "+00:00")
+                        last_activity_str.replace("Z", "+00:00")
                     )
                     
                     # Check if heartbeat is stale
@@ -302,8 +365,31 @@ class LifecycleManager:
                 except Exception as e:
                     logger.error(f"Error checking heartbeat for {agent_id}: {e}")
     
+    def process_task_assignments(self):
+        """Process task assignments at regular intervals"""
+        current_time = datetime.now()
+        
+        if (current_time - self.last_task_assignment).seconds >= self.task_assignment_interval:
+            try:
+                # Process new task assignments
+                assignments_made = self.task_communicator.process_assignments()
+                
+                # Check for agent responses
+                responses_processed = self.task_communicator.check_agent_responses()
+                
+                if assignments_made > 0 or responses_processed > 0:
+                    logger.info(f"Task processing: {assignments_made} assignments, {responses_processed} responses")
+                
+                self.last_task_assignment = current_time
+                
+            except Exception as e:
+                logger.error(f"Error processing task assignments: {e}")
+    
     def manage_lifecycle(self):
-        """Main lifecycle management loop iteration"""
+        """Main lifecycle management loop iteration with task integration"""
+        # Process task assignments first
+        self.process_task_assignments()
+        
         # Update blocker information
         self._update_blockers_from_status()
         
@@ -313,29 +399,29 @@ class LifecycleManager:
         # Check heartbeats
         self.check_heartbeats()
         
-        # Manage each agent
+        # Manage each agent with task awareness
         for agent_id in self.agents:
             is_running = agent_id in self.processes and self.processes[agent_id].is_running()
             is_blocked = self._is_agent_blocked(agent_id)
-            deps_met = self._are_dependencies_met(agent_id)
+            should_start = self._should_start_agent(agent_id)
             
             if is_running and is_blocked:
                 # Stop blocked agents
                 logger.info(f"Agent {agent_id} is blocked, stopping...")
                 self.stop_agent(agent_id, f"Blocked: {list(self.agent_blockers[agent_id])}")
                 
-            elif not is_running and not is_blocked and deps_met:
-                # Start unblocked agents with met dependencies
-                logger.info(f"Agent {agent_id} is unblocked with dependencies met, starting...")
+            elif not is_running and should_start:
+                # Start agents that should be working
+                logger.info(f"Agent {agent_id} should start (tasks available)...")
                 self.start_agent(agent_id)
                 time.sleep(self.startup_delay)  # Stagger agent starts
             
-            elif not is_running and not deps_met:
-                logger.debug(f"Agent {agent_id} waiting for dependencies: {self.agent_dependencies[agent_id]}")
+            elif not is_running and is_blocked:
+                logger.debug(f"Agent {agent_id} blocked, not starting: {self.agent_blockers[agent_id]}")
     
     def run(self):
-        """Run the lifecycle manager"""
-        logger.info("Starting Agent Lifecycle Manager")
+        """Run the enhanced lifecycle manager"""
+        logger.info("Starting Enhanced Agent Lifecycle Manager with Task Assignment")
         logger.info(f"Managing agents: {self.agents}")
         
         try:
@@ -344,29 +430,27 @@ class LifecycleManager:
                 time.sleep(self.check_interval)
                 
         except KeyboardInterrupt:
-            logger.info("Shutting down Lifecycle Manager")
+            logger.info("Shutting down Enhanced Lifecycle Manager")
             
             # Stop all running agents
             for agent_id in list(self.processes.keys()):
                 self.stop_agent(agent_id, "Lifecycle manager shutdown")
             
-            logger.info("Lifecycle Manager stopped")
+            logger.info("Enhanced Lifecycle Manager stopped")
 
 def main():
     """Main entry point"""
     import argparse
     
-    parser = argparse.ArgumentParser(description='Agent Lifecycle Manager')
+    parser = argparse.ArgumentParser(description='Enhanced Agent Lifecycle Manager')
     parser.add_argument('--config-file', default='agent_config.json',
                        help='Agent configuration file')
     parser.add_argument('--status-dir', default='agent_status',
                        help='Agent status directory')
     parser.add_argument('--communication-dir', default='agent_communication',
                        help='Agent communication directory')
-    parser.add_argument('--check-interval', type=int, default=10,
-                       help='Check interval in seconds')
-    parser.add_argument('--heartbeat-timeout', type=int, default=60,
-                       help='Heartbeat timeout in seconds')
+    parser.add_argument('--create-tasks', action='store_true',
+                       help='Create sample tasks before starting')
     
     args = parser.parse_args()
     
@@ -376,8 +460,10 @@ def main():
         communication_dir=args.communication_dir
     )
     
-    manager.check_interval = args.check_interval
-    manager.heartbeat_timeout = args.heartbeat_timeout
+    if args.create_tasks:
+        logger.info("Creating sample tasks...")
+        count = manager.task_communicator.create_sample_tasks()
+        logger.info(f"Created {count} sample tasks")
     
     manager.run()
 

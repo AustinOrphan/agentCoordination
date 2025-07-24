@@ -1,0 +1,27 @@
+{
+  "test_mode": "real_only",
+  "adapter_mode": "real",
+  "test_suites": ["all"],
+  "coordination_config": {
+    "coordination_root": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination",
+    "agent_status_dir": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/agent_status",
+    "communication_dir": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/agent_communication",
+    "authority_pool_file": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/authority_pool.json",
+    "agent_workloads_file": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/agent_workloads.json",
+    "coordination_master_file": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/AGENT_COORDINATION_MASTER.json",
+    "decision_log_file": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/DECISION_LOG.json",
+    "theme": "greek_letters",
+    "max_agents": 24
+  },
+  "execution_config": {
+    "timeout_seconds": 300.0,
+    "retry_attempts": 3,
+    "parallel_execution": false,
+    "cleanup_after_test": true,
+    "save_test_artifacts": true,
+    "verbose_logging": false,
+    "performance_monitoring": true,
+    "stress_test_intensity": "medium"
+  },
+  "custom_settings": {}
+}

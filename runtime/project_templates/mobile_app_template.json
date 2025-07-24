@@ -1,0 +1,117 @@
+{
+  "template_name": "Mobile Application",
+  "template_id": "mobile_app",
+  "description": "Template for cross-platform mobile applications",
+  "recommended_agents": 6,
+  "recommended_theme": "greek_letters",
+  "project_priority": 1.0,
+  "default_tasks": [
+    {
+      "title": "Setup Mobile Development Environment",
+      "description": "Configure React Native/Flutter environment with emulators",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 3.0,
+      "tags": ["setup", "mobile", "environment"],
+      "dependencies": []
+    },
+    {
+      "title": "Design App Architecture",
+      "description": "Plan navigation structure and state management approach",
+      "task_type": "design",
+      "priority": "high",
+      "estimated_hours": 4.0,
+      "tags": ["architecture", "design", "planning"],
+      "dependencies": []
+    },
+    {
+      "title": "Create Navigation System",
+      "description": "Implement app navigation with proper routing",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 6.0,
+      "tags": ["navigation", "routing", "mobile"],
+      "dependencies": ["Design App Architecture"]
+    },
+    {
+      "title": "Build Core Screens",
+      "description": "Develop main application screens and layouts",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 20.0,
+      "tags": ["ui", "screens", "mobile"],
+      "dependencies": ["Create Navigation System"]
+    },
+    {
+      "title": "Implement Local Storage",
+      "description": "Set up local data persistence and offline capabilities",
+      "task_type": "development",
+      "priority": "normal",
+      "estimated_hours": 5.0,
+      "tags": ["storage", "offline", "persistence"],
+      "dependencies": ["Setup Mobile Development Environment"]
+    },
+    {
+      "title": "Add Push Notifications",
+      "description": "Integrate push notification service for user engagement",
+      "task_type": "integration",
+      "priority": "normal",
+      "estimated_hours": 6.0,
+      "tags": ["notifications", "engagement", "integration"],
+      "dependencies": ["Build Core Screens"]
+    },
+    {
+      "title": "Implement Analytics",
+      "description": "Add analytics tracking for user behavior insights",
+      "task_type": "integration",
+      "priority": "low",
+      "estimated_hours": 4.0,
+      "tags": ["analytics", "tracking", "metrics"],
+      "dependencies": ["Build Core Screens"]
+    },
+    {
+      "title": "Platform-Specific Optimizations",
+      "description": "Optimize UI/UX for iOS and Android platforms",
+      "task_type": "development",
+      "priority": "normal",
+      "estimated_hours": 8.0,
+      "tags": ["optimization", "platform", "ui"],
+      "dependencies": ["Build Core Screens"]
+    },
+    {
+      "title": "App Store Preparation",
+      "description": "Prepare assets and metadata for app store submission",
+      "task_type": "deployment",
+      "priority": "normal",
+      "estimated_hours": 4.0,
+      "tags": ["deployment", "app-store", "release"],
+      "dependencies": ["Platform-Specific Optimizations"]
+    }
+  ],
+  "agent_roles": {
+    "Critical Path Lead": "App architecture and core features",
+    "Migration Specialist": "API integration and data sync",
+    "Dashboard Developer": "Screen development and UI",
+    "DevOps Engineer": "Build and deployment processes",
+    "Security Engineer": "App security and data protection",
+    "UX Engineer": "Mobile UX and platform optimization"
+  },
+  "suggested_structure": {
+    "directories": [
+      "src/screens",
+      "src/components",
+      "src/navigation",
+      "src/services",
+      "src/utils",
+      "assets",
+      "ios",
+      "android"
+    ],
+    "key_files": [
+      "package.json",
+      "app.json",
+      ".env.example",
+      "README.md"
+    ]
+  }
+}

@@ -75,7 +75,7 @@ class AgentFileHandler(FileSystemEventHandler):
 class EnhancedStatusAggregator:
     """Enhanced aggregator with real-time monitoring and change queue"""
     
-    def __init__(self, agent_dir: str, output_dir: str, config_file: str = "../agent_config.json"):
+    def __init__(self, agent_dir: str, output_dir: str, config_file: str = "runtime/agent_config.json"):
         self.agent_dir = Path(agent_dir)
         self.output_dir = Path(output_dir)
         self.config_file = config_file
@@ -276,7 +276,13 @@ class EnhancedStatusAggregator:
 """
             
             # Add blockers if any
-            blockers = status.get('blockers', {}).get('current', [])
+            blockers_data = status.get('blockers', {})
+            if isinstance(blockers_data, list):
+                # Handle legacy format where blockers was a list
+                blockers = blockers_data
+            else:
+                # Handle new format where blockers is a dict with 'current' key
+                blockers = blockers_data.get('current', [])
             if blockers:
                 md += "**Current Blockers:**\n"
                 for blocker in blockers:
@@ -412,7 +418,13 @@ class EnhancedStatusAggregator:
             print(f"   └─ {task}")
             
             # Show blockers if any
-            blockers = status.get('blockers', {}).get('current', [])
+            blockers_data = status.get('blockers', {})
+            if isinstance(blockers_data, list):
+                # Handle legacy format where blockers was a list
+                blockers = blockers_data
+            else:
+                # Handle new format where blockers is a dict with 'current' key
+                blockers = blockers_data.get('current', [])
             if blockers:
                 print(f"   └─ ⚠️  Blocked: {blockers[0][:60]}...")
         

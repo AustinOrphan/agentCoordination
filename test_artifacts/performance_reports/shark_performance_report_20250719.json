@@ -1,0 +1,50 @@
+{
+  "agent_id": "shark",
+  "report_generated_at": "2025-07-19T10:35:51.201478",
+  "period": {
+    "start": "2025-06-19T10:35:51.199513",
+    "end": "2025-07-19T10:35:51.199514"
+  },
+  "summary_metrics": {
+    "agent_id": "shark",
+    "period_start": "2025-06-19T10:35:51.199513",
+    "period_end": "2025-07-19T10:35:51.199514",
+    "total_tasks": 1,
+    "completed_tasks": 1,
+    "average_completion_time_hours": 10.25222987886243,
+    "success_rate": 100.0,
+    "collaboration_count": 1,
+    "expertise_domains": [
+      "security"
+    ],
+    "availability_score": null,
+    "productivity_score": 30.087308925138522,
+    "quality_average": 7
+  },
+  "task_breakdown": {
+    "pending": 0,
+    "in_progress": 0,
+    "completed": 1,
+    "blocked": 0,
+    "cancelled": 0
+  },
+  "domain_expertise": {
+    "domains": [
+      "security"
+    ],
+    "success_rates": {
+      "security": 100.0
+    },
+    "primary_domain": "security"
+  },
+  "collaboration_analysis": {
+    "frequent_collaborators": {
+      "octopus": 1
+    },
+    "total_collaborative_tasks": 1
+  },
+  "recommendations": [
+    "Balance collaborative work with independent task completion",
+    "Consider expanding expertise to additional domains"
+  ]
+}

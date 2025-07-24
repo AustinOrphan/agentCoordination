@@ -1,0 +1,43 @@
+{
+  "project_id": "proj_021086b1",
+  "tasks": [
+    {
+      "task_id": "mobile_task_001",
+      "title": "Implement Push Notifications",
+      "description": "Add support for order status notifications",
+      "task_type": "development",
+      "priority": "high",
+      "status": "pending",
+      "created_at": "2025-07-23T13:52:15Z",
+      "estimated_hours": 8.0,
+      "tags": ["notifications", "feature"],
+      "dependencies": []
+    },
+    {
+      "task_id": "mobile_task_002",
+      "title": "Optimize App Launch Time",
+      "description": "Reduce cold start time by 50%",
+      "task_type": "refactor",
+      "priority": "normal",
+      "status": "pending",
+      "created_at": "2025-07-23T13:52:15Z",
+      "estimated_hours": 5.0,
+      "tags": ["performance"],
+      "dependencies": []
+    },
+    {
+      "task_id": "mobile_task_003",
+      "title": "Add Offline Mode",
+      "description": "Allow browsing products without internet",
+      "task_type": "development",
+      "priority": "low",
+      "status": "pending",
+      "created_at": "2025-07-23T13:52:15Z",
+      "estimated_hours": 10.0,
+      "tags": ["offline", "feature"],
+      "dependencies": ["mobile_task_001"]
+    }
+  ],
+  "queue": ["mobile_task_001", "mobile_task_002", "mobile_task_003"],
+  "last_updated": "2025-07-23T13:52:15Z"
+}

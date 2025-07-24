@@ -1,0 +1,61 @@
+{
+  "project_id": "proj_4829cdac",
+  "name": "Fresh Python API",
+  "codebase_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/test_projects/python_api",
+  "description": "Fresh test Python API",
+  "agent_count": null,
+  "status": "active",
+  "created_at": "2025-07-23T16:12:02.637610+00:00",
+  "last_active": "2025-07-23T16:12:02.637610+00:00",
+  "metadata": {
+    "last_analysis": {
+      "timestamp": "2025-07-23T16:12:02.641213+00:00",
+      "analysis": {
+        "project_type": "api_service",
+        "complexity": "low",
+        "confidence": 0.5,
+        "team_size_recommendation": 1,
+        "patterns": [
+          "Test-Driven Development"
+        ],
+        "suggested_workflow": "Custom Development Workflow",
+        "technologies": {
+          "languages": [
+            "python"
+          ],
+          "frameworks": [
+            "fastapi",
+            "flask"
+          ],
+          "databases": [
+            "mongodb"
+          ],
+          "cloud_services": [],
+          "build_tools": [],
+          "testing_frameworks": [
+            "pytest",
+            "unittest"
+          ],
+          "deployment_tools": [],
+          "package_managers": []
+        },
+        "structure": {
+          "has_tests": true,
+          "has_docs": false,
+          "has_ci_cd": false,
+          "has_docker": false,
+          "has_api": false,
+          "has_frontend": false,
+          "has_backend": true,
+          "has_database": true,
+          "entry_points": [
+            "main.py"
+          ],
+          "config_files": []
+        }
+      },
+      "report": "\n# Project Analysis Report\n\n**Project Path:** /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/test_projects/python_api\n**Analysis Date:** null\n\n## Project Classification\n- **Type:** Api Service\n- **Confidence:** 50.00%\n- **Estimated Complexity:** Low\n- **Recommended Team Size:** 1 developers\n\n## Technology Stack\n\n### Languages\n- Python\n\n### Frameworks & Libraries\n- Fastapi\n- Flask\n\n### Databases\n- Mongodb\n\n### Development Tools\n\n\n### Testing Frameworks\n- Pytest\n- Unittest\n\n## Project Structure Analysis\n\n- **Has Tests:** \u2705\n- **Has Documentation:** \u274c\n- **Has CI/CD:** \u274c\n- **Has Docker:** \u274c\n- **Has API:** \u274c\n- **Has Frontend:** \u274c\n- **Has Backend:** \u2705\n- **Has Database:** \u2705\n\n### Entry Points\n- main.py\n\n### Configuration Files\n- None detected\n\n## Detected Patterns\n- Test-Driven Development\n\n## Recommended Workflow\n**Custom Development Workflow**\n\nThis analysis suggests using the custom development workflow template for optimal development workflow organization.\n\n## Next Steps\n1. Review the suggested workflow template\n2. Set up the recommended team structure\n3. Configure development environment based on detected technologies\n4. Implement missing infrastructure (CI/CD, testing, documentation) as identified\n"
+    }
+  },
+  "workspace_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/projects/proj_4829cdac"
+}

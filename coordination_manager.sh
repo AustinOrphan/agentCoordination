@@ -14,7 +14,7 @@ NC='\033[0m' # No Color
 AGENT_STATUS_DIR="agent_status"
 COORDINATION_DIR="coordination_system"
 LOG_FILE="coordination_manager.log"
-THEME_MANAGER="./agent_theme_manager.py"
+THEME_MANAGER="./development/agent_theme_manager.py"
 
 # Function to log with timestamp
 log() {
@@ -84,11 +84,17 @@ initialize_system() {
     fi
     
     # Get current agents from theme manager
+    local agents=()
     if [[ -f "$THEME_MANAGER" ]]; then
-        mapfile -t agents < <("$THEME_MANAGER" get-agents)
-    else
-        # Fallback to default agents
-        local agents=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
+        # Use portable method instead of mapfile
+        while IFS= read -r line; do
+            [[ -n "$line" ]] && agents+=("$line")
+        done < <("$THEME_MANAGER" get-agents)
+    fi
+    
+    # Fallback to default agents if none found
+    if [[ ${#agents[@]} -eq 0 ]]; then
+        agents=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
     fi
     local missing_agents=()
     
@@ -116,7 +122,7 @@ aggregate_statuses() {
     # Try enhanced aggregator first
     if [[ -f "$COORDINATION_DIR/enhanced_status_aggregator.py" ]]; then
         cd "$COORDINATION_DIR"
-        if python3 enhanced_status_aggregator.py --once --agent-dir "../$AGENT_STATUS_DIR" --output-dir ".."; then
+        if python3 enhanced_status_aggregator.py --once --agent-dir "../$AGENT_STATUS_DIR" --output-dir ".." --config-file "../runtime/agent_config.json"; then
             echo -e "${GREEN}Status aggregation completed successfully (enhanced)${NC}"
             log "Status aggregation completed (enhanced)"
             return 0
@@ -152,7 +158,7 @@ start_watcher() {
         echo -e "${GREEN}Using enhanced real-time aggregator with change queue${NC}"
         cd "$COORDINATION_DIR"
         log "Starting enhanced status watcher with real-time display"
-        python3 enhanced_status_aggregator.py --watch --agent-dir "../$AGENT_STATUS_DIR" --output-dir ".."
+        python3 enhanced_status_aggregator.py --watch --agent-dir "../$AGENT_STATUS_DIR" --output-dir ".." --config-file "../runtime/agent_config.json"
     elif [[ -f "$COORDINATION_DIR/status_aggregator.py" ]]; then
         echo -e "${YELLOW}Using basic aggregator (enhanced version not found)${NC}"
         cd "$COORDINATION_DIR"
@@ -221,21 +227,34 @@ show_all_statuses() {
     echo -e "${CYAN}=== All Agent Statuses ===${NC}"
     echo ""
     
-    # Get current agents from theme manager
-    if [[ -f "$THEME_MANAGER" ]]; then
-        mapfile -t agents < <("$THEME_MANAGER" get-agents)
+    # Use enhanced status aggregator for better output
+    if [[ -f "$COORDINATION_DIR/enhanced_status_aggregator.py" ]]; then
+        cd "$COORDINATION_DIR"
+        python3 enhanced_status_aggregator.py --once --agent-dir "../$AGENT_STATUS_DIR" --config-file "../runtime/agent_config.json"
     else
-        # Fallback to default agents
-        local agents=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
-    fi
-    
-    for agent in "${agents[@]}"; do
-        if [[ -f "$AGENT_STATUS_DIR/${agent}_status.json" ]]; then
-            show_agent_status "$agent"
-        else
-            echo -e "${YELLOW}Agent $agent: Status file not found${NC}"
+        # Fallback to individual status display
+        # Get current agents from theme manager
+        local agents=()
+        if [[ -f "$THEME_MANAGER" ]]; then
+            # Use portable method instead of mapfile
+            while IFS= read -r line; do
+                [[ -n "$line" ]] && agents+=("$line")
+            done < <("$THEME_MANAGER" get-agents)
         fi
-    done
+        
+        # Fallback to default agents if none found
+        if [[ ${#agents[@]} -eq 0 ]]; then
+            agents=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
+        fi
+        
+        for agent in "${agents[@]}"; do
+            if [[ -f "$AGENT_STATUS_DIR/${agent}_status.json" ]]; then
+                echo -e "${GREEN}Agent $agent: Active${NC}"
+            else
+                echo -e "${YELLOW}Agent $agent: Status file not found${NC}"
+            fi
+        done
+    fi
 }
 
 # Function to show system status
@@ -244,11 +263,17 @@ show_system_status() {
     echo ""
     
     # Get current agents from theme manager
+    local agents=()
     if [[ -f "$THEME_MANAGER" ]]; then
-        mapfile -t agents < <("$THEME_MANAGER" get-agents)
-    else
-        # Fallback to default agents
-        local agents=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
+        # Use portable method instead of mapfile
+        while IFS= read -r line; do
+            [[ -n "$line" ]] && agents+=("$line")
+        done < <("$THEME_MANAGER" get-agents)
+    fi
+    
+    # Fallback to default agents if none found
+    if [[ ${#agents[@]} -eq 0 ]]; then
+        agents=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
     fi
     local active_agents=0
     local total_agents=${#agents[@]}
@@ -309,11 +334,17 @@ create_agent_template() {
     fi
     
     # Get current agents from theme manager
+    local agents=()
     if [[ -f "$THEME_MANAGER" ]]; then
-        mapfile -t agents < <("$THEME_MANAGER" get-agents)
-    else
-        # Fallback to default agents
-        local agents=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
+        # Use portable method instead of mapfile
+        while IFS= read -r line; do
+            [[ -n "$line" ]] && agents+=("$line")
+        done < <("$THEME_MANAGER" get-agents)
+    fi
+    
+    # Fallback to default agents if none found
+    if [[ ${#agents[@]} -eq 0 ]]; then
+        agents=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
     fi
     
     if [[ ! " ${agents[@]} " =~ " ${agent_id} " ]]; then

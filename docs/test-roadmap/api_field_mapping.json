@@ -1,0 +1,174 @@
+{
+  "api_field_mapping": {
+    "version": "1.0",
+    "created_date": "2025-01-19",
+    "description": "API field mapping between expected test fields and actual implementation fields",
+    "authority_manager_api": {
+      "method": "assign_authority",
+      "file": "coordination_system/dynamic_authority_manager.py",
+      "line_range": "128-177",
+      "actual_response_fields": {
+        "id": {
+          "type": "string",
+          "format": "AUTH-YYYYMMDD-HHMMSS",
+          "description": "Unique authority assignment identifier",
+          "always_present": true
+        },
+        "agent": {
+          "type": "string", 
+          "description": "Name of the agent assigned the authority",
+          "always_present": true,
+          "note": "Tests incorrectly expect 'assigned_agent' instead"
+        },
+        "authority_type": {
+          "type": "string",
+          "enum": ["project", "domain", "emergency", "collaborative", "task"],
+          "description": "Type of authority granted",
+          "always_present": true
+        },
+        "domain": {
+          "type": "string",
+          "enum": ["backend", "frontend", "infrastructure", "security", "data", "performance", "quality", "architecture", "general"],
+          "description": "Domain specialization for the authority",
+          "always_present": true
+        },
+        "task": {
+          "type": "string",
+          "description": "Original task description that triggered authority assignment",
+          "always_present": true
+        },
+        "granted_at": {
+          "type": "string",
+          "format": "ISO 8601 datetime",
+          "description": "When authority was granted",
+          "always_present": true
+        },
+        "expires_at": {
+          "type": "string", 
+          "format": "ISO 8601 datetime",
+          "description": "When authority expires",
+          "always_present": true
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "queued", "released", "expired"],
+          "description": "Current status of authority assignment",
+          "always_present": true
+        }
+      },
+      "queued_response_fields": {
+        "id": {
+          "type": "string",
+          "format": "REQ-YYYYMMDD-HHMMSS", 
+          "description": "Unique request identifier when no agent available",
+          "always_present": true
+        },
+        "task": {
+          "type": "string",
+          "description": "Original task description",
+          "always_present": true
+        },
+        "authority_type": {
+          "type": "string",
+          "description": "Type of authority requested",
+          "always_present": true
+        },
+        "domain": {
+          "type": "string",
+          "description": "Domain for the authority",
+          "always_present": true
+        },
+        "requested_at": {
+          "type": "string",
+          "format": "ISO 8601 datetime",
+          "description": "When request was made",
+          "always_present": true
+        },
+        "status": {
+          "type": "string",
+          "value": "queued",
+          "description": "Status when no agent available",
+          "always_present": true
+        }
+      }
+    },
+    "load_balancer_api": {
+      "method": "assign_task", 
+      "file": "load_balancer.py",
+      "line_range": "252-267",
+      "actual_response": {
+        "type": "string|null",
+        "description": "Returns agent name as string if assigned, null if queued",
+        "note": "Simple return value, not an object with fields"
+      }
+    },
+    "field_discrepancies": {
+      "authority_manager": {
+        "expected_by_tests": "assigned_agent",
+        "actual_in_api": "agent",
+        "impact": "KeyError in tests when accessing result['assigned_agent']",
+        "affected_files": [
+          "tests/test_end_to_end.py:77",
+          "tests/conftest.py:117, 121",
+          "tests/test_integration.py:118, 247, 265, 371, 376"
+        ]
+      },
+      "success_field": {
+        "expected_by_tests": "success",
+        "actual_in_api": "not_present",
+        "impact": "Tests expect success boolean field that doesn't exist",
+        "affected_files": [
+          "tests/test_error_handling.py",
+          "tests/test_end_to_end.py:79"
+        ],
+        "fix_strategy": "Check for presence of 'agent' field or status != 'queued' to determine success"
+      }
+    },
+    "test_expectation_fixes": {
+      "replace_assigned_agent_with_agent": {
+        "description": "Replace all occurrences of result['assigned_agent'] with result['agent']",
+        "files_to_update": [
+          "tests/test_end_to_end.py",
+          "tests/conftest.py", 
+          "tests/test_integration.py"
+        ]
+      },
+      "fix_success_field_logic": {
+        "description": "Replace success field checks with proper status/agent presence checks",
+        "logic": "success = 'agent' in result and result.get('status') != 'queued'",
+        "files_to_update": [
+          "tests/test_error_handling.py",
+          "tests/test_end_to_end.py"
+        ]
+      }
+    }
+  },
+  "implementation_analysis": {
+    "authority_manager_assign_authority": {
+      "successful_assignment": {
+        "returns": "assignment dict with 'agent' field",
+        "example": {
+          "id": "AUTH-20250119-143022",
+          "agent": "shark",
+          "authority_type": "task",
+          "domain": "security", 
+          "task": "Implement security feature",
+          "granted_at": "2025-01-19T14:30:22.123456",
+          "expires_at": "2025-01-19T22:30:22.123456",
+          "status": "active"
+        }
+      },
+      "queued_request": {
+        "returns": "request dict with 'status': 'queued'",
+        "example": {
+          "id": "REQ-20250119-143022",
+          "task": "Implement security feature",
+          "authority_type": "task",
+          "domain": "security",
+          "requested_at": "2025-01-19T14:30:22.123456", 
+          "status": "queued"
+        }
+      }
+    }
+  }
+}

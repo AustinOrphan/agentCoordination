@@ -1,0 +1,23 @@
+{
+  "alpha": {
+    "current": 70
+  },
+  "beta": {
+    "current": 30
+  },
+  "gamma": {
+    "current": 85
+  },
+  "whale": {
+    "current": 20,
+    "history": [
+      {
+        "timestamp": "2025-07-19T10:14:35.373215",
+        "from": 0,
+        "to": 20,
+        "change": 20
+      }
+    ],
+    "last_updated": "2025-07-19T10:14:35.373214"
+  }
+}

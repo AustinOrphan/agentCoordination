@@ -1,0 +1,62 @@
+[
+  {
+    "timestamp": "2025-07-19T10:55:22.177249",
+    "category": "histogram",
+    "metric_name": "authority_assignment_duration",
+    "value": 52.17295800684951,
+    "unit": "ms",
+    "agent_id": "shark",
+    "operation_id": "authority_assignment_1752940522125",
+    "metadata": {
+      "success": true
+    }
+  },
+  {
+    "timestamp": "2025-07-19T10:55:22.282056",
+    "category": "histogram",
+    "metric_name": "emergency_response_duration",
+    "value": 103.092666977318,
+    "unit": "ms",
+    "agent_id": "whale",
+    "operation_id": "emergency_response_1752940522178",
+    "metadata": {
+      "success": true
+    }
+  },
+  {
+    "timestamp": "2025-07-19T10:55:22.303688",
+    "category": "histogram",
+    "metric_name": "risky_operation_duration",
+    "value": 21.436624985653907,
+    "unit": "ms",
+    "agent_id": "jellyfish",
+    "operation_id": "risky_operation_1752940522282",
+    "metadata": {
+      "success": false
+    }
+  },
+  {
+    "timestamp": "2025-07-19T10:55:22.303774",
+    "category": "workflow",
+    "metric_name": "proposal_created",
+    "value": 1,
+    "unit": "count",
+    "agent_id": "shark",
+    "operation_id": null,
+    "metadata": {
+      "proposal_type": "architecture"
+    }
+  },
+  {
+    "timestamp": "2025-07-19T10:55:22.303801",
+    "category": "workflow",
+    "metric_name": "vote_cast",
+    "value": 1,
+    "unit": "count",
+    "agent_id": "dolphin",
+    "operation_id": null,
+    "metadata": {
+      "vote_choice": "approve"
+    }
+  }
+]

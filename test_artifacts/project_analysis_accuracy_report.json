@@ -1,0 +1,94 @@
+{
+  "timestamp": "2025-07-23 15:46:12",
+  "total_projects_tested": 6,
+  "results": {
+    "react_webapp": {
+      "expected_type": "ProjectType.WEB_APP",
+      "detected_type": "ProjectType.WEB_APP",
+      "type_correct": true,
+      "expected_frameworks": [
+        "react"
+      ],
+      "detected_frameworks": [
+        "react"
+      ],
+      "framework_correct": true,
+      "confidence": 0.8,
+      "complexity": "low",
+      "team_size": 2
+    },
+    "python_api": {
+      "expected_type": "ProjectType.API_SERVICE",
+      "detected_type": "ProjectType.API_SERVICE",
+      "type_correct": true,
+      "expected_frameworks": [
+        "fastapi"
+      ],
+      "detected_frameworks": [
+        "fastapi"
+      ],
+      "framework_correct": true,
+      "confidence": 0.5,
+      "complexity": "low",
+      "team_size": 1
+    },
+    "ml_project": {
+      "expected_type": "ProjectType.ML_PROJECT",
+      "detected_type": "ProjectType.ML_PROJECT",
+      "type_correct": true,
+      "expected_frameworks": [],
+      "detected_frameworks": [],
+      "framework_correct": true,
+      "confidence": 0.5,
+      "complexity": "low",
+      "team_size": 2
+    },
+    "unity_game": {
+      "expected_type": "ProjectType.GAME_DEV",
+      "detected_type": "ProjectType.GAME_DEV",
+      "type_correct": true,
+      "expected_frameworks": [
+        "unity"
+      ],
+      "detected_frameworks": [
+        "unity"
+      ],
+      "framework_correct": true,
+      "confidence": 1.3,
+      "complexity": "low",
+      "team_size": 1
+    },
+    "blockchain_truffle": {
+      "expected_type": "ProjectType.BLOCKCHAIN",
+      "detected_type": "ProjectType.BLOCKCHAIN",
+      "type_correct": true,
+      "expected_frameworks": [
+        "truffle"
+      ],
+      "detected_frameworks": [
+        "truffle"
+      ],
+      "framework_correct": true,
+      "confidence": 1.3,
+      "complexity": "low",
+      "team_size": 1
+    },
+    "cli_tool": {
+      "expected_type": "ProjectType.CLI_TOOL",
+      "detected_type": "ProjectType.CLI_TOOL",
+      "type_correct": true,
+      "expected_frameworks": [],
+      "detected_frameworks": [],
+      "framework_correct": true,
+      "confidence": 0.6000000000000001,
+      "complexity": "low",
+      "team_size": 1
+    }
+  },
+  "summary": {
+    "type_accuracy": 1.0,
+    "framework_accuracy": 1.0,
+    "average_confidence": 0.8333333333333334,
+    "pass_threshold": 0.8
+  }
+}

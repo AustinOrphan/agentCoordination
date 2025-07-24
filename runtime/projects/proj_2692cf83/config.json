@@ -1,0 +1,537 @@
+{
+  "project_id": "proj_2692cf83",
+  "name": "Fresh ML Project",
+  "codebase_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/test_projects/ml_project",
+  "description": "Fresh ML project",
+  "agent_count": null,
+  "status": "active",
+  "created_at": "2025-07-23T16:12:09.709118+00:00",
+  "last_active": "2025-07-23T16:12:09.709118+00:00",
+  "metadata": {
+    "last_analysis": {
+      "timestamp": "2025-07-23T16:12:09.712923+00:00",
+      "analysis": {
+        "project_type": "ml_project",
+        "complexity": "medium",
+        "confidence": 1.0,
+        "team_size_recommendation": 3,
+        "patterns": [],
+        "suggested_workflow": "Custom Development Workflow",
+        "technologies": {
+          "languages": [
+            "python"
+          ],
+          "frameworks": [
+            "fastapi",
+            "flask",
+            "tensorflow"
+          ],
+          "databases": [],
+          "cloud_services": [],
+          "build_tools": [],
+          "testing_frameworks": [],
+          "deployment_tools": [],
+          "package_managers": []
+        },
+        "structure": {
+          "has_tests": false,
+          "has_docs": false,
+          "has_ci_cd": false,
+          "has_docker": false,
+          "has_api": false,
+          "has_frontend": true,
+          "has_backend": true,
+          "has_database": false,
+          "entry_points": [],
+          "config_files": []
+        }
+      },
+      "report": "\n# Project Analysis Report\n\n**Project Path:** /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/test_projects/ml_project\n**Analysis Date:** null\n\n## Project Classification\n- **Type:** Ml Project\n- **Confidence:** 100.00%\n- **Estimated Complexity:** Medium\n- **Recommended Team Size:** 3 developers\n\n## Technology Stack\n\n### Languages\n- Python\n\n### Frameworks & Libraries\n- Fastapi\n- Flask\n- Tensorflow\n\n### Databases\n\n\n### Development Tools\n\n\n### Testing Frameworks\n\n\n## Project Structure Analysis\n\n- **Has Tests:** \u274c\n- **Has Documentation:** \u274c\n- **Has CI/CD:** \u274c\n- **Has Docker:** \u274c\n- **Has API:** \u274c\n- **Has Frontend:** \u2705\n- **Has Backend:** \u2705\n- **Has Database:** \u274c\n\n### Entry Points\n- None detected\n\n### Configuration Files\n- None detected\n\n## Detected Patterns\n- No specific patterns detected\n\n## Recommended Workflow\n**Custom Development Workflow**\n\nThis analysis suggests using the custom development workflow template for optimal development workflow organization.\n\n## Next Steps\n1. Review the suggested workflow template\n2. Set up the recommended team structure\n3. Configure development environment based on detected technologies\n4. Implement missing infrastructure (CI/CD, testing, documentation) as identified\n"
+    },
+    "generated_tasks": {
+      "timestamp": "2025-07-23T16:13:04.833904+00:00",
+      "tasks": [
+        {
+          "id": "security_scanning",
+          "title": "Set Up Security Scanning",
+          "description": "Add automated security scanning for dependencies and code",
+          "category": "security",
+          "priority": "high",
+          "estimated_hours": 4,
+          "dependencies": [],
+          "files_involved": [
+            ".github/workflows/security.yml"
+          ],
+          "agent_specialization": "security",
+          "confidence": 0.9,
+          "reasoning": "No security scanning configuration found",
+          "acceptance_criteria": [
+            "Security scanning configured",
+            "Vulnerability alerts enabled",
+            "Regular security audits"
+          ],
+          "tags": [
+            "security",
+            "scanning",
+            "automation"
+          ]
+        },
+        {
+          "id": "increase_test_coverage",
+          "title": "Increase Test Coverage",
+          "description": "Add more tests to improve overall test coverage",
+          "category": "testing",
+          "priority": "high",
+          "estimated_hours": 16,
+          "dependencies": [],
+          "files_involved": [
+            "src/train.py"
+          ],
+          "agent_specialization": "fullstack",
+          "confidence": 0.9,
+          "reasoning": "Test ratio is 0.00, should be at least 0.3",
+          "acceptance_criteria": [
+            "Test coverage increased",
+            "Critical paths tested",
+            "Test ratio improved"
+          ],
+          "tags": [
+            "testing",
+            "coverage",
+            "quality"
+          ]
+        },
+        {
+          "id": "template_success_metrics",
+          "title": "Define Success Metrics",
+          "description": "Establish clear success criteria and evaluation metrics",
+          "category": "data_exploration_&_analysis",
+          "priority": "high",
+          "estimated_hours": 4,
+          "dependencies": [
+            "template_exploratory_analysis"
+          ],
+          "files_involved": [],
+          "agent_specialization": "data_scientist",
+          "confidence": 0.8,
+          "reasoning": "Task from Machine Learning Project template",
+          "acceptance_criteria": [
+            "Business success metrics defined",
+            "Technical performance metrics established",
+            "Baseline performance measured",
+            "Success criteria documented"
+          ],
+          "tags": [
+            "metrics",
+            "evaluation",
+            "kpi"
+          ]
+        },
+        {
+          "id": "setup_ci_cd",
+          "title": "Set Up CI/CD Pipeline",
+          "description": "Configure continuous integration and deployment pipeline",
+          "category": "ci_cd",
+          "priority": "high",
+          "estimated_hours": 8,
+          "dependencies": [],
+          "files_involved": [
+            ".github/workflows/ci.yml"
+          ],
+          "agent_specialization": "devops",
+          "confidence": 0.8,
+          "reasoning": "No CI/CD configuration found",
+          "acceptance_criteria": [
+            "CI/CD pipeline configured",
+            "Automated testing on PRs",
+            "Deployment automation ready"
+          ],
+          "tags": [
+            "ci",
+            "cd",
+            "automation",
+            "devops"
+          ]
+        },
+        {
+          "id": "template_data_quality_issues",
+          "title": "Identify Data Quality Issues",
+          "description": "Document and plan resolution for data quality issues",
+          "category": "data_exploration_&_analysis",
+          "priority": "high",
+          "estimated_hours": 8,
+          "dependencies": [
+            "template_exploratory_analysis"
+          ],
+          "files_involved": [],
+          "agent_specialization": "data_scientist",
+          "confidence": 0.8,
+          "reasoning": "Task from Machine Learning Project template",
+          "acceptance_criteria": [
+            "Missing data patterns analyzed",
+            "Data inconsistencies identified",
+            "Quality issues prioritized",
+            "Cleaning strategy defined"
+          ],
+          "tags": [
+            "quality",
+            "issues",
+            "cleaning"
+          ]
+        },
+        {
+          "id": "template_data_collection",
+          "title": "Collect and Validate Datasets",
+          "description": "Gather datasets and validate data quality",
+          "category": "data_exploration_&_analysis",
+          "priority": "high",
+          "estimated_hours": 16,
+          "dependencies": [],
+          "files_involved": [],
+          "agent_specialization": "data_scientist",
+          "confidence": 0.8,
+          "reasoning": "Task from Machine Learning Project template",
+          "acceptance_criteria": [
+            "Datasets collected from all sources",
+            "Data quality assessment completed",
+            "Data lineage documented",
+            "Privacy and compliance checks passed"
+          ],
+          "tags": [
+            "data",
+            "collection",
+            "validation"
+          ]
+        },
+        {
+          "id": "template_exploratory_analysis",
+          "title": "Perform Exploratory Data Analysis",
+          "description": "Conduct comprehensive EDA to understand data patterns",
+          "category": "data_exploration_&_analysis",
+          "priority": "high",
+          "estimated_hours": 20,
+          "dependencies": [
+            "template_data_collection"
+          ],
+          "files_involved": [],
+          "agent_specialization": "data_scientist",
+          "confidence": 0.8,
+          "reasoning": "Task from Machine Learning Project template",
+          "acceptance_criteria": [
+            "Statistical summary of all variables",
+            "Data distributions analyzed",
+            "Correlations and relationships identified",
+            "Outliers and anomalies documented"
+          ],
+          "tags": [
+            "eda",
+            "analysis",
+            "patterns"
+          ]
+        },
+        {
+          "id": "create_gitignore",
+          "title": "Create .gitignore File",
+          "description": "Add appropriate .gitignore file for the project type",
+          "category": "setup",
+          "priority": "medium",
+          "estimated_hours": 1,
+          "dependencies": [],
+          "files_involved": [
+            ".gitignore"
+          ],
+          "agent_specialization": "fullstack",
+          "confidence": 0.9,
+          "reasoning": "Project should have .gitignore to exclude unnecessary files",
+          "acceptance_criteria": [
+            ".gitignore created",
+            "Common files excluded",
+            "Language-specific patterns included"
+          ],
+          "tags": [
+            "setup",
+            "git",
+            "configuration"
+          ]
+        },
+        {
+          "id": "security_scan_python",
+          "title": "Set Up Python Security Scanning",
+          "description": "Add security scanning for Python dependencies (safety, bandit)",
+          "category": "security",
+          "priority": "medium",
+          "estimated_hours": 3,
+          "dependencies": [],
+          "files_involved": [
+            "requirements.txt"
+          ],
+          "agent_specialization": "security",
+          "confidence": 0.8,
+          "reasoning": "Python projects should include security scanning",
+          "acceptance_criteria": [
+            "Security scanning tools added",
+            "No critical vulnerabilities found"
+          ],
+          "tags": [
+            "security",
+            "scanning",
+            "python"
+          ]
+        },
+        {
+          "id": "setup_linting",
+          "title": "Set Up Code Linting",
+          "description": "Configure code linting and formatting tools",
+          "category": "quality",
+          "priority": "medium",
+          "estimated_hours": 3,
+          "dependencies": [],
+          "files_involved": [
+            ".eslintrc.js"
+          ],
+          "agent_specialization": "fullstack",
+          "confidence": 0.8,
+          "reasoning": "No linting configuration found",
+          "acceptance_criteria": [
+            "Linting configured",
+            "Code style consistent",
+            "Pre-commit hooks set up"
+          ],
+          "tags": [
+            "quality",
+            "linting",
+            "formatting"
+          ]
+        },
+        {
+          "id": "template_data_visualization",
+          "title": "Create Data Visualizations",
+          "description": "Develop visualizations to communicate findings",
+          "category": "data_exploration_&_analysis",
+          "priority": "medium",
+          "estimated_hours": 12,
+          "dependencies": [
+            "template_data_quality_issues"
+          ],
+          "files_involved": [],
+          "agent_specialization": "data_scientist",
+          "confidence": 0.8,
+          "reasoning": "Task from Machine Learning Project template",
+          "acceptance_criteria": [
+            "Key insights visualized",
+            "Interactive dashboards created",
+            "Findings documented in notebooks",
+            "Stakeholder presentation prepared"
+          ],
+          "tags": [
+            "visualization",
+            "communication",
+            "insights"
+          ]
+        },
+        {
+          "id": "environment_config",
+          "title": "Set Up Environment Configuration",
+          "description": "Create environment-specific configuration files",
+          "category": "deployment",
+          "priority": "medium",
+          "estimated_hours": 3,
+          "dependencies": [],
+          "files_involved": [
+            ".env.example"
+          ],
+          "agent_specialization": "devops",
+          "confidence": 0.7,
+          "reasoning": "No environment configuration files found",
+          "acceptance_criteria": [
+            "Environment config created",
+            "Different environments supported",
+            "Secrets properly managed"
+          ],
+          "tags": [
+            "deployment",
+            "configuration",
+            "environment"
+          ]
+        },
+        {
+          "id": "setup_logging",
+          "title": "Set Up Structured Logging",
+          "description": "Implement structured logging throughout the application",
+          "category": "monitoring",
+          "priority": "medium",
+          "estimated_hours": 4,
+          "dependencies": [],
+          "files_involved": [
+            "logging/"
+          ],
+          "agent_specialization": "fullstack",
+          "confidence": 0.7,
+          "reasoning": "No logging configuration found",
+          "acceptance_criteria": [
+            "Structured logging implemented",
+            "Log levels configured",
+            "Log rotation set up"
+          ],
+          "tags": [
+            "monitoring",
+            "logging",
+            "observability"
+          ]
+        },
+        {
+          "id": "create_docs_directory",
+          "title": "Create Documentation Directory",
+          "description": "Set up documentation structure with architecture and API docs",
+          "category": "documentation",
+          "priority": "medium",
+          "estimated_hours": 6,
+          "dependencies": [],
+          "files_involved": [
+            "docs/"
+          ],
+          "agent_specialization": "fullstack",
+          "confidence": 0.7,
+          "reasoning": "Medium/high complexity project needs dedicated documentation",
+          "acceptance_criteria": [
+            "Docs directory created",
+            "Architecture documented",
+            "Setup guide created"
+          ],
+          "tags": [
+            "documentation",
+            "architecture",
+            "setup"
+          ]
+        },
+        {
+          "id": "dependency_audit",
+          "title": "Regular Dependency Auditing",
+          "description": "Set up automated dependency auditing and updates",
+          "category": "maintenance",
+          "priority": "medium",
+          "estimated_hours": 2,
+          "dependencies": [],
+          "files_involved": [
+            "requirements.txt"
+          ],
+          "agent_specialization": "devops",
+          "confidence": 0.6,
+          "reasoning": "Dependencies should be regularly audited",
+          "acceptance_criteria": [
+            "Dependency auditing configured",
+            "Automated updates set up",
+            "Security alerts enabled"
+          ],
+          "tags": [
+            "dependencies",
+            "security",
+            "maintenance"
+          ]
+        },
+        {
+          "id": "accessibility_testing",
+          "title": "Add Accessibility Testing",
+          "description": "Implement automated accessibility testing and audits",
+          "category": "testing",
+          "priority": "medium",
+          "estimated_hours": 6,
+          "dependencies": [],
+          "files_involved": [
+            "tests/accessibility/"
+          ],
+          "agent_specialization": "frontend",
+          "confidence": 0.6,
+          "reasoning": "Frontend application should include accessibility testing",
+          "acceptance_criteria": [
+            "Accessibility tests added",
+            "WCAG compliance checked",
+            "Automated audits configured"
+          ],
+          "tags": [
+            "accessibility",
+            "testing",
+            "frontend"
+          ]
+        },
+        {
+          "id": "create_dev_requirements",
+          "title": "Create Development Requirements File",
+          "description": "Separate development dependencies into requirements-dev.txt",
+          "category": "setup",
+          "priority": "low",
+          "estimated_hours": 1,
+          "dependencies": [],
+          "files_involved": [
+            "requirements-dev.txt"
+          ],
+          "agent_specialization": "backend",
+          "confidence": 0.6,
+          "reasoning": "No separate development requirements file found",
+          "acceptance_criteria": [
+            "Development requirements file created",
+            "Development dependencies separated"
+          ],
+          "tags": [
+            "dependencies",
+            "development",
+            "setup"
+          ]
+        },
+        {
+          "id": "add_license",
+          "title": "Add License File",
+          "description": "Choose and add appropriate license for the project",
+          "category": "documentation",
+          "priority": "low",
+          "estimated_hours": 1,
+          "dependencies": [],
+          "files_involved": [
+            "LICENSE"
+          ],
+          "agent_specialization": "fullstack",
+          "confidence": 0.6,
+          "reasoning": "Open source projects should have a license",
+          "acceptance_criteria": [
+            "License file added",
+            "Appropriate license chosen",
+            "License referenced in README"
+          ],
+          "tags": [
+            "documentation",
+            "legal",
+            "license"
+          ]
+        }
+      ],
+      "report": {
+        "total_tasks_generated": 18,
+        "tasks_by_category": {
+          "security": 2,
+          "testing": 2,
+          "data_exploration_&_analysis": 5,
+          "ci_cd": 1,
+          "setup": 2,
+          "quality": 1,
+          "deployment": 1,
+          "monitoring": 1,
+          "documentation": 2,
+          "maintenance": 1
+        },
+        "high_confidence_tasks": 11,
+        "detected_gaps": [
+          "No testing infrastructure",
+          "Limited documentation",
+          "No CI/CD pipeline",
+          "No containerization"
+        ],
+        "recommendations": [
+          "Prioritize adding comprehensive test coverage"
+        ],
+        "generation_timestamp": "2025-07-23T11:13:04.833890"
+      },
+      "exclude_existing": true
+    }
+  },
+  "workspace_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/projects/proj_2692cf83"
+}
