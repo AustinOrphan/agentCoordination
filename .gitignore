@@ -33,3 +33,8 @@ venv/
 
 # Agent worktrees (will be in parent directory)
 ../agent-*/
+
+# Cleanup Review folders
+cleanup_review/*
+# Local developer notes
+CLAUDE.local.md

@@ -1,0 +1,15 @@
+{
+  "project_id": "proj_a322c984",
+  "name": "Production Project",
+  "codebase_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/sample-projects/prod-app",
+  "description": "Important production project",
+  "agent_count": 6,
+  "status": "initializing",
+  "created_at": "2025-07-23T14:09:12.770848+00:00",
+  "last_active": "2025-07-23T14:23:54.846289+00:00",
+  "metadata": {
+    "reset_at": "2025-07-23T14:23:54.846294+00:00",
+    "reset_count": 2
+  },
+  "workspace_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/projects/proj_a322c984"
+}

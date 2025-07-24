@@ -1,0 +1,126 @@
+{
+  "template_name": "Web Application",
+  "template_id": "web_app",
+  "description": "Template for modern web applications with frontend and backend components",
+  "recommended_agents": 8,
+  "recommended_theme": "ocean_creatures",
+  "project_priority": 1.2,
+  "default_tasks": [
+    {
+      "title": "Setup Development Environment",
+      "description": "Configure development environment with necessary tools and dependencies",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 2.0,
+      "tags": ["setup", "environment", "initialization"],
+      "dependencies": []
+    },
+    {
+      "title": "Design Database Schema",
+      "description": "Design and implement database schema for application data",
+      "task_type": "design",
+      "priority": "high",
+      "estimated_hours": 4.0,
+      "tags": ["database", "architecture", "design"],
+      "dependencies": []
+    },
+    {
+      "title": "Implement Authentication System",
+      "description": "Create user authentication with login, logout, and session management",
+      "task_type": "development",
+      "priority": "critical",
+      "estimated_hours": 8.0,
+      "tags": ["auth", "security", "backend"],
+      "dependencies": ["Design Database Schema"]
+    },
+    {
+      "title": "Create API Endpoints",
+      "description": "Develop RESTful API endpoints for frontend-backend communication",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 12.0,
+      "tags": ["api", "backend", "rest"],
+      "dependencies": ["Design Database Schema"]
+    },
+    {
+      "title": "Build Frontend Components",
+      "description": "Create reusable UI components for the application",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 16.0,
+      "tags": ["frontend", "ui", "components"],
+      "dependencies": ["Setup Development Environment"]
+    },
+    {
+      "title": "Implement State Management",
+      "description": "Set up application state management (Redux/Context/etc)",
+      "task_type": "development",
+      "priority": "normal",
+      "estimated_hours": 6.0,
+      "tags": ["frontend", "state", "architecture"],
+      "dependencies": ["Build Frontend Components"]
+    },
+    {
+      "title": "Add Unit Tests",
+      "description": "Write comprehensive unit tests for critical components",
+      "task_type": "testing",
+      "priority": "high",
+      "estimated_hours": 8.0,
+      "tags": ["testing", "quality", "unit-tests"],
+      "dependencies": ["Create API Endpoints", "Build Frontend Components"]
+    },
+    {
+      "title": "Setup CI/CD Pipeline",
+      "description": "Configure automated testing and deployment pipeline",
+      "task_type": "deployment",
+      "priority": "normal",
+      "estimated_hours": 4.0,
+      "tags": ["devops", "ci-cd", "automation"],
+      "dependencies": ["Add Unit Tests"]
+    },
+    {
+      "title": "Implement Security Headers",
+      "description": "Add security headers and CSRF protection",
+      "task_type": "security",
+      "priority": "high",
+      "estimated_hours": 3.0,
+      "tags": ["security", "headers", "protection"],
+      "dependencies": ["Create API Endpoints"]
+    },
+    {
+      "title": "Performance Optimization",
+      "description": "Optimize frontend bundle size and backend response times",
+      "task_type": "performance",
+      "priority": "normal",
+      "estimated_hours": 6.0,
+      "tags": ["performance", "optimization"],
+      "dependencies": ["Build Frontend Components", "Create API Endpoints"]
+    }
+  ],
+  "agent_roles": {
+    "Critical Path Lead": "Overall architecture and critical features",
+    "Migration Specialist": "Database and backend development",
+    "Dashboard Developer": "Frontend UI and components",
+    "DevOps Engineer": "CI/CD and deployment",
+    "Security Engineer": "Authentication and security",
+    "UX Engineer": "UI/UX design and frontend optimization"
+  },
+  "suggested_structure": {
+    "directories": [
+      "src/frontend",
+      "src/backend",
+      "src/shared",
+      "tests",
+      "docs",
+      "deployment",
+      "config"
+    ],
+    "key_files": [
+      "package.json",
+      "README.md",
+      ".env.example",
+      "docker-compose.yml",
+      ".gitignore"
+    ]
+  }
+}

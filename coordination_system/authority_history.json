@@ -1,0 +1,22 @@
+[
+  {
+    "id": "AUTH-20250719-101435",
+    "agent": "whale",
+    "authority_type": "task",
+    "domain": "backend",
+    "task": "Implement new API endpoints for user management",
+    "granted_at": "2025-07-19T10:14:35.372297",
+    "expires_at": "2025-07-19T18:14:35.372299",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-101435",
+    "agent": "whale",
+    "authority_type": "emergency",
+    "domain": "security",
+    "task": "Fix critical security vulnerability in auth system",
+    "granted_at": "2025-07-19T10:14:35.373207",
+    "expires_at": "2025-07-19T12:14:35.373209",
+    "status": "active"
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "agent_id": "whale",
+  "report_generated_at": "2025-07-19T10:35:51.201875",
+  "period": {
+    "start": "2025-06-19T10:35:51.201312",
+    "end": "2025-07-19T10:35:51.201314"
+  },
+  "summary_metrics": {
+    "agent_id": "whale",
+    "period_start": "2025-06-19T10:35:51.201312",
+    "period_end": "2025-07-19T10:35:51.201314",
+    "total_tasks": 1,
+    "completed_tasks": 1,
+    "average_completion_time_hours": 7.524587118887977,
+    "success_rate": 100.0,
+    "collaboration_count": 0,
+    "expertise_domains": [
+      "infrastructure"
+    ],
+    "availability_score": null,
+    "productivity_score": 30.333333333333336,
+    "quality_average": 7
+  },
+  "task_breakdown": {
+    "pending": 0,
+    "in_progress": 0,
+    "completed": 1,
+    "blocked": 0,
+    "cancelled": 0
+  },
+  "domain_expertise": {
+    "domains": [
+      "infrastructure"
+    ],
+    "success_rates": {
+      "infrastructure": 100.0
+    },
+    "primary_domain": "infrastructure"
+  },
+  "collaboration_analysis": {
+    "frequent_collaborators": {},
+    "total_collaborative_tasks": 0
+  },
+  "recommendations": [
+    "Seek opportunities for collaboration and knowledge sharing",
+    "Consider expanding expertise to additional domains"
+  ]
+}

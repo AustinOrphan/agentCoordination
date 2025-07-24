@@ -2,7 +2,7 @@
 # Dynamic Agent Management Script
 
 # Configuration
-THEME_MANAGER="./agent_theme_manager.py"
+THEME_MANAGER="./development/agent_theme_manager.py"
 
 # Colors
 RED='\033[0;31m'
@@ -14,10 +14,16 @@ NC='\033[0m' # No Color
 
 # Get current agents
 get_agents() {
+    AGENTS=()  # Initialize empty array
     if [[ -f "$THEME_MANAGER" ]]; then
-        mapfile -t AGENTS < <("$THEME_MANAGER" get-agents)
-    else
-        # Fallback to default agents
+        # Use portable method instead of mapfile
+        while IFS= read -r line; do
+            [[ -n "$line" ]] && AGENTS+=("$line")
+        done < <("$THEME_MANAGER" get-agents)
+    fi
+    
+    # Fallback to default agents if none found
+    if [[ ${#AGENTS[@]} -eq 0 ]]; then
         AGENTS=("alpha" "beta" "gamma" "delta" "epsilon" "zeta")
     fi
 }
@@ -231,7 +237,8 @@ list_agents() {
             echo "  Startup Script: ✗ (run ./generate_agents.sh)"
         fi
         
-        if [[ -f "./AGENT_${agent^^}_PROMPT.md" ]]; then
+        agent_upper=$(echo "$agent" | tr '[:lower:]' '[:upper:]')
+        if [[ -f "./AGENT_${agent_upper}_PROMPT.md" ]]; then
             echo "  Prompt File: ✓"
         else
             echo "  Prompt File: ✗"

@@ -1,0 +1,43 @@
+{
+  "assignments": [
+    {
+      "id": "AUTH-20250719-101435",
+      "agent": "whale",
+      "authority_type": "task",
+      "domain": "backend",
+      "task": "Implement new API endpoints for user management",
+      "granted_at": "2025-07-19T10:14:35.372297",
+      "expires_at": "2025-07-19T18:14:35.372299",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-101435",
+      "agent": "whale",
+      "authority_type": "emergency",
+      "domain": "security",
+      "task": "Fix critical security vulnerability in auth system",
+      "granted_at": "2025-07-19T10:14:35.373207",
+      "expires_at": "2025-07-19T12:14:35.373209",
+      "status": "active"
+    }
+  ],
+  "available": [],
+  "requests": [
+    {
+      "id": "REQ-20250719-101207",
+      "task": "Implement new API endpoints for user management",
+      "authority_type": "task",
+      "domain": "backend",
+      "requested_at": "2025-07-19T10:12:07.192659",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-101207",
+      "task": "Fix critical security vulnerability in auth system",
+      "authority_type": "emergency",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:12:07.192966",
+      "status": "queued"
+    }
+  ]
+}

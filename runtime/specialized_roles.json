@@ -1,0 +1,165 @@
+{
+  "roles": {
+    "security_lead": {
+      "role_id": "security_lead",
+      "name": "Security Lead",
+      "description": "Leads security initiatives and reviews",
+      "required_domains": [
+        "security",
+        "backend"
+      ],
+      "minimum_expertise_level": "proficient",
+      "responsibilities": [
+        "Security architecture decisions",
+        "Vulnerability assessment oversight",
+        "Security policy development",
+        "Incident response coordination"
+      ],
+      "authority_grants": [
+        "security",
+        "emergency_security"
+      ],
+      "availability_requirement": 0.6,
+      "max_concurrent_agents": 2,
+      "rotation_interval_days": 90
+    },
+    "devops_lead": {
+      "role_id": "devops_lead",
+      "name": "DevOps Lead",
+      "description": "Manages deployment and infrastructure",
+      "required_domains": [
+        "infrastructure",
+        "deployment"
+      ],
+      "minimum_expertise_level": "proficient",
+      "responsibilities": [
+        "Infrastructure management",
+        "CI/CD pipeline oversight",
+        "Production deployment decisions",
+        "Monitoring and alerting setup"
+      ],
+      "authority_grants": [
+        "infrastructure",
+        "deployment"
+      ],
+      "availability_requirement": 0.7,
+      "max_concurrent_agents": 2,
+      "rotation_interval_days": 60
+    },
+    "quality_assurance_lead": {
+      "role_id": "qa_lead",
+      "name": "Quality Assurance Lead",
+      "description": "Oversees testing and quality standards",
+      "required_domains": [
+        "quality",
+        "testing"
+      ],
+      "minimum_expertise_level": "competent",
+      "responsibilities": [
+        "Test strategy development",
+        "Quality gate enforcement",
+        "Performance testing oversight",
+        "Release quality certification"
+      ],
+      "authority_grants": [
+        "quality",
+        "testing"
+      ],
+      "availability_requirement": 0.5,
+      "max_concurrent_agents": 1,
+      "rotation_interval_days": 45
+    },
+    "frontend_architect": {
+      "role_id": "frontend_architect",
+      "name": "Frontend Architect",
+      "description": "Leads frontend architecture and UX decisions",
+      "required_domains": [
+        "frontend",
+        "ui"
+      ],
+      "minimum_expertise_level": "proficient",
+      "responsibilities": [
+        "Frontend architecture decisions",
+        "UI/UX standards enforcement",
+        "Component library management",
+        "Performance optimization"
+      ],
+      "authority_grants": [
+        "frontend",
+        "ui"
+      ],
+      "availability_requirement": 0.6,
+      "max_concurrent_agents": 1,
+      "rotation_interval_days": 120
+    },
+    "backend_architect": {
+      "role_id": "backend_architect",
+      "name": "Backend Architect",
+      "description": "Leads backend architecture and API design",
+      "required_domains": [
+        "backend",
+        "api"
+      ],
+      "minimum_expertise_level": "proficient",
+      "responsibilities": [
+        "Backend architecture decisions",
+        "API design standards",
+        "Database schema management",
+        "Microservices coordination"
+      ],
+      "authority_grants": [
+        "backend",
+        "api",
+        "data"
+      ],
+      "availability_requirement": 0.7,
+      "max_concurrent_agents": 2,
+      "rotation_interval_days": 120
+    },
+    "data_engineer": {
+      "role_id": "data_engineer",
+      "name": "Data Engineer",
+      "description": "Manages data systems and analytics",
+      "required_domains": [
+        "data",
+        "analytics"
+      ],
+      "minimum_expertise_level": "competent",
+      "responsibilities": [
+        "Data pipeline management",
+        "Analytics infrastructure",
+        "Data quality monitoring",
+        "ETL process optimization"
+      ],
+      "authority_grants": [
+        "data",
+        "analytics"
+      ],
+      "availability_requirement": 0.4,
+      "max_concurrent_agents": 1,
+      "rotation_interval_days": 90
+    },
+    "mentor": {
+      "role_id": "mentor",
+      "name": "Technical Mentor",
+      "description": "Provides guidance and knowledge transfer",
+      "required_domains": [
+        "any_expert_level"
+      ],
+      "minimum_expertise_level": "expert",
+      "responsibilities": [
+        "Knowledge transfer sessions",
+        "Code review and guidance",
+        "Best practices evangelism",
+        "Skill development planning"
+      ],
+      "authority_grants": [
+        "mentoring"
+      ],
+      "availability_requirement": 0.3,
+      "max_concurrent_agents": 3,
+      "rotation_interval_days": 180
+    }
+  },
+  "version": "1.0"
+}

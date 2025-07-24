@@ -21,6 +21,8 @@ from .stress_test_engine import (
     create_light_stress_config, create_medium_stress_config, 
     create_heavy_stress_config, create_extreme_stress_config
 )
+from ..adapters.adapter_factory import AdapterFactory, AdapterMode
+from ..adapters.base_adapter import BaseCoordinationAdapter
 
 
 @dataclass
@@ -249,9 +251,11 @@ class MockAgentSimulator:
 class AgentScalingStressScenario(StressTestScenario):
     """Stress test scenario for agent scaling."""
     
-    def __init__(self, config: StressTestConfig):
+    def __init__(self, config: StressTestConfig, adapter_mode: AdapterMode = AdapterMode.MOCK):
         super().__init__(config)
+        self.adapter_mode = adapter_mode
         self.temp_dir: Optional[str] = None
+        self.coordination_adapter: Optional[BaseCoordinationAdapter] = None
         self.agents: List[MockAgentSimulator] = []
         self.scaling_metrics: List[AgentScalingMetrics] = []
         
@@ -260,22 +264,15 @@ class AgentScalingStressScenario(StressTestScenario):
         # Create temporary directory for test files
         self.temp_dir = tempfile.mkdtemp(prefix="agent_scaling_stress_")
         
-        # Initialize authority pool file
-        authority_pool = {
-            "authorities": {
-                "critical_path": {"current_holder": None, "backup_holder": None},
-                "migration": {"current_holder": None, "backup_holder": None},
-                "dashboard": {"current_holder": None, "backup_holder": None},
-                "devops": {"current_holder": None, "backup_holder": None},
-                "security": {"current_holder": None, "backup_holder": None},
-                "ux": {"current_holder": None, "backup_holder": None}
-            },
-            "pending_requests": []
-        }
+        # Initialize coordination adapter
+        self.coordination_adapter = AdapterFactory.create_adapter(
+            mode=self.adapter_mode,
+            coordination_root=self.temp_dir
+        )
         
-        authority_file = os.path.join(self.temp_dir, "authority_pool.json")
-        with open(authority_file, 'w') as f:
-            json.dump(authority_pool, f, indent=2)
+        # Setup test environment
+        if not self.coordination_adapter.setup_test_environment():
+            raise RuntimeError("Failed to setup test environment")
             
     def execute_stress(self):
         """Execute the agent scaling stress test."""

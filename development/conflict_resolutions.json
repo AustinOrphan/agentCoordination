@@ -1,0 +1,18 @@
+[
+  {
+    "conflict_id": "CONF-20250719-105735-shark",
+    "conflict_type": "resource_contention",
+    "resolution_strategy": "round_robin",
+    "outcome": "Resource assigned to shark based on fair rotation",
+    "resolved_at": "2025-07-19T10:57:35.598489",
+    "resolution_time_hours": 6.5e-08
+  },
+  {
+    "conflict_id": "CONF-20250719-105735-octopus",
+    "conflict_type": "priority_conflict",
+    "resolution_strategy": "priority",
+    "outcome": "Decision awarded to seahorse based on priority",
+    "resolved_at": "2025-07-19T10:57:35.599645",
+    "resolution_time_hours": 9.083333333333333e-08
+  }
+]

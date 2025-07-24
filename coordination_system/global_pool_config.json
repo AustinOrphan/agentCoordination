@@ -1,0 +1,9 @@
+{
+  "pool_mode": "global_priority",
+  "project_priorities": {
+    "proj_2ad31f52": 1.8,
+    "proj_021086b1": 1.0,
+    "proj_dcaaeed2": 0.5
+  },
+  "last_updated": "2025-07-23T13:52:15.621973+00:00"
+}

@@ -1,0 +1,27 @@
+{
+  "test_mode": "mock_only",
+  "adapter_mode": "mock",
+  "test_suites": ["all"],
+  "coordination_config": {
+    "coordination_root": "/tmp/coordination_test",
+    "agent_status_dir": "/tmp/coordination_test/agent_status",
+    "communication_dir": "/tmp/coordination_test/agent_communication",
+    "authority_pool_file": "/tmp/coordination_test/authority_pool.json",
+    "agent_workloads_file": "/tmp/coordination_test/agent_workloads.json",
+    "coordination_master_file": "/tmp/coordination_test/AGENT_COORDINATION_MASTER.json",
+    "decision_log_file": "/tmp/coordination_test/DECISION_LOG.json",
+    "theme": "greek_letters",
+    "max_agents": 24
+  },
+  "execution_config": {
+    "timeout_seconds": 300.0,
+    "retry_attempts": 3,
+    "parallel_execution": false,
+    "cleanup_after_test": true,
+    "save_test_artifacts": true,
+    "verbose_logging": false,
+    "performance_monitoring": true,
+    "stress_test_intensity": "medium"
+  },
+  "custom_settings": {}
+}

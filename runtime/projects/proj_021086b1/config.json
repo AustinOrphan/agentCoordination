@@ -1,0 +1,12 @@
+{
+  "project_id": "proj_021086b1",
+  "name": "Mobile App",
+  "codebase_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/sample-projects/mobile-app",
+  "description": "Companion mobile application",
+  "agent_count": 6,
+  "status": "active",
+  "created_at": "2025-07-23T13:52:15.144748+00:00",
+  "last_active": "2025-07-23T13:52:15.144748+00:00",
+  "metadata": {},
+  "workspace_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/projects/proj_021086b1"
+}

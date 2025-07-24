@@ -1,0 +1,147 @@
+{
+  "conflicts": {
+    "CONF-20250719-105735-shark": {
+      "conflict_id": "CONF-20250719-105735-shark",
+      "type": "resource_contention",
+      "severity": "medium",
+      "title": "Database access conflict",
+      "description": "Multiple agents need exclusive access to user database for migrations",
+      "parties": [
+        {
+          "agent_id": "shark",
+          "position": "Need immediate access for security audit",
+          "justification": "Critical security vulnerabilities found",
+          "priority_level": 9,
+          "authority_level": "security",
+          "expertise_domains": [
+            "security",
+            "backend"
+          ]
+        },
+        {
+          "agent_id": "whale",
+          "position": "Scheduled maintenance window",
+          "justification": "Pre-planned infrastructure upgrade",
+          "priority_level": 7,
+          "authority_level": "infrastructure",
+          "expertise_domains": [
+            "infrastructure",
+            "deployment"
+          ]
+        }
+      ],
+      "reported_by": "shark",
+      "reported_at": "2025-07-19T10:57:35.598255",
+      "resolution_deadline": "2025-07-19T18:57:35.598236",
+      "status": "resolved",
+      "assigned_mediator": null,
+      "resolution_strategy": null,
+      "resolution_details": {
+        "strategy": "round_robin",
+        "outcome": "Resource assigned to shark based on fair rotation",
+        "winner": "shark",
+        "reasoning": "Round-robin assignment for fair resource distribution"
+      },
+      "resolution_timestamp": "2025-07-19T10:57:35.598489",
+      "escalation_history": [],
+      "metadata": {
+        "resource": "user_database",
+        "domain": "backend"
+      }
+    },
+    "CONF-20250719-105735-dolphin": {
+      "conflict_id": "CONF-20250719-105735-dolphin",
+      "type": "expertise_dispute",
+      "severity": "high",
+      "title": "Frontend architecture disagreement",
+      "description": "Agents disagree on React vs Vue.js for new dashboard",
+      "parties": [
+        {
+          "agent_id": "dolphin",
+          "position": "Vue.js for better performance",
+          "justification": "Lower memory footprint and faster rendering",
+          "priority_level": 6,
+          "authority_level": "frontend",
+          "expertise_domains": [
+            "frontend",
+            "ui"
+          ]
+        },
+        {
+          "agent_id": "jellyfish",
+          "position": "React for team expertise",
+          "justification": "Team has more React experience",
+          "priority_level": 8,
+          "authority_level": "quality",
+          "expertise_domains": [
+            "quality",
+            "frontend"
+          ]
+        }
+      ],
+      "reported_by": "dolphin",
+      "reported_at": "2025-07-19T10:57:35.598770",
+      "resolution_deadline": "2025-07-19T12:57:35.598759",
+      "status": "in_progress",
+      "assigned_mediator": "shark",
+      "resolution_strategy": "mediation",
+      "resolution_details": null,
+      "resolution_timestamp": null,
+      "escalation_history": [],
+      "metadata": {
+        "domain": "frontend",
+        "decision_type": "architecture"
+      }
+    },
+    "CONF-20250719-105735-octopus": {
+      "conflict_id": "CONF-20250719-105735-octopus",
+      "type": "priority_conflict",
+      "severity": "low",
+      "title": "Feature prioritization dispute",
+      "description": "Disagreement over next sprint priorities",
+      "parties": [
+        {
+          "agent_id": "octopus",
+          "position": "Analytics dashboard first",
+          "justification": "Business metrics are critical",
+          "priority_level": 5,
+          "authority_level": "analytics",
+          "expertise_domains": [
+            "data",
+            "analytics"
+          ]
+        },
+        {
+          "agent_id": "seahorse",
+          "position": "API optimization first",
+          "justification": "Performance issues affecting users",
+          "priority_level": 7,
+          "authority_level": "backend",
+          "expertise_domains": [
+            "backend",
+            "api"
+          ]
+        }
+      ],
+      "reported_by": "octopus",
+      "reported_at": "2025-07-19T10:57:35.599318",
+      "resolution_deadline": "2025-07-20T10:57:35.599305",
+      "status": "resolved",
+      "assigned_mediator": null,
+      "resolution_strategy": null,
+      "resolution_details": {
+        "strategy": "priority",
+        "outcome": "Decision awarded to seahorse based on priority",
+        "winner": "seahorse",
+        "reasoning": "Highest priority level: 7"
+      },
+      "resolution_timestamp": "2025-07-19T10:57:35.599645",
+      "escalation_history": [],
+      "metadata": {
+        "domain": "product",
+        "sprint": "2025-03"
+      }
+    }
+  },
+  "version": "1.0"
+}

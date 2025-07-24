@@ -1,0 +1,75 @@
+{
+  "generated_at": "2025-07-19T10:55:24.309045",
+  "collection_period": {
+    "start": "2025-07-19T10:55:22.177249",
+    "end": "2025-07-19T10:55:22.303801"
+  },
+  "summary": {
+    "total_events": 5,
+    "total_operations": 3,
+    "unique_metrics": 5,
+    "active_operations": 0
+  },
+  "top_operations": {
+    "by_frequency": [
+      {
+        "operation": "authority_assignment",
+        "count": 1
+      },
+      {
+        "operation": "emergency_response",
+        "count": 1
+      },
+      {
+        "operation": "risky_operation",
+        "count": 1
+      }
+    ]
+  },
+  "performance_analysis": {
+    "authority_assignment": {
+      "count": 1,
+      "avg_duration_ms": 52.17295800684951,
+      "min_duration_ms": 52.17295800684951,
+      "max_duration_ms": 52.17295800684951,
+      "success_rate": 1.0
+    },
+    "emergency_response": {
+      "count": 1,
+      "avg_duration_ms": 103.092666977318,
+      "min_duration_ms": 103.092666977318,
+      "max_duration_ms": 103.092666977318,
+      "success_rate": 1.0
+    },
+    "risky_operation": {
+      "count": 1,
+      "avg_duration_ms": 21.436624985653907,
+      "min_duration_ms": 21.436624985653907,
+      "max_duration_ms": 21.436624985653907,
+      "success_rate": 0.0
+    }
+  },
+  "agent_analysis": {
+    "shark": {
+      "total_operations": 1,
+      "successful_operations": 1,
+      "success_rate": 1.0,
+      "avg_duration_ms": 52.17295800684951
+    },
+    "whale": {
+      "total_operations": 1,
+      "successful_operations": 1,
+      "success_rate": 1.0,
+      "avg_duration_ms": 103.092666977318
+    },
+    "jellyfish": {
+      "total_operations": 1,
+      "successful_operations": 0,
+      "success_rate": 0.0,
+      "avg_duration_ms": 21.436624985653907
+    }
+  },
+  "recommendations": [
+    "Operation 'risky_operation' has low success rate (0.0%). Check error handling."
+  ]
+}

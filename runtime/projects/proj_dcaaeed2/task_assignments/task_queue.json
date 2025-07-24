@@ -1,0 +1,43 @@
+{
+  "project_id": "proj_dcaaeed2",
+  "tasks": [
+    {
+      "task_id": "api_task_001",
+      "title": "Update API Documentation",
+      "description": "Document new endpoints for v2 API",
+      "task_type": "documentation",
+      "priority": "low",
+      "status": "pending",
+      "created_at": "2025-07-23T13:52:15Z",
+      "estimated_hours": 2.0,
+      "tags": ["documentation"],
+      "dependencies": []
+    },
+    {
+      "task_id": "api_task_002",
+      "title": "Add Rate Limiting",
+      "description": "Implement rate limiting for public endpoints",
+      "task_type": "security",
+      "priority": "normal",
+      "status": "pending",
+      "created_at": "2025-07-23T13:52:15Z",
+      "estimated_hours": 4.0,
+      "tags": ["security", "infrastructure"],
+      "dependencies": []
+    },
+    {
+      "task_id": "api_task_003",
+      "title": "Database Query Optimization",
+      "description": "Optimize slow queries in analytics service",
+      "task_type": "refactor",
+      "priority": "low",
+      "status": "pending",
+      "created_at": "2025-07-23T13:52:15Z",
+      "estimated_hours": 6.0,
+      "tags": ["database", "performance"],
+      "dependencies": []
+    }
+  ],
+  "queue": ["api_task_001", "api_task_002", "api_task_003"],
+  "last_updated": "2025-07-23T13:52:15Z"
+}

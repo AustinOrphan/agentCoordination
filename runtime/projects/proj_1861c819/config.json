@@ -1,0 +1,16 @@
+{
+  "project_id": "proj_1861c819",
+  "name": "Test Reset Project",
+  "codebase_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/sample-projects/test-app",
+  "description": "Test project for reset functionality",
+  "agent_count": 4,
+  "status": "initializing",
+  "created_at": "2025-07-23T14:02:40.428711+00:00",
+  "last_active": "2025-07-23T14:22:57.310615+00:00",
+  "metadata": {
+    "is_test": true,
+    "reset_at": "2025-07-23T14:22:57.310618+00:00",
+    "reset_count": 3
+  },
+  "workspace_path": "/Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/projects/proj_1861c819"
+}

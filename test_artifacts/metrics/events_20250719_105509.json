@@ -1,0 +1,132 @@
+[
+  {
+    "timestamp": "2025-07-19T10:55:09.799313",
+    "category": "counter",
+    "metric_name": "tasks_assigned",
+    "value": 1,
+    "unit": "count",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.799426",
+    "category": "counter",
+    "metric_name": "tasks_assigned",
+    "value": 1,
+    "unit": "count",
+    "agent_id": "shark",
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.799505",
+    "category": "counter",
+    "metric_name": "tasks_completed",
+    "value": 3,
+    "unit": "count",
+    "agent_id": "dolphin",
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.799554",
+    "category": "gauge",
+    "metric_name": "system_load",
+    "value": 0.75,
+    "unit": "ratio",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.799590",
+    "category": "gauge",
+    "metric_name": "active_agents",
+    "value": 6,
+    "unit": "count",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.799903",
+    "category": "histogram",
+    "metric_name": "response_time",
+    "value": 150.5,
+    "unit": "ms",
+    "agent_id": "whale",
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.799968",
+    "category": "histogram",
+    "metric_name": "response_time",
+    "value": 89.2,
+    "unit": "ms",
+    "agent_id": "octopus",
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.808568",
+    "category": "gauge",
+    "metric_name": "system_cpu_percent",
+    "value": 0.0,
+    "unit": "percent",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.808666",
+    "category": "gauge",
+    "metric_name": "system_memory_percent",
+    "value": 49.9,
+    "unit": "percent",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.808703",
+    "category": "gauge",
+    "metric_name": "system_memory_available_mb",
+    "value": 32821.578125,
+    "unit": "MB",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.808746",
+    "category": "gauge",
+    "metric_name": "system_disk_percent",
+    "value": 42.412258785108854,
+    "unit": "percent",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.808926",
+    "category": "gauge",
+    "metric_name": "process_memory_mb",
+    "value": 20.8125,
+    "unit": "MB",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  },
+  {
+    "timestamp": "2025-07-19T10:55:09.808962",
+    "category": "gauge",
+    "metric_name": "process_threads",
+    "value": 2,
+    "unit": "count",
+    "agent_id": null,
+    "operation_id": null,
+    "metadata": {}
+  }
+]

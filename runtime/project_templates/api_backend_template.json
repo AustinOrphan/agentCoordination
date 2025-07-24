@@ -1,0 +1,128 @@
+{
+  "template_name": "API Backend Service",
+  "template_id": "api_backend",
+  "description": "Template for RESTful API and microservices backend",
+  "recommended_agents": 4,
+  "recommended_theme": "marvel",
+  "project_priority": 0.8,
+  "default_tasks": [
+    {
+      "title": "Setup API Framework",
+      "description": "Initialize Express/FastAPI/Django project structure",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 2.0,
+      "tags": ["setup", "framework", "api"],
+      "dependencies": []
+    },
+    {
+      "title": "Design API Schema",
+      "description": "Design RESTful endpoints and data models",
+      "task_type": "design",
+      "priority": "high",
+      "estimated_hours": 4.0,
+      "tags": ["api", "schema", "design"],
+      "dependencies": []
+    },
+    {
+      "title": "Setup Database Connection",
+      "description": "Configure database connection and ORM",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 3.0,
+      "tags": ["database", "connection", "orm"],
+      "dependencies": ["Setup API Framework"]
+    },
+    {
+      "title": "Implement CRUD Endpoints",
+      "description": "Create basic CRUD operations for all resources",
+      "task_type": "development",
+      "priority": "high",
+      "estimated_hours": 12.0,
+      "tags": ["crud", "endpoints", "api"],
+      "dependencies": ["Design API Schema", "Setup Database Connection"]
+    },
+    {
+      "title": "Add API Authentication",
+      "description": "Implement JWT or OAuth authentication",
+      "task_type": "security",
+      "priority": "critical",
+      "estimated_hours": 6.0,
+      "tags": ["auth", "security", "jwt"],
+      "dependencies": ["Implement CRUD Endpoints"]
+    },
+    {
+      "title": "Implement Rate Limiting",
+      "description": "Add rate limiting to prevent API abuse",
+      "task_type": "security",
+      "priority": "high",
+      "estimated_hours": 3.0,
+      "tags": ["rate-limit", "security", "protection"],
+      "dependencies": ["Add API Authentication"]
+    },
+    {
+      "title": "Add API Documentation",
+      "description": "Generate OpenAPI/Swagger documentation",
+      "task_type": "documentation",
+      "priority": "normal",
+      "estimated_hours": 4.0,
+      "tags": ["docs", "swagger", "openapi"],
+      "dependencies": ["Implement CRUD Endpoints"]
+    },
+    {
+      "title": "Setup Logging and Monitoring",
+      "description": "Implement structured logging and monitoring",
+      "task_type": "deployment",
+      "priority": "normal",
+      "estimated_hours": 4.0,
+      "tags": ["logging", "monitoring", "observability"],
+      "dependencies": ["Setup API Framework"]
+    },
+    {
+      "title": "Add Integration Tests",
+      "description": "Write integration tests for API endpoints",
+      "task_type": "testing",
+      "priority": "high",
+      "estimated_hours": 6.0,
+      "tags": ["testing", "integration", "quality"],
+      "dependencies": ["Implement CRUD Endpoints"]
+    },
+    {
+      "title": "Configure Docker Deployment",
+      "description": "Create Dockerfile and docker-compose configuration",
+      "task_type": "deployment",
+      "priority": "normal",
+      "estimated_hours": 3.0,
+      "tags": ["docker", "deployment", "containerization"],
+      "dependencies": ["Setup Logging and Monitoring"]
+    }
+  ],
+  "agent_roles": {
+    "Critical Path Lead": "API architecture and design",
+    "Migration Specialist": "Database and data migration",
+    "Dashboard Developer": "API endpoints implementation",
+    "DevOps Engineer": "Deployment and monitoring",
+    "Security Engineer": "Authentication and security",
+    "UX Engineer": "API documentation and developer experience"
+  },
+  "suggested_structure": {
+    "directories": [
+      "src/controllers",
+      "src/models",
+      "src/routes",
+      "src/middleware",
+      "src/services",
+      "src/utils",
+      "tests",
+      "docs"
+    ],
+    "key_files": [
+      "package.json",
+      ".env.example",
+      "docker-compose.yml",
+      "Dockerfile",
+      "README.md",
+      "openapi.yaml"
+    ]
+  }
+}

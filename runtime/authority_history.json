@@ -1,0 +1,132 @@
+[
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "dolphin",
+    "authority_type": "task",
+    "domain": "security",
+    "task": "Implement user authentication system with OAuth2",
+    "granted_at": "2025-07-19T10:32:23.552991",
+    "expires_at": "2025-07-19T18:32:23.552993",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "dolphin",
+    "authority_type": "task",
+    "domain": "security",
+    "task": "Add OAuth2 token refresh mechanism",
+    "granted_at": "2025-07-19T10:32:23.554028",
+    "expires_at": "2025-07-19T18:32:23.554029",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "whale",
+    "authority_type": "task",
+    "domain": "architecture",
+    "task": "Decide on microservices architecture for the user service",
+    "granted_at": "2025-07-19T10:32:23.554860",
+    "expires_at": "2025-07-19T18:32:23.554861",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "jellyfish",
+    "authority_type": "emergency",
+    "domain": "frontend",
+    "task": "URGENT: Security breach detected in authentication system - immediate action required",
+    "granted_at": "2025-07-19T10:32:23.555481",
+    "expires_at": "2025-07-19T12:32:23.555482",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "shark",
+    "authority_type": "emergency",
+    "domain": "backend",
+    "task": "CRITICAL: Database corruption detected - immediate backup required",
+    "granted_at": "2025-07-19T10:32:23.556819",
+    "expires_at": "2025-07-19T12:32:23.556821",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "shark",
+    "authority_type": "task",
+    "domain": "backend",
+    "task": "Optimize database queries for user authentication",
+    "granted_at": "2025-07-19T10:32:23.557735",
+    "expires_at": "2025-07-19T18:32:23.557736",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "jellyfish",
+    "authority_type": "task",
+    "domain": "frontend",
+    "task": "Redesign user interface for better accessibility",
+    "granted_at": "2025-07-19T10:32:23.558487",
+    "expires_at": "2025-07-19T18:32:23.558489",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "seahorse",
+    "authority_type": "task",
+    "domain": "infrastructure",
+    "task": "Deploy application using Docker containers to production",
+    "granted_at": "2025-07-19T10:32:23.559210",
+    "expires_at": "2025-07-19T18:32:23.559212",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "octopus",
+    "authority_type": "task",
+    "domain": "security",
+    "task": "Conduct security vulnerability assessment of authentication endpoints",
+    "granted_at": "2025-07-19T10:32:23.559939",
+    "expires_at": "2025-07-19T18:32:23.559940",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "whale",
+    "authority_type": "task",
+    "domain": "general",
+    "task": "Update user profile validation logic",
+    "granted_at": "2025-07-19T10:32:23.560718",
+    "expires_at": "2025-07-19T18:32:23.560719",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "seahorse",
+    "authority_type": "project",
+    "domain": "general",
+    "task": "Lead the user management project initiative",
+    "granted_at": "2025-07-19T10:32:23.561482",
+    "expires_at": "2025-07-26T10:32:23.561483",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "whale",
+    "authority_type": "task",
+    "domain": "backend",
+    "task": "Implement new API endpoints for user management",
+    "granted_at": "2025-07-19T10:32:23.562651",
+    "expires_at": "2025-07-19T18:32:23.562653",
+    "status": "active"
+  },
+  {
+    "id": "AUTH-20250719-103223",
+    "agent": "octopus",
+    "authority_type": "emergency",
+    "domain": "security",
+    "task": "Fix critical security vulnerability in auth system",
+    "granted_at": "2025-07-19T10:32:23.563562",
+    "expires_at": "2025-07-19T12:32:23.563564",
+    "status": "active"
+  }
+]

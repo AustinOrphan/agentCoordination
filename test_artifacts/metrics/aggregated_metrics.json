@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-07-19T10:55:29.319739",
+  "counters": {
+    "counter.tasks_assigned": 2,
+    "counter.tasks_completed": 3,
+    "gauge.active_agents": 6,
+    "gauge.process_threads": 2,
+    "workflow.proposal_created": 1,
+    "workflow.vote_cast": 1
+  },
+  "gauges": {
+    "gauge.system_load": 0.75,
+    "histogram.response_time": 89.2,
+    "gauge.system_cpu_percent": 0.0,
+    "gauge.system_memory_percent": 50.2,
+    "gauge.system_memory_available_mb": 32645.296875,
+    "gauge.system_disk_percent": 42.4122466908103,
+    "gauge.process_memory_mb": 20.703125,
+    "histogram.authority_assignment_duration": 52.17295800684951,
+    "histogram.emergency_response_duration": 103.092666977318,
+    "histogram.risky_operation_duration": 21.436624985653907
+  },
+  "operation_stats": {
+    "authority_assignment": {
+      "count": 1,
+      "avg_ms": 52.17295800684951,
+      "min_ms": 52.17295800684951,
+      "max_ms": 52.17295800684951
+    },
+    "emergency_response": {
+      "count": 1,
+      "avg_ms": 103.092666977318,
+      "min_ms": 103.092666977318,
+      "max_ms": 103.092666977318
+    },
+    "risky_operation": {
+      "count": 1,
+      "avg_ms": 21.436624985653907,
+      "min_ms": 21.436624985653907,
+      "max_ms": 21.436624985653907
+    }
+  }
+}

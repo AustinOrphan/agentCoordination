@@ -1,0 +1,342 @@
+{
+  "assignments": [
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "dolphin",
+      "authority_type": "task",
+      "domain": "security",
+      "task": "Implement user authentication system with OAuth2",
+      "granted_at": "2025-07-19T10:32:23.552991",
+      "expires_at": "2025-07-19T18:32:23.552993",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "dolphin",
+      "authority_type": "task",
+      "domain": "security",
+      "task": "Add OAuth2 token refresh mechanism",
+      "granted_at": "2025-07-19T10:32:23.554028",
+      "expires_at": "2025-07-19T18:32:23.554029",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "whale",
+      "authority_type": "task",
+      "domain": "architecture",
+      "task": "Decide on microservices architecture for the user service",
+      "granted_at": "2025-07-19T10:32:23.554860",
+      "expires_at": "2025-07-19T18:32:23.554861",
+      "status": "released",
+      "released_at": "2025-07-19T10:32:23.562127"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "jellyfish",
+      "authority_type": "emergency",
+      "domain": "frontend",
+      "task": "URGENT: Security breach detected in authentication system - immediate action required",
+      "granted_at": "2025-07-19T10:32:23.555481",
+      "expires_at": "2025-07-19T12:32:23.555482",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "shark",
+      "authority_type": "emergency",
+      "domain": "backend",
+      "task": "CRITICAL: Database corruption detected - immediate backup required",
+      "granted_at": "2025-07-19T10:32:23.556819",
+      "expires_at": "2025-07-19T12:32:23.556821",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "shark",
+      "authority_type": "task",
+      "domain": "backend",
+      "task": "Optimize database queries for user authentication",
+      "granted_at": "2025-07-19T10:32:23.557735",
+      "expires_at": "2025-07-19T18:32:23.557736",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "jellyfish",
+      "authority_type": "task",
+      "domain": "frontend",
+      "task": "Redesign user interface for better accessibility",
+      "granted_at": "2025-07-19T10:32:23.558487",
+      "expires_at": "2025-07-19T18:32:23.558489",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "seahorse",
+      "authority_type": "task",
+      "domain": "infrastructure",
+      "task": "Deploy application using Docker containers to production",
+      "granted_at": "2025-07-19T10:32:23.559210",
+      "expires_at": "2025-07-19T18:32:23.559212",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "octopus",
+      "authority_type": "task",
+      "domain": "security",
+      "task": "Conduct security vulnerability assessment of authentication endpoints",
+      "granted_at": "2025-07-19T10:32:23.559939",
+      "expires_at": "2025-07-19T18:32:23.559940",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "whale",
+      "authority_type": "task",
+      "domain": "general",
+      "task": "Update user profile validation logic",
+      "granted_at": "2025-07-19T10:32:23.560718",
+      "expires_at": "2025-07-19T18:32:23.560719",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "seahorse",
+      "authority_type": "project",
+      "domain": "general",
+      "task": "Lead the user management project initiative",
+      "granted_at": "2025-07-19T10:32:23.561482",
+      "expires_at": "2025-07-26T10:32:23.561483",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "whale",
+      "authority_type": "task",
+      "domain": "backend",
+      "task": "Implement new API endpoints for user management",
+      "granted_at": "2025-07-19T10:32:23.562651",
+      "expires_at": "2025-07-19T18:32:23.562653",
+      "status": "active"
+    },
+    {
+      "id": "AUTH-20250719-103223",
+      "agent": "octopus",
+      "authority_type": "emergency",
+      "domain": "security",
+      "task": "Fix critical security vulnerability in auth system",
+      "granted_at": "2025-07-19T10:32:23.563562",
+      "expires_at": "2025-07-19T12:32:23.563564",
+      "status": "active"
+    }
+  ],
+  "available": [],
+  "requests": [
+    {
+      "id": "REQ-20250719-102236",
+      "task": "Implement new API endpoints for user management",
+      "authority_type": "task",
+      "domain": "backend",
+      "requested_at": "2025-07-19T10:22:36.296894",
+      "status": "fulfilled",
+      "fulfilled_at": "2025-07-19T10:32:23.563318",
+      "assigned_to": "whale"
+    },
+    {
+      "id": "REQ-20250719-102236",
+      "task": "Fix critical security vulnerability in auth system",
+      "authority_type": "emergency",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:22:36.297390",
+      "status": "fulfilled",
+      "fulfilled_at": "2025-07-19T10:32:23.564273",
+      "assigned_to": "octopus"
+    },
+    {
+      "id": "REQ-20250719-103411",
+      "task": "Emergency response: Unauthorized access detected in user authentication system",
+      "authority_type": "emergency",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:34:11.992201",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103411",
+      "task": "Emergency response: Unauthorized access detected in user authentication system",
+      "authority_type": "emergency",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:34:11.993014",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103411",
+      "task": "Emergency response: Unauthorized access detected in user authentication system",
+      "authority_type": "emergency",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:34:11.993544",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103415",
+      "task": "Emergency response: Complete system outage affecting all services",
+      "authority_type": "emergency",
+      "domain": "general",
+      "requested_at": "2025-07-19T10:34:15.213199",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103415",
+      "task": "Emergency response: Complete system outage affecting all services",
+      "authority_type": "emergency",
+      "domain": "general",
+      "requested_at": "2025-07-19T10:34:15.213924",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103415",
+      "task": "Emergency response: Complete system outage affecting all services",
+      "authority_type": "emergency",
+      "domain": "general",
+      "requested_at": "2025-07-19T10:34:15.214485",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: Security Lead",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:37:46.420140",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: Security Lead",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:37:46.421156",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: DevOps Lead",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:37:46.421980",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: DevOps Lead",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:37:46.422576",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: Frontend Architect",
+      "authority_type": "task",
+      "domain": "frontend",
+      "requested_at": "2025-07-19T10:37:46.423402",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: Frontend Architect",
+      "authority_type": "task",
+      "domain": "frontend",
+      "requested_at": "2025-07-19T10:37:46.424012",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: Backend Architect",
+      "authority_type": "task",
+      "domain": "backend",
+      "requested_at": "2025-07-19T10:37:46.424893",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: Backend Architect",
+      "authority_type": "task",
+      "domain": "backend",
+      "requested_at": "2025-07-19T10:37:46.425485",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: Backend Architect",
+      "authority_type": "task",
+      "domain": "backend",
+      "requested_at": "2025-07-19T10:37:46.426059",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-103746",
+      "task": "Specialized role authority: Technical Mentor",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:37:46.427106",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-105104",
+      "task": "Implement user authentication system with OAuth2",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:51:04.852071",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-105104",
+      "task": "Add OAuth2 token refresh mechanism",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:51:04.853849",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-105104",
+      "task": "Emergency response: Test emergency for integration",
+      "authority_type": "emergency",
+      "domain": "quality",
+      "requested_at": "2025-07-19T10:51:04.855755",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-105104",
+      "task": "Emergency response: Test emergency for integration",
+      "authority_type": "emergency",
+      "domain": "quality",
+      "requested_at": "2025-07-19T10:51:04.856307",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-105104",
+      "task": "Emergency response: Test emergency for integration",
+      "authority_type": "emergency",
+      "domain": "quality",
+      "requested_at": "2025-07-19T10:51:04.856850",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-105105",
+      "task": "Specialized role authority: Security Lead",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:51:05.079506",
+      "status": "queued"
+    },
+    {
+      "id": "REQ-20250719-105105",
+      "task": "Specialized role authority: Security Lead",
+      "authority_type": "task",
+      "domain": "security",
+      "requested_at": "2025-07-19T10:51:05.080123",
+      "status": "queued"
+    }
+  ]
+}

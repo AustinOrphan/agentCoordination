@@ -1,0 +1,1101 @@
+[
+  {
+    "id": "security_setup_dependency_scanning_0",
+    "title": "Set Up Dependency Vulnerability Scanning",
+    "description": "No dependency vulnerability scanning configured\n\nImpact: Vulnerable dependencies may expose security risks\n\nBest Practices:\n- Regular dependency audits\n- Automated vulnerability scanning\n- Security advisories monitoring\n- Dependency update automation",
+    "category": "security",
+    "priority": "high",
+    "estimated_hours": 3,
+    "dependencies": [],
+    "tags": [
+      "compliance",
+      "critical",
+      "security",
+      "missing",
+      "vulnerability"
+    ]
+  },
+  {
+    "id": "documentation_create_readme_0",
+    "title": "Create Comprehensive README Documentation",
+    "description": "No README file found\n\nImpact: Difficult onboarding, poor project adoption, confusion for contributors\n\nBest Practices:\n- Project overview and purpose\n- Installation instructions\n- Usage examples\n- Contribution guidelines\n- License information",
+    "category": "documentation",
+    "priority": "high",
+    "estimated_hours": 6,
+    "dependencies": [
+      "setup_code_linting",
+      "implement_error_handling",
+      "refactor_project_structure",
+      "setup_precommit_hooks"
+    ],
+    "tags": [
+      "onboarding",
+      "docs",
+      "high",
+      "documentation",
+      "missing"
+    ]
+  },
+  {
+    "id": "architecture_refactor_project_structure_0",
+    "title": "Refactor Project Structure",
+    "description": "Project lacks proper directory structure and separation of concerns\n\nImpact: Poor maintainability, difficult to scale, confusion for new developers\n\nBest Practices:\n- Implement layered architecture\n- Separate business logic from presentation\n- Use dependency injection\n- Follow single responsibility principle",
+    "category": "architecture",
+    "priority": "high",
+    "estimated_hours": 12,
+    "dependencies": [],
+    "tags": [
+      "maintainability",
+      "architecture",
+      "design",
+      "high",
+      "missing"
+    ]
+  },
+  {
+    "id": "improve_overall_code_quality",
+    "title": "Comprehensive Code Quality Improvement Initiative",
+    "description": "Current code quality score: 0.0/100\n\nTotal technical debt: 1830 hours\n\nTop recommendations:\n- Focus on reducing code complexity through refactoring and method extraction\n- Eliminate code duplication by creating shared modules and utilities\n- Review and improve module architecture to reduce coupling and god objects\n- Implement and enforce coding standards with linting and pre-commit hooks\n- Add comprehensive documentation and inline comments",
+    "category": "code_quality",
+    "priority": "high",
+    "estimated_hours": 40,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "quality",
+      "improvement"
+    ]
+  },
+  {
+    "id": "template_setup_repo",
+    "title": "Initialize Repository",
+    "description": "Set up version control and repository structure",
+    "category": "project_setup_&_configuration",
+    "priority": "high",
+    "estimated_hours": 4,
+    "dependencies": [],
+    "tags": [
+      "setup",
+      "git",
+      "repository"
+    ]
+  },
+  {
+    "id": "template_production_deployment",
+    "title": "Deploy to Production",
+    "description": "Execute production deployment and go-live",
+    "category": "deployment_&_production",
+    "priority": "high",
+    "estimated_hours": 4,
+    "dependencies": [
+      "template_performance_optimization"
+    ],
+    "tags": [
+      "deployment",
+      "production",
+      "go-live"
+    ]
+  },
+  {
+    "id": "api_validation",
+    "title": "Add API Input Validation",
+    "description": "Implement comprehensive input validation for API endpoints",
+    "category": "security",
+    "priority": "high",
+    "estimated_hours": 6,
+    "dependencies": [],
+    "tags": [
+      "api",
+      "validation",
+      "security"
+    ]
+  },
+  {
+    "id": "template_setup_testing",
+    "title": "Initialize Testing Framework",
+    "description": "Set up unit and integration testing infrastructure",
+    "category": "project_setup_&_configuration",
+    "priority": "high",
+    "estimated_hours": 6,
+    "dependencies": [
+      "template_setup_dev_env"
+    ],
+    "tags": [
+      "setup",
+      "testing",
+      "framework"
+    ]
+  },
+  {
+    "id": "api_documentation",
+    "title": "Add API Documentation",
+    "description": "Create comprehensive API documentation (OpenAPI/Swagger)",
+    "category": "documentation",
+    "priority": "high",
+    "estimated_hours": 8,
+    "dependencies": [],
+    "tags": [
+      "api",
+      "documentation",
+      "swagger"
+    ]
+  },
+  {
+    "id": "add_unit_tests",
+    "title": "Add Unit Tests",
+    "description": "Create comprehensive unit tests for the application",
+    "category": "testing",
+    "priority": "high",
+    "estimated_hours": 8,
+    "dependencies": [],
+    "tags": [
+      "testing",
+      "unit",
+      "quality"
+    ]
+  },
+  {
+    "id": "template_setup_dev_env",
+    "title": "Configure Development Environment",
+    "description": "Set up local development environment and tools",
+    "category": "project_setup_&_configuration",
+    "priority": "high",
+    "estimated_hours": 8,
+    "dependencies": [
+      "template_setup_repo"
+    ],
+    "tags": [
+      "setup",
+      "environment",
+      "tooling"
+    ]
+  },
+  {
+    "id": "template_implement_routing",
+    "title": "Implement Application Routing",
+    "description": "Set up client-side routing and navigation",
+    "category": "frontend_development",
+    "priority": "high",
+    "estimated_hours": 8,
+    "dependencies": [
+      "template_ui_architecture"
+    ],
+    "tags": [
+      "routing",
+      "navigation",
+      "spa"
+    ]
+  },
+  {
+    "id": "template_api_client",
+    "title": "Set Up API Client",
+    "description": "Configure HTTP client and API communication layer",
+    "category": "backend_integration",
+    "priority": "high",
+    "estimated_hours": 8,
+    "dependencies": [
+      "template_state_management"
+    ],
+    "tags": [
+      "api",
+      "http",
+      "client"
+    ]
+  },
+  {
+    "id": "template_production_environment",
+    "title": "Configure Production Environment",
+    "description": "Set up and configure production infrastructure",
+    "category": "deployment_&_production",
+    "priority": "high",
+    "estimated_hours": 8,
+    "dependencies": [
+      "template_ci_cd_pipeline"
+    ],
+    "tags": [
+      "production",
+      "infrastructure",
+      "config"
+    ]
+  },
+  {
+    "id": "code_quality_complexity__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_analyze_existing_project_py",
+    "title": "Refactor Complexity Issues in analyze_existing_project.py",
+    "description": "Address 2 complexity issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/analyze_existing_project.py:\n\n- High overall complexity (score: 117)\n- Functions too long (max: 145 lines)\n\nTotal estimated effort: 12 hours",
+    "category": "code_quality",
+    "priority": "high",
+    "estimated_hours": 12,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "complexity",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_complexity__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_project_analyzer_py",
+    "title": "Refactor Complexity Issues in project_analyzer.py",
+    "description": "Address 2 complexity issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/project_analyzer.py:\n\n- High overall complexity (score: 223)\n- Functions too long (max: 299 lines)\n\nTotal estimated effort: 12 hours",
+    "category": "code_quality",
+    "priority": "high",
+    "estimated_hours": 12,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "complexity",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "template_ui_architecture",
+    "title": "Design Component Architecture",
+    "description": "Plan and design the component structure and state management",
+    "category": "frontend_development",
+    "priority": "high",
+    "estimated_hours": 12,
+    "dependencies": [
+      "template_setup_testing"
+    ],
+    "tags": [
+      "architecture",
+      "components",
+      "design"
+    ]
+  },
+  {
+    "id": "template_state_management",
+    "title": "Implement State Management",
+    "description": "Set up global state management and data flow",
+    "category": "frontend_development",
+    "priority": "high",
+    "estimated_hours": 12,
+    "dependencies": [
+      "template_implement_routing"
+    ],
+    "tags": [
+      "state",
+      "management",
+      "data-flow"
+    ]
+  },
+  {
+    "id": "template_data_fetching",
+    "title": "Implement Data Fetching Logic",
+    "description": "Add data fetching, caching, and synchronization",
+    "category": "backend_integration",
+    "priority": "high",
+    "estimated_hours": 12,
+    "dependencies": [
+      "template_api_client"
+    ],
+    "tags": [
+      "data",
+      "fetching",
+      "cache"
+    ]
+  },
+  {
+    "id": "template_ci_cd_pipeline",
+    "title": "Set Up CI/CD Pipeline",
+    "description": "Configure automated build, test, and deployment pipeline",
+    "category": "deployment_&_production",
+    "priority": "high",
+    "estimated_hours": 12,
+    "dependencies": [
+      "template_e2e_tests",
+      "template_performance_testing"
+    ],
+    "tags": [
+      "cicd",
+      "automation",
+      "deployment"
+    ]
+  },
+  {
+    "id": "template_authentication",
+    "title": "Implement Authentication",
+    "description": "Add user authentication and authorization",
+    "category": "backend_integration",
+    "priority": "high",
+    "estimated_hours": 16,
+    "dependencies": [
+      "template_api_client"
+    ],
+    "tags": [
+      "auth",
+      "security",
+      "login"
+    ]
+  },
+  {
+    "id": "template_integration_tests",
+    "title": "Add Integration Tests",
+    "description": "Test component interactions and API integrations",
+    "category": "testing_&_quality_assurance",
+    "priority": "high",
+    "estimated_hours": 16,
+    "dependencies": [
+      "template_unit_tests"
+    ],
+    "tags": [
+      "testing",
+      "integration",
+      "api"
+    ]
+  },
+  {
+    "id": "template_unit_tests",
+    "title": "Write Unit Tests",
+    "description": "Create comprehensive unit tests for components and utilities",
+    "category": "testing_&_quality_assurance",
+    "priority": "high",
+    "estimated_hours": 20,
+    "dependencies": [
+      "template_error_handling",
+      "template_loading_states"
+    ],
+    "tags": [
+      "testing",
+      "unit",
+      "coverage"
+    ]
+  },
+  {
+    "id": "template_build_components",
+    "title": "Build Core UI Components",
+    "description": "Implement reusable UI components and layouts",
+    "category": "frontend_development",
+    "priority": "high",
+    "estimated_hours": 24,
+    "dependencies": [
+      "template_ui_architecture"
+    ],
+    "tags": [
+      "components",
+      "ui",
+      "reusable"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_auto_task_generator_py",
+    "title": "Refactor Architecture Issues in auto_task_generator.py",
+    "description": "Address 3 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/auto_task_generator.py:\n\n- File too large (1383 lines)\n- High coupling (score: 2.90)\n- God object detected: 47 functions, 1383 lines, 29 imports\n\nTotal estimated effort: 36 hours",
+    "category": "code_quality",
+    "priority": "high",
+    "estimated_hours": 36,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_project_analyzer_py",
+    "title": "Refactor Architecture Issues in project_analyzer.py",
+    "description": "Address 3 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/project_analyzer.py:\n\n- File too large (1125 lines)\n- High coupling (score: 1.70)\n- God object detected: 21 functions, 1125 lines, 17 imports\n\nTotal estimated effort: 36 hours",
+    "category": "code_quality",
+    "priority": "high",
+    "estimated_hours": 36,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_interactive_setup_py",
+    "title": "Refactor Architecture Issues in interactive_setup.py",
+    "description": "Address 3 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/interactive_setup.py:\n\n- File too large (848 lines)\n- High coupling (score: 2.40)\n- God object detected: 24 functions, 848 lines, 24 imports\n\nTotal estimated effort: 36 hours",
+    "category": "code_quality",
+    "priority": "high",
+    "estimated_hours": 36,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_advanced_gap_analyzer_py",
+    "title": "Refactor Architecture Issues in advanced_gap_analyzer.py",
+    "description": "Address 3 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/advanced_gap_analyzer.py:\n\n- File too large (1072 lines)\n- High coupling (score: 2.10)\n- God object detected: 40 functions, 1072 lines, 21 imports\n\nTotal estimated effort: 36 hours",
+    "category": "code_quality",
+    "priority": "high",
+    "estimated_hours": 36,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_project_manager_py",
+    "title": "Refactor Architecture Issues in project_manager.py",
+    "description": "Address 3 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/project_manager.py:\n\n- File too large (1082 lines)\n- High coupling (score: 3.60)\n- God object detected: 35 functions, 1082 lines, 36 imports\n\nTotal estimated effort: 36 hours",
+    "category": "code_quality",
+    "priority": "high",
+    "estimated_hours": 36,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "architecture_implement_error_handling_0",
+    "title": "Implement Error Handling",
+    "description": "Inconsistent or insufficient error handling patterns\n\nImpact: Poor user experience, difficult debugging, system instability\n\nBest Practices:\n- Centralized error handling\n- Structured error responses\n- Proper logging of errors\n- Graceful degradation",
+    "category": "architecture",
+    "priority": "high",
+    "estimated_hours": 18,
+    "dependencies": [
+      "setup_code_linting",
+      "implement_error_handling",
+      "refactor_project_structure",
+      "setup_precommit_hooks"
+    ],
+    "tags": [
+      "maintainability",
+      "insufficient",
+      "architecture",
+      "design",
+      "high"
+    ]
+  },
+  {
+    "id": "quality_setup_code_linting_0",
+    "title": "Configure Code Linting and Formatting",
+    "description": "No code linting configured\n\nImpact: Inconsistent code style, potential bugs, reduced maintainability\n\nBest Practices:\n- Consistent code formatting\n- Static analysis rules\n- Pre-commit hooks\n- IDE integration",
+    "category": "quality",
+    "priority": "medium",
+    "estimated_hours": 3,
+    "dependencies": [],
+    "tags": [
+      "quality",
+      "maintainability",
+      "medium",
+      "missing",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "security_scan_python",
+    "title": "Set Up Python Security Scanning",
+    "description": "Add security scanning for Python dependencies (safety, bandit)",
+    "category": "security",
+    "priority": "medium",
+    "estimated_hours": 3,
+    "dependencies": [],
+    "tags": [
+      "security",
+      "scanning",
+      "python"
+    ]
+  },
+  {
+    "id": "setup_linting",
+    "title": "Set Up Code Linting",
+    "description": "Configure code linting and formatting tools",
+    "category": "quality",
+    "priority": "medium",
+    "estimated_hours": 3,
+    "dependencies": [],
+    "tags": [
+      "quality",
+      "linting",
+      "formatting"
+    ]
+  },
+  {
+    "id": "template_setup_linting",
+    "title": "Configure Code Quality Tools",
+    "description": "Set up linting, formatting, and code quality tools",
+    "category": "project_setup_&_configuration",
+    "priority": "medium",
+    "estimated_hours": 4,
+    "dependencies": [
+      "template_setup_dev_env"
+    ],
+    "tags": [
+      "setup",
+      "quality",
+      "linting"
+    ]
+  },
+  {
+    "id": "deployment_setup_containerization_0",
+    "title": "Set Up Docker Containerization",
+    "description": "No containerization setup found\n\nImpact: Inconsistent deployment environments, dependency issues\n\nBest Practices:\n- Multi-stage Docker builds\n- Minimal base images\n- Security scanning\n- Health checks\n- Resource limits",
+    "category": "deployment",
+    "priority": "medium",
+    "estimated_hours": 6,
+    "dependencies": [],
+    "tags": [
+      "infrastructure",
+      "medium",
+      "automation",
+      "missing",
+      "deployment"
+    ]
+  },
+  {
+    "id": "template_loading_states",
+    "title": "Implement Loading and Empty States",
+    "description": "Add loading indicators and empty state handling",
+    "category": "backend_integration",
+    "priority": "medium",
+    "estimated_hours": 6,
+    "dependencies": [
+      "template_data_fetching"
+    ],
+    "tags": [
+      "loading",
+      "empty-state",
+      "ux"
+    ]
+  },
+  {
+    "id": "template_monitoring_analytics",
+    "title": "Add Monitoring and Analytics",
+    "description": "Implement application monitoring and user analytics",
+    "category": "deployment_&_production",
+    "priority": "medium",
+    "estimated_hours": 6,
+    "dependencies": [
+      "template_production_environment"
+    ],
+    "tags": [
+      "monitoring",
+      "analytics",
+      "observability"
+    ]
+  },
+  {
+    "id": "template_error_handling",
+    "title": "Add Comprehensive Error Handling",
+    "description": "Implement error boundaries and user-friendly error messages",
+    "category": "backend_integration",
+    "priority": "medium",
+    "estimated_hours": 8,
+    "dependencies": [
+      "template_data_fetching"
+    ],
+    "tags": [
+      "error",
+      "handling",
+      "ux"
+    ]
+  },
+  {
+    "id": "template_performance_testing",
+    "title": "Performance Testing & Optimization",
+    "description": "Test and optimize application performance",
+    "category": "testing_&_quality_assurance",
+    "priority": "medium",
+    "estimated_hours": 8,
+    "dependencies": [
+      "template_integration_tests"
+    ],
+    "tags": [
+      "performance",
+      "optimization",
+      "metrics"
+    ]
+  },
+  {
+    "id": "template_performance_optimization",
+    "title": "Production Performance Optimization",
+    "description": "Optimize application for production performance",
+    "category": "deployment_&_production",
+    "priority": "medium",
+    "estimated_hours": 8,
+    "dependencies": [
+      "template_monitoring_analytics"
+    ],
+    "tags": [
+      "optimization",
+      "performance",
+      "production"
+    ]
+  },
+  {
+    "id": "add_e2e_tests",
+    "title": "Add E2E Tests",
+    "description": "Create comprehensive e2e tests for the application",
+    "category": "testing",
+    "priority": "medium",
+    "estimated_hours": 12,
+    "dependencies": [],
+    "tags": [
+      "testing",
+      "e2e",
+      "quality"
+    ]
+  },
+  {
+    "id": "accessibility_setup_accessibility_testing_0",
+    "title": "Set Up Accessibility Testing",
+    "description": "No accessibility testing configured\n\nImpact: Poor user experience for disabled users, legal compliance issues\n\nBest Practices:\n- Automated accessibility testing\n- Screen reader testing\n- Keyboard navigation testing\n- Color contrast validation\n- WCAG compliance checking",
+    "category": "accessibility",
+    "priority": "medium",
+    "estimated_hours": 12,
+    "dependencies": [],
+    "tags": [
+      "medium",
+      "compliance",
+      "accessibility",
+      "a11y",
+      "missing"
+    ]
+  },
+  {
+    "id": "code_quality_complexity__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_init_existing_project_py",
+    "title": "Refactor Complexity Issues in init_existing_project.py",
+    "description": "Address 2 complexity issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/init_existing_project.py:\n\n- High overall complexity (score: 27)\n- Functions too long (max: 333 lines)\n\nTotal estimated effort: 12 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 12,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "complexity",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "template_e2e_tests",
+    "title": "End-to-End Testing",
+    "description": "Create automated end-to-end user journey tests",
+    "category": "testing_&_quality_assurance",
+    "priority": "medium",
+    "estimated_hours": 12,
+    "dependencies": [
+      "template_integration_tests"
+    ],
+    "tags": [
+      "testing",
+      "e2e",
+      "automation"
+    ]
+  },
+  {
+    "id": "template_code_review",
+    "title": "Code Review and Refactoring",
+    "description": "Comprehensive code review and refactoring session",
+    "category": "testing_&_quality_assurance",
+    "priority": "medium",
+    "estimated_hours": 12,
+    "dependencies": [
+      "template_unit_tests"
+    ],
+    "tags": [
+      "review",
+      "refactoring",
+      "quality"
+    ]
+  },
+  {
+    "id": "template_responsive_design",
+    "title": "Implement Responsive Design",
+    "description": "Ensure application works across different screen sizes",
+    "category": "frontend_development",
+    "priority": "medium",
+    "estimated_hours": 16,
+    "dependencies": [
+      "template_build_components"
+    ],
+    "tags": [
+      "responsive",
+      "mobile",
+      "css"
+    ]
+  },
+  {
+    "id": "deployment_setup_monitoring_0",
+    "title": "Set Up Application Monitoring",
+    "description": "No monitoring and logging setup\n\nImpact: Difficult troubleshooting, undetected issues, poor observability\n\nBest Practices:\n- Structured logging\n- Metrics collection\n- Alerting rules\n- Distributed tracing\n- Health check endpoints",
+    "category": "deployment",
+    "priority": "medium",
+    "estimated_hours": 18,
+    "dependencies": [],
+    "tags": [
+      "infrastructure",
+      "medium",
+      "automation",
+      "missing",
+      "deployment"
+    ]
+  },
+  {
+    "id": "deployment_setup_logging_1",
+    "title": "Setup Logging",
+    "description": "No monitoring and logging setup\n\nImpact: Difficult troubleshooting, undetected issues, poor observability\n\nBest Practices:\n- Structured logging\n- Metrics collection\n- Alerting rules\n- Distributed tracing\n- Health check endpoints",
+    "category": "deployment",
+    "priority": "medium",
+    "estimated_hours": 18,
+    "dependencies": [],
+    "tags": [
+      "infrastructure",
+      "medium",
+      "automation",
+      "missing",
+      "deployment"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_development_domain_specific_agent_roles_py",
+    "title": "Refactor Architecture Issues in domain_specific_agent_roles.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/development/domain_specific_agent_roles.py:\n\n- File too large (571 lines)\n- High coupling (score: 1.60)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_development_load_balancer_py",
+    "title": "Refactor Architecture Issues in load_balancer.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/development/load_balancer.py:\n\n- File too large (610 lines)\n- High coupling (score: 2.40)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_development_conflict_resolution_py",
+    "title": "Refactor Architecture Issues in conflict_resolution.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/development/conflict_resolution.py:\n\n- File too large (524 lines)\n- High coupling (score: 1.90)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_tests_test_end_to_end_py",
+    "title": "Refactor Architecture Issues in test_end_to_end.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/tests/test_end_to_end.py:\n\n- File too large (540 lines)\n- High coupling (score: 2.10)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_tests_test_performance_py",
+    "title": "Refactor Architecture Issues in test_performance.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/tests/test_performance.py:\n\n- File too large (535 lines)\n- High coupling (score: 3.00)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_tests_integration_test_end_to_end_coordination_old_py",
+    "title": "Refactor Architecture Issues in test_end_to_end_coordination_old.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/tests/integration/test_end_to_end_coordination_old.py:\n\n- File too large (611 lines)\n- High coupling (score: 2.40)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_tests_integration_test_end_to_end_coordination_py",
+    "title": "Refactor Architecture Issues in test_end_to_end_coordination.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/tests/integration/test_end_to_end_coordination.py:\n\n- File too large (510 lines)\n- High coupling (score: 2.20)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_tests_stress_test_message_throughput_stress_py",
+    "title": "Refactor Architecture Issues in test_message_throughput_stress.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/tests/stress/test_message_throughput_stress.py:\n\n- File too large (565 lines)\n- High coupling (score: 2.50)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_project_template_matcher_py",
+    "title": "Refactor Architecture Issues in project_template_matcher.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/project_template_matcher.py:\n\n- File too large (523 lines)\n- High coupling (score: 2.40)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_migration_analyzer_py",
+    "title": "Refactor Architecture Issues in migration_analyzer.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/migration_analyzer.py:\n\n- File too large (783 lines)\n- High coupling (score: 1.40)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_workflow_template_engine_py",
+    "title": "Refactor Architecture Issues in workflow_template_engine.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/workflow_template_engine.py:\n\n- File too large (1423 lines)\n- High coupling (score: 1.60)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_task_assignment_manager_py",
+    "title": "Refactor Architecture Issues in task_assignment_manager.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/task_assignment_manager.py:\n\n- File too large (525 lines)\n- High coupling (score: 1.60)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_architecture__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_coordination_system_code_quality_analyzer_py",
+    "title": "Refactor Architecture Issues in code_quality_analyzer.py",
+    "description": "Address 2 architecture issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/coordination_system/code_quality_analyzer.py:\n\n- File too large (679 lines)\n- High coupling (score: 2.00)\n\nTotal estimated effort: 20 hours",
+    "category": "code_quality",
+    "priority": "medium",
+    "estimated_hours": 20,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "architecture",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "test_coverage",
+    "title": "Set Up Test Coverage Reporting",
+    "description": "Add test coverage reporting and set minimum coverage thresholds",
+    "category": "testing",
+    "priority": "medium",
+    "estimated_hours": 4,
+    "dependencies": [],
+    "tags": [
+      "testing",
+      "coverage",
+      "quality"
+    ]
+  },
+  {
+    "id": "setup_logging",
+    "title": "Set Up Structured Logging",
+    "description": "Implement structured logging throughout the application",
+    "category": "monitoring",
+    "priority": "medium",
+    "estimated_hours": 4,
+    "dependencies": [],
+    "tags": [
+      "monitoring",
+      "logging",
+      "observability"
+    ]
+  },
+  {
+    "id": "github_deploy_workflow",
+    "title": "Add GitHub Actions Deployment Workflow",
+    "description": "Create automated deployment workflow for releases",
+    "category": "ci_cd",
+    "priority": "medium",
+    "estimated_hours": 6,
+    "dependencies": [
+      "github_test_workflow"
+    ],
+    "tags": [
+      "cd",
+      "deployment",
+      "github-actions"
+    ]
+  },
+  {
+    "id": "dependency_audit",
+    "title": "Regular Dependency Auditing",
+    "description": "Set up automated dependency auditing and updates",
+    "category": "maintenance",
+    "priority": "medium",
+    "estimated_hours": 2,
+    "dependencies": [],
+    "tags": [
+      "dependencies",
+      "security",
+      "maintenance"
+    ]
+  },
+  {
+    "id": "accessibility_testing",
+    "title": "Add Accessibility Testing",
+    "description": "Implement automated accessibility testing and audits",
+    "category": "testing",
+    "priority": "medium",
+    "estimated_hours": 6,
+    "dependencies": [],
+    "tags": [
+      "accessibility",
+      "testing",
+      "frontend"
+    ]
+  },
+  {
+    "id": "quality_setup_precommit_hooks_0",
+    "title": "Setup Precommit Hooks",
+    "description": "No pre-commit hooks configured\n\nImpact: Code quality issues not caught early, inconsistent commits\n\nBest Practices:\n- Automated code formatting\n- Lint checking before commit\n- Test execution\n- Security scanning",
+    "category": "quality",
+    "priority": "low",
+    "estimated_hours": 3,
+    "dependencies": [],
+    "tags": [
+      "quality",
+      "low",
+      "maintainability",
+      "missing",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "code_quality_duplication__Users_austinorphan_Library_Mobile Documents_com~apple~CloudDocs_src_agentCoordination_archive_cleanup_review_medium_confidence_clean_coordination_system_py",
+    "title": "Refactor Duplication Issues in clean_coordination_system.py",
+    "description": "Address 10 duplication issues detected in /Users/austinorphan/Library/Mobile Documents/com~apple~CloudDocs/src/agentCoordination/archive/cleanup_review/medium_confidence/clean_coordination_system.py:\n\n- Duplicate code found in 6 files\n- Duplicate code found in 6 files\n- Duplicate code found in 6 files\n- Duplicate code found in 6 files\n- Duplicate code found in 6 files\n- ... and 5 more issues\n\nTotal estimated effort: 120 hours",
+    "category": "code_quality",
+    "priority": "low",
+    "estimated_hours": 120,
+    "dependencies": [],
+    "tags": [
+      "refactoring",
+      "technical-debt",
+      "duplication",
+      "code-quality"
+    ]
+  },
+  {
+    "id": "performance_setup_bundle_analysis_0",
+    "title": "Setup Bundle Analysis",
+    "description": "No bundle size analysis configured\n\nImpact: Uncontrolled bundle growth, slow loading times\n\nBest Practices:\n- Regular bundle size monitoring\n- Code splitting implementation\n- Tree shaking optimization\n- Asset optimization",
+    "category": "performance",
+    "priority": "low",
+    "estimated_hours": 3,
+    "dependencies": [],
+    "tags": [
+      "low",
+      "monitoring",
+      "optimization",
+      "performance",
+      "missing"
+    ]
+  },
+  {
+    "id": "create_dev_requirements",
+    "title": "Create Development Requirements File",
+    "description": "Separate development dependencies into requirements-dev.txt",
+    "category": "setup",
+    "priority": "low",
+    "estimated_hours": 1,
+    "dependencies": [],
+    "tags": [
+      "dependencies",
+      "development",
+      "setup"
+    ]
+  },
+  {
+    "id": "add_license",
+    "title": "Add License File",
+    "description": "Choose and add appropriate license for the project",
+    "category": "documentation",
+    "priority": "low",
+    "estimated_hours": 1,
+    "dependencies": [],
+    "tags": [
+      "documentation",
+      "legal",
+      "license"
+    ]
+  }
+]

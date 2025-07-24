@@ -13,7 +13,7 @@ NC='\033[0m' # No Color
 # Configuration
 SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COORDINATION_FILE="AGENT_COORDINATION.md"
-THEME_MANAGER="./agent_theme_manager.py"
+THEME_MANAGER="./development/agent_theme_manager.py"
 
 # Function to show header
 show_header() {

@@ -1,0 +1,137 @@
+{
+  "agents": {
+    "shark": {
+      "security": {
+        "domain": "security",
+        "category": "quality",
+        "level": "expert",
+        "experience_months": 24,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:51:05.078360",
+        "certification_badges": []
+      },
+      "backend": {
+        "domain": "backend",
+        "category": "technical",
+        "level": "proficient",
+        "experience_months": 20,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:37:46.409152",
+        "certification_badges": []
+      }
+    },
+    "dolphin": {
+      "frontend": {
+        "domain": "frontend",
+        "category": "technical",
+        "level": "proficient",
+        "experience_months": 18,
+        "successful_tasks": 8,
+        "mentoring_count": 1,
+        "last_updated": "2025-07-19T10:37:46.414034",
+        "certification_badges": []
+      },
+      "ui": {
+        "domain": "ui",
+        "category": "business",
+        "level": "expert",
+        "experience_months": 25,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:37:46.409390",
+        "certification_badges": []
+      }
+    },
+    "whale": {
+      "infrastructure": {
+        "domain": "infrastructure",
+        "category": "process",
+        "level": "expert",
+        "experience_months": 36,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:37:46.409518",
+        "certification_badges": []
+      },
+      "deployment": {
+        "domain": "deployment",
+        "category": "process",
+        "level": "proficient",
+        "experience_months": 24,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:37:46.409654",
+        "certification_badges": []
+      }
+    },
+    "octopus": {
+      "data": {
+        "domain": "data",
+        "category": "technical",
+        "level": "proficient",
+        "experience_months": 15,
+        "successful_tasks": 10,
+        "mentoring_count": 2,
+        "last_updated": "2025-07-19T10:37:46.412492",
+        "certification_badges": []
+      },
+      "analytics": {
+        "domain": "analytics",
+        "category": "technical",
+        "level": "competent",
+        "experience_months": 10,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:37:46.409941",
+        "certification_badges": []
+      }
+    },
+    "jellyfish": {
+      "quality": {
+        "domain": "quality",
+        "category": "quality",
+        "level": "proficient",
+        "experience_months": 20,
+        "successful_tasks": 15,
+        "mentoring_count": 3,
+        "last_updated": "2025-07-19T10:37:46.419280",
+        "certification_badges": []
+      },
+      "testing": {
+        "domain": "testing",
+        "category": "quality",
+        "level": "expert",
+        "experience_months": 28,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:37:46.410218",
+        "certification_badges": []
+      }
+    },
+    "seahorse": {
+      "backend": {
+        "domain": "backend",
+        "category": "technical",
+        "level": "master",
+        "experience_months": 48,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:37:46.410372",
+        "certification_badges": []
+      },
+      "api": {
+        "domain": "api",
+        "category": "technical",
+        "level": "expert",
+        "experience_months": 40,
+        "successful_tasks": 0,
+        "mentoring_count": 0,
+        "last_updated": "2025-07-19T10:37:46.410538",
+        "certification_badges": []
+      }
+    }
+  },
+  "version": "1.0"
+}
